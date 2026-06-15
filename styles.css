@@ -16,7 +16,7 @@
   --line:   rgba(19,31,51,.12);
   --line-2: rgba(255,255,255,.16);
 
-  --serif: "Heebo", system-ui, -apple-system, sans-serif;
+  --serif: "Frank Ruhl Libre", Georgia, "Times New Roman", serif;
   --sans:  "Heebo", system-ui, -apple-system, sans-serif;
 
   --ease: cubic-bezier(.22,.61,.36,1);
@@ -146,13 +146,15 @@ button { font-family: inherit; cursor: pointer; }
 .nav-links a:hover::after { transform: scaleX(1); }
 #navbar.scrolled .nav-links a { color: var(--ink); }
 .nav-links a.nav-cta {
-  border: 1px solid rgba(255,255,255,.5); padding: .55rem 1.3rem; border-radius: 2px;
+  background: var(--gold); border: 1px solid var(--gold); color: #fff;
+  padding: .55rem 1.5rem; border-radius: 2px; font-weight: 600;
+  box-shadow: 0 6px 18px -8px rgba(176,141,62,.75);
   transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
 }
 .nav-links a.nav-cta::after { display: none; }
-.nav-links a.nav-cta:hover { background: var(--gold); border-color: var(--gold); color: #fff; }
-#navbar.scrolled .nav-links a.nav-cta { border-color: var(--navy); color: var(--navy); }
-#navbar.scrolled .nav-links a.nav-cta:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+.nav-links a.nav-cta:hover { background: #9a7a34; border-color: #9a7a34; color: #fff; }
+#navbar.scrolled .nav-links a.nav-cta { background: var(--gold); border-color: var(--gold); color: #fff; }
+#navbar.scrolled .nav-links a.nav-cta:hover { background: #9a7a34; color: #fff; border-color: #9a7a34; }
 
 .hamburger { display: none; flex-direction: column; gap: 5px; background: none; border: none; padding: 8px; z-index: 1100; }
 .hamburger span { width: 26px; height: 2px; background: #fff; display: block; transition: transform .4s var(--ease), opacity .3s; }
@@ -605,13 +607,19 @@ footer { background: var(--navy-2); color: #fff; padding-block: clamp(3rem,6vw,5
 .modal-box ul li { margin-bottom: .55rem; }
 
 .popup-box { max-width: 440px; }
-.popup-header { background: var(--navy); color: #fff; padding: 2rem 2.2rem 1.6rem; }
-.popup-header h2 { font-family: var(--serif); font-size: 1.6rem; color: var(--gold-2); }
-.popup-header p { color: rgba(255,255,255,.78); font-size: .92rem; }
-.popup-body { padding: 1.8rem 2.2rem 2rem; }
-.popup-dismiss { display: block; width: 100%; text-align: center; background: none; border: none; color: var(--muted-2); font-size: .85rem; margin-top: .9rem; text-decoration: underline; }
+.popup-header { background: var(--navy); color: #fff; padding: 1.15rem 1.8rem .95rem; }
+.popup-header h2 { font-family: var(--serif); font-size: 1.3rem; color: var(--gold-2); }
+.popup-header p { color: rgba(255,255,255,.78); font-size: .84rem; }
+.popup-body { padding: 1.1rem 1.8rem 1.3rem; }
+.popup-dismiss { display: block; width: 100%; text-align: center; background: none; border: none; color: var(--muted-2); font-size: .82rem; margin-top: .55rem; text-decoration: underline; }
 .popup-overlay { opacity: 0; pointer-events: none; transition: opacity .4s; }
 .popup-overlay.show { display: flex; opacity: 1; pointer-events: auto; }
+/* Compact the consult-popup form so it fits without scrolling on common screens */
+.popup-form .form-group { margin-bottom: .6rem; }
+.popup-form .form-group label { margin-bottom: .25rem; font-size: .8rem; }
+.popup-form .form-group input, .popup-form .form-group select, .popup-form .form-group textarea { padding: .55rem .8rem; font-size: .9rem; }
+.popup-form .form-group textarea { min-height: 58px; }
+.popup-form .form-submit { margin-top: .2rem; }
 
 .legal-box { max-width: 640px; }
 .legal-header { display: flex; justify-content: space-between; align-items: flex-start; padding: 1.8rem 2rem 1.2rem; border-bottom: 1px solid var(--line); position: sticky; top: 0; background: #fff; }
