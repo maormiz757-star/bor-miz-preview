@@ -16,7 +16,7 @@
   --line:   rgba(19,31,51,.12);
   --line-2: rgba(255,255,255,.16);
 
-  --serif: "Frank Ruhl Libre", Georgia, "Times New Roman", serif;
+  --serif: "Heebo", system-ui, -apple-system, sans-serif;
   --sans:  "Heebo", system-ui, -apple-system, sans-serif;
 
   --ease: cubic-bezier(.22,.61,.36,1);
