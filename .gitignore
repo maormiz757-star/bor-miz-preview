@@ -1,0 +1,12 @@
+.netlify/
+
+# Internal source / reference material — never publish (copyrighted scans, sample appraisals)
+חומר מקצועי/
+
+# Local backups / archives — not for deployment
+index-old.html
+אתר אחרון*.zip
+
+# Local secrets — DO API token used by sync-preview.ps1 (never commit)
+.do-token
+*.token

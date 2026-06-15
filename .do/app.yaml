@@ -1,0 +1,18 @@
+# DigitalOcean App Platform — preview/staging copy of the Borowitz-Mizrachi website.
+# Separate project from the live site (www.bor-miz.co.il is on Netlify) — for viewing
+# the new version from another computer. Pure static HTML, no build step.
+name: bor-miz-preview
+region: fra
+static_sites:
+  - name: bor-miz-preview-site
+    source_dir: /
+    output_dir: /
+    index_document: index.html
+    error_document: index.html
+    catchall_document: index.html
+    git:
+      repo_clone_url: https://github.com/maormiz757-star/bor-miz-preview.git
+      branch: main
+    routes:
+      - path: /
+    envs: []

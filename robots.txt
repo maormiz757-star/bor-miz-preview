@@ -1,0 +1,3 @@
+# Preview/staging site — do NOT index. The production site is www.bor-miz.co.il.
+User-agent: *
+Disallow: /
