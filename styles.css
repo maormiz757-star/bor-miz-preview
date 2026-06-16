@@ -285,7 +285,16 @@ button { font-family: inherit; cursor: pointer; }
 .services-head { display: flex; justify-content: space-between; align-items: flex-end; gap: 2rem; flex-wrap: wrap; margin-bottom: clamp(1.3rem,3vw,2.2rem); }
 .services-head .section-title { max-width: 16ch; }
 .services-head p { max-width: 34ch; color: var(--muted); }
-#services { padding-block: clamp(2.6rem, 5.5vw, 5.5rem); }
+#services { padding-block: clamp(2.6rem, 5.5vw, 5.5rem); overflow: hidden; }
+#services::before {
+  content: ""; position: absolute; inset-inline: 0; inset-block-end: 0;
+  height: clamp(220px, 38vh, 440px); z-index: 0; pointer-events: none;
+  background: url("image_1.jpg") center bottom / cover;
+  filter: grayscale(1); opacity: .14;
+  -webkit-mask-image: linear-gradient(to top, #000 0%, #000 30%, transparent 100%);
+          mask-image: linear-gradient(to top, #000 0%, #000 30%, transparent 100%);
+}
+#services .container { position: relative; z-index: 1; }
 .services-body { display: grid; grid-template-columns: 1fr minmax(300px, 360px); gap: clamp(2rem,4vw,3.5rem); align-items: stretch; }
 .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
 .services-body .services-grid { grid-template-columns: repeat(3, 1fr); }
