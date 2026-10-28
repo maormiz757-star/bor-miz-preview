@@ -1,3 +1,63 @@
-# Preview/staging site — do NOT index. The production site is www.bor-miz.co.il.
+# ═══════════════════════════════════════════════════════════════════
+# robots.txt — bor-miz.co.il
+# ═══════════════════════════════════════════════════════════════════
+
 User-agent: *
-Disallow: /
+Allow: /
+Disallow: /intake.html
+Disallow: /_article-template.html
+
+# ── מנועי תשובות AI ─────────────────────────────────────────────────
+# אלה הסורקים שמזינים את ChatGPT, Claude, Perplexity ו-Gemini. הם
+# מורשים במכוון: המטרה היא שתשובה על היטל השבחה או על השגה לרמ"י
+# תצטט את המשרד. חוסמים אותם רק את טופס איסוף הפרטים ואת התבנית.
+User-agent: GPTBot
+Allow: /
+Disallow: /intake.html
+Disallow: /_article-template.html
+
+User-agent: OAI-SearchBot
+Allow: /
+Disallow: /intake.html
+Disallow: /_article-template.html
+
+User-agent: ChatGPT-User
+Allow: /
+Disallow: /intake.html
+
+User-agent: ClaudeBot
+Allow: /
+Disallow: /intake.html
+Disallow: /_article-template.html
+
+User-agent: Claude-SearchBot
+Allow: /
+Disallow: /intake.html
+
+User-agent: Claude-User
+Allow: /
+Disallow: /intake.html
+
+User-agent: PerplexityBot
+Allow: /
+Disallow: /intake.html
+Disallow: /_article-template.html
+
+User-agent: Perplexity-User
+Allow: /
+Disallow: /intake.html
+
+User-agent: Google-Extended
+Allow: /
+Disallow: /intake.html
+
+User-agent: Applebot-Extended
+Allow: /
+Disallow: /intake.html
+
+User-agent: Bingbot
+Allow: /
+Disallow: /intake.html
+Disallow: /_article-template.html
+
+Sitemap: https://bor-miz.co.il/sitemap.xml
