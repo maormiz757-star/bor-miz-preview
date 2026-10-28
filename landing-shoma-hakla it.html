@@ -3,17 +3,42 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- Google Tag Manager — TODO: replace GTM-XXXXXXX -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-<!-- End Google Tag Manager -->
-<title>שמאות חקלאית ונחלות — מעטפת מלאה | בורוביץ מזרחי</title>
+<!-- ===== GOOGLE ANALYTICS 4 (gtag.js) =====
+     Property "bor-miz.co.il", measurement ID G-GYNQPGPR33 - installed 2026-09-08,
+     replacing a Tag Manager placeholder that never had a container behind it.
+     The bridge below turns the site's existing dataLayer.push({event:'...'}) calls
+     (generate_lead / contact_whatsapp / contact_phone / intake_submitted) into GA4
+     events, so every call site elsewhere in the site stays untouched. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYNQPGPR33"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-GYNQPGPR33');
+  (function(){
+    // gtag() itself pushes an arguments object, which has no .event key - so this
+    // never recurses on its own output.
+    var push = window.dataLayer.push;
+    window.dataLayer.push = function(){
+      for (var i = 0; i < arguments.length; i++) {
+        var o = arguments[i];
+        if (o && typeof o.event === 'string') {
+          var params = {};
+          for (var k in o) {
+            if (k !== 'event' && Object.prototype.hasOwnProperty.call(o, k)) params[k] = o[k];
+          }
+          gtag('event', o.event, params);
+        }
+      }
+      return push.apply(window.dataLayer, arguments);
+    };
+  })();
+</script>
+<!-- ===== END GOOGLE ANALYTICS 4 ===== -->
+<title>שמאות חקלאית ונחלות - מעטפת מלאה | בורוביץ מזרחי</title>
 <meta name="description" content="שמאי מקרקעין + שמאי חקלאות = מעטפת מלאה לנחלה. הערכת שווי נחלות, פגיעה בגידולים ופרי, בעלי חיים, מטעים. פיצול נחלות ורפורמות רמ&quot;י.">
 <meta name="keywords" content="שומה חקלאית, נחלה, שמאי חקלאות, פגיעה בגידולים, הערכת מטעים, פיצול נחלות, רמי, שמאי מקרקעין נחלה">
-<link rel="canonical" href="https://www.bor-miz.com/landing-shoma-hakla it.html">
+<link rel="canonical" href="https://bor-miz.co.il/landing-shoma-hakla it.html">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -115,16 +140,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </style>
 </head>
 <body>
-<!-- Google Tag Manager (noscript) — TODO: replace GTM-XXXXXXX -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <nav class="landing-nav">
-  <a href="https://www.bor-miz.com" class="nav-brand">
+  <a href="https://bor-miz.co.il" class="nav-brand">
     <img src="image_2.png" alt="בורוביץ מזרחי" />
     <div class="nav-brand-text">בורוביץ מזרחי<span>שמאות מקרקעין וחקלאות</span></div>
   </a>
-  <a href="https://www.bor-miz.com" class="nav-cta">חזרה לאתר הראשי</a>
+  <a href="https://bor-miz.co.il" class="nav-cta">חזרה לאתר הראשי</a>
 </nav>
 
 <div class="hero">
@@ -132,8 +154,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-overlay"></div>
   <div class="hero-content">
     <div class="hero-badge">&#127806; שמאי מקרקעין + שמאי חקלאות</div>
-    <h1><em>שמאות חקלאית</em> ונחלות<br>מעטפת מלאה — ממשרד אחד</h1>
-    <p>אנחנו גם שמאי מקרקעין וגם שמאי חקלאות. הערכת פגיעה בגידולים, מטעים ובעלי חיים, לצד שומת הנחלה עצמה — הכל תחת קורת גג אחת.</p>
+    <h1><em>שמאות חקלאית</em> ונחלות<br>מעטפת מלאה - ממשרד אחד</h1>
+    <p>אנחנו גם שמאי מקרקעין וגם שמאי חקלאות. הערכת פגיעה בגידולים, מטעים ובעלי חיים, לצד שומת הנחלה עצמה - הכל תחת קורת גג אחת.</p>
     <a href="#contact-form" class="hero-cta">ייעוץ ראשוני חינם &larr;</a>
   </div>
 </div>
@@ -148,7 +170,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <section>
-  <h2>שני תחומים — <em>מעטפת אחת</em></h2>
+  <h2>שני תחומים - <em>מעטפת אחת</em></h2>
   <p class="section-sub">בניגוד למשרדים אחרים, אצלנו תקבלו את שני סוגי השומה ממשרד אחד</p>
 
   <div class="tracks">
@@ -178,7 +200,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   <div class="envelope-banner">
     <h3>&#128170; למה <span>מעטפת מלאה?</span></h3>
-    <p>כשנדרשת שומה לנחלה — לעתים צריך גם הערכת שווי המקרקעין וגם הערכת הגידולים החקלאיים. אצלנו הכל ממשרד אחד, בלי לרוץ בין שמאים.</p>
+    <p>כשנדרשת שומה לנחלה - לעתים צריך גם הערכת שווי המקרקעין וגם הערכת הגידולים החקלאיים. אצלנו הכל ממשרד אחד, בלי לרוץ בין שמאים.</p>
   </div>
 </section>
 
@@ -191,7 +213,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="expertise-card">
       <h3>&#128003; הערכת בעלי חיים</h3>
-      <p>שומות לכבשים, בקר, עופות ובעלי חיים חקלאיים — לביטוח, פיצוי ומכירה</p>
+      <p>שומות לכבשים, בקר, עופות ובעלי חיים חקלאיים - לביטוח, פיצוי ומכירה</p>
     </div>
     <div class="expertise-card">
       <h3>&#127795; מטעים ועצים</h3>
@@ -203,7 +225,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="expertise-card">
       <h3>&#9878; פיצול נחלות</h3>
-      <p>שומות לצורך פיצול נחלות במסגרת רפורמת רמ"י — החלטה 1591</p>
+      <p>שומות לצורך פיצול נחלות במסגרת רפורמת רמ"י - החלטה 1591</p>
     </div>
     <div class="expertise-card">
       <h3>&#128200; רפורמות רמ"י</h3>
@@ -216,7 +238,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h2>למה <em>אנחנו?</em></h2>
   <div class="why-section">
     <ul class="why-list">
-      <li><span class="check">&#10003;</span> שמאי מקרקעין מוסמך + שמאי חקלאות — מעטפת מלאה ממשרד אחד</li>
+      <li><span class="check">&#10003;</span> שמאי מקרקעין מוסמך + שמאי חקלאות - מעטפת מלאה ממשרד אחד</li>
       <li><span class="check">&#10003;</span> הכרות אישית עם נחלות ומשקים ברחבי הגליל והצפון</li>
       <li><span class="check">&#10003;</span> ניסיון בעבודה מול רמ"י, ועדות תכנון ובתי משפט</li>
       <li><span class="check">&#10003;</span> מאגר עסקאות השוואה ייחודי לנכסים חקלאיים ונחלות</li>
@@ -229,12 +251,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <h2>ייעוץ ראשוני חינם</h2>
   <p>ספרו לנו על הנחלה, הגידולים או הנכס ונחזור עם הערכה ראשונית</p>
   <form class="contact-form" id="leadForm" onsubmit="submitForm(event)">
+    <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);border:0;opacity:0" />
     <input type="text" name="name" placeholder="שם מלא" required />
     <input type="tel" name="phone" placeholder="טלפון" required />
     <input type="email" name="email" placeholder="אימייל" class="full" />
     <input type="text" name="city" placeholder="יישוב / מושב / קיבוץ" />
     <input type="text" name="address" placeholder="שם הנחלה / מספר" />
-    <textarea name="note" class="full" rows="3" placeholder="פרטים נוספים — סוג הנכס, סוג הגידולים, מטרת השומה..."></textarea>
+    <textarea name="note" class="full" rows="3" placeholder="פרטים נוספים - סוג הנכס, סוג הגידולים, מטרת השומה..."></textarea>
     <input type="hidden" name="subject" value="שומה חקלאית" />
     <input type="hidden" name="source" value="landing-hakla it" />
     <button type="submit" class="submit-btn">שלחו פנייה</button>
@@ -243,7 +266,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 </div>
 
 <div class="footer">
-  <p>&copy; 2026 בורוביץ מזרחי שמאות מקרקעין וחקלאות בע"מ | <a href="https://www.bor-miz.com">חזרה לאתר</a></p>
+  <p>&copy; 2026 בורוביץ מזרחי שמאות מקרקעין וחקלאות בע"מ | <a href="https://bor-miz.co.il">חזרה לאתר</a></p>
   <p>054-6559942 | 050-8922469 | maor@bor-miz.co.il</p>
 </div>
 
@@ -252,7 +275,7 @@ async function submitForm(e) {
   e.preventDefault();
   const form = e.target, btn = form.querySelector('.submit-btn'), msg = document.getElementById('formMsg');
   btn.disabled = true; btn.textContent = 'שולח...';
-  const data = { name: form.name.value, phone: form.phone.value, email: form.email.value || null, city: form.city.value || null, address: form.address.value || null, note: form.note.value || null, subject: form.subject.value, source: form.source.value, form_type: 'landing' };
+  const data = { name: form.name.value, phone: form.phone.value, email: form.email.value || null, city: form.city.value || null, address: form.address.value || null, note: form.note.value || null, subject: form.subject.value, source: form.source.value, form_type: 'landing', _hp: form.website ? form.website.value : '', elapsed_ms: Math.round(performance.now()) };
   try {
     const res = await fetch('https://nurgknexilxaxxovdbco.supabase.co/functions/v1/website-lead-intake', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) });
     if (res.ok) { msg.style.display = 'block'; msg.style.color = '#4ade80'; msg.textContent = 'הפנייה נשלחה! ניצור קשר בהקדם.'; form.reset(); window.dataLayer = window.dataLayer || []; window.dataLayer.push({ event: 'generate_lead', form_source: 'landing', lead_subject: (form.subject && form.subject.value) || 'landing' }); } else throw new Error();

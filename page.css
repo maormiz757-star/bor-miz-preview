@@ -156,6 +156,11 @@
 .job-card h3 { font-family: var(--serif); font-size: 1.4rem; font-weight: 700; color: var(--ink); margin-bottom: .5rem; }
 .job-card p { color: var(--muted); font-size: .95rem; max-width: 60ch; }
 .job-card .job-cta { white-space: nowrap; }
+/* Filled / closed positions — shown for context only, not applicable */
+.job-card.job-filled { opacity: .62; filter: grayscale(.45); }
+.job-card.job-filled:hover { transform: none; box-shadow: none; border-color: var(--line); }
+.job-card .tag-filled { color: var(--muted); border-color: var(--line); background: #f3f4f6; }
+.job-card .job-status { white-space: nowrap; font-size: .78rem; letter-spacing: .12em; color: var(--muted); border: 1px solid var(--line); padding: .4rem 1rem; border-radius: 2px; background: #f3f4f6; align-self: center; }
 
 .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px,1fr)); gap: clamp(1rem,2vw,1.6rem); margin-top: 1rem; }
 .value-card { padding: clamp(1.4rem,2.5vw,1.9rem); border: 1px solid var(--line); background: #fff; }
@@ -177,3 +182,303 @@
   .cta-band .cta-inner { grid-template-columns: 1fr; }
   .job-card { grid-template-columns: 1fr; }
 }
+
+/* ============================================================
+   מאמרים — Articles hub + article reading page
+   Added 2026-10-18. Built on the same tokens as styles.css.
+   Two blocks:
+     1. .art-*     → the listing page (maamarim.html)
+     2. .article-* → the reading page (maamar-*.html)
+   ============================================================ */
+
+/* ---------- 1. HUB: filters + cards ---------- */
+
+.art-filters {
+  display: flex; flex-wrap: wrap; gap: .6rem;
+  justify-content: center; margin-bottom: 3rem;
+}
+.art-filters button {
+  background: transparent; border: 1px solid var(--line);
+  color: var(--muted); font-size: .9rem; font-weight: 500;
+  padding: .55rem 1.25rem; border-radius: 100px;
+  transition: all .25s var(--ease);
+}
+.art-filters button:hover { border-color: var(--gold); color: var(--ink); }
+.art-filters button.active {
+  background: var(--navy); border-color: var(--navy); color: #fff;
+}
+
+.art-grid {
+  display: grid; gap: 1.75rem;
+  grid-template-columns: repeat(auto-fill, minmax(330px, 1fr));
+}
+
+.art-card {
+  display: flex; flex-direction: column;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: 16px; overflow: hidden;
+  transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+}
+.art-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(176,141,62,.45);
+  box-shadow: 0 18px 50px rgba(19,31,51,.12);
+}
+.art-card .art-thumb {
+  position: relative; aspect-ratio: 16/9; overflow: hidden;
+  background: var(--cream);
+}
+.art-card .art-thumb img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform .6s var(--ease);
+}
+.art-card:hover .art-thumb img { transform: scale(1.05); }
+.art-card .art-cat {
+  position: absolute; inset-inline-start: .85rem; top: .85rem;
+  background: rgba(28,52,97,.92); color: var(--gold-2);
+  font-size: .72rem; font-weight: 600; letter-spacing: .04em;
+  padding: .3rem .75rem; border-radius: 100px;
+}
+.art-card .art-body { padding: 1.5rem 1.6rem 1.7rem; display: flex; flex-direction: column; flex: 1; }
+.art-card .art-meta {
+  font-size: .78rem; color: var(--muted-2); font-weight: 500;
+  display: flex; gap: .5rem; align-items: center; margin-bottom: .7rem;
+}
+.art-card .art-meta .dot { width: 3px; height: 3px; border-radius: 50%; background: currentColor; }
+.art-card h3 {
+  font-size: 1.22rem; line-height: 1.45; font-weight: 700;
+  color: var(--ink); margin-bottom: .7rem;
+}
+.art-card p { font-size: .94rem; color: var(--read); line-height: 1.75; flex: 1; }
+.art-card .art-more {
+  margin-top: 1.2rem; font-weight: 600; font-size: .92rem; color: var(--navy);
+  display: inline-flex; align-items: center; gap: .4rem;
+}
+.art-card .art-more .arr { transition: transform .3s var(--ease); }
+.art-card:hover .art-more { color: var(--gold); }
+.art-card:hover .art-more .arr { transform: translateX(-4px); }
+.art-card[hidden] { display: none; }
+
+/* Empty-state line shown when a filter matches nothing */
+.art-empty { text-align: center; color: var(--muted-2); padding: 2rem 0; }
+
+/* ---------- 2. ARTICLE READING PAGE ---------- */
+
+/* Long-form reading colour. --muted (#56616f, 6.3:1) is fine for short UI
+   text but too light for a column of body copy; #3d4653 measures 9.55:1. */
+:root { --read: #3d4653; }
+
+.article-wrap {
+  max-width: 760px; margin: 0 auto;
+  padding-inline: var(--pad); padding-block: clamp(2.5rem, 6vw, 4.5rem);
+}
+
+/* Byline block directly under the H1 — carries the E-E-A-T signal */
+.article-byline {
+  display: flex; flex-wrap: wrap; align-items: center; gap: .55rem;
+  font-size: .88rem; color: var(--read);
+  padding-bottom: 1.6rem; border-bottom: 1px solid var(--line);
+  margin-bottom: 2.2rem;
+}
+.article-byline .sep { color: var(--muted-2); }
+.article-byline strong { color: var(--ink); font-weight: 600; }
+
+/* "תשובה בקצרה" — the answer box. This is the block an AI engine is most
+   likely to lift as the direct answer, so it stays at the top, stands on
+   its own, and never runs past ~60 words. */
+.answer-box {
+  background: var(--cream); border-inline-start: 4px solid var(--gold);
+  border-radius: 0 12px 12px 0;
+  padding: 1.4rem 1.6rem; margin-bottom: 2.4rem;
+}
+.answer-box .ab-label {
+  font-size: .74rem; font-weight: 700; letter-spacing: .08em;
+  color: var(--gold); display: block; margin-bottom: .5rem;
+}
+.answer-box p { font-size: 1.05rem; line-height: 1.8; color: var(--ink); font-weight: 500; }
+
+/* Table of contents */
+.article-toc {
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: 12px; padding: 1.3rem 1.6rem; margin-bottom: 2.6rem;
+}
+.article-toc h2 { font-size: .95rem; font-weight: 700; color: var(--ink); margin-bottom: .8rem; }
+.article-toc ol { margin: 0; padding-inline-start: 1.2rem; }
+.article-toc li { font-size: .93rem; margin-bottom: .4rem; color: var(--read); }
+.article-toc a:hover { color: var(--gold); }
+
+/* Body typography */
+.article-body h2 {
+  font-size: clamp(1.45rem, 3vw, 1.85rem); line-height: 1.4; font-weight: 700;
+  color: var(--ink); margin: 2.8rem 0 1rem; scroll-margin-top: 90px;
+}
+.article-body h3 {
+  font-size: 1.15rem; font-weight: 600; color: var(--navy);
+  margin: 2rem 0 .7rem; scroll-margin-top: 90px;
+}
+.article-body p { font-size: 1.05rem; line-height: 1.95; color: var(--read); margin-bottom: 1.25rem; }
+.article-body strong { color: var(--ink); font-weight: 600; }
+.article-body ul, .article-body ol { margin: 0 0 1.5rem; padding-inline-start: 1.4rem; }
+.article-body li { font-size: 1.05rem; line-height: 1.9; color: var(--read); margin-bottom: .55rem; }
+.article-body .li-note { font-size: .95rem; color: #5a657a; }
+.article-body .li-note strong { color: #5a657a; font-weight: 600; }
+.article-body a:not(.btn) {
+  color: var(--navy); font-weight: 500;
+  border-bottom: 1px solid rgba(176,141,62,.5);
+}
+.article-body a:not(.btn):hover { color: var(--gold); border-bottom-color: var(--gold); }
+.article-body figure { margin: 2rem 0; }
+.article-body figure img { border-radius: 12px; }
+.article-body figcaption {
+  font-size: .85rem; color: var(--muted-2); margin-top: .6rem; text-align: center;
+}
+
+/* Data table — numbers are what AI engines quote, so they get real structure */
+.article-body table {
+  width: 100%; border-collapse: collapse; margin: 2rem 0;
+  font-size: .95rem; background: var(--paper);
+  border: 1px solid var(--line); border-radius: 10px; overflow: hidden;
+}
+.article-body thead { background: var(--navy); color: #fff; }
+.article-body th, .article-body td {
+  padding: .8rem 1rem; text-align: start; border-bottom: 1px solid var(--line);
+}
+.article-body th { font-weight: 600; font-size: .9rem; }
+.article-body tbody tr:nth-child(even) { background: var(--cream); }
+.article-body tbody tr:last-child td { border-bottom: none; }
+.table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* Pull-quote from the office — first-person expertise */
+.article-body blockquote {
+  margin: 2.2rem 0; padding: 1.5rem 1.7rem;
+  background: var(--navy); color: #fff; border-radius: 14px;
+}
+.article-body blockquote p { color: rgba(255,255,255,.92); font-size: 1.1rem; margin-bottom: .7rem; }
+.article-body blockquote strong { color: var(--gold-2); }
+.article-body blockquote footer { font-size: .85rem; color: var(--gold-2); font-weight: 600; }
+
+/* Key takeaways — a scannable summary block */
+.takeaways {
+  background: var(--cream); border: 1px solid var(--line);
+  border-radius: 14px; padding: 1.6rem 1.8rem; margin: 2.6rem 0;
+}
+.takeaways h2 { font-size: 1.1rem !important; margin: 0 0 1rem !important; }
+.takeaways ul { list-style: none; margin: 0; padding: 0; }
+.takeaways li { position: relative; padding-inline-start: 1.6rem; font-size: 1rem; }
+.takeaways li::before {
+  content: "\2713"; position: absolute; inset-inline-start: 0;
+  color: var(--gold); font-weight: 700;
+}
+
+/* Author card at the foot of the article */
+.author-card {
+  display: flex; gap: 1.3rem; align-items: flex-start;
+  background: var(--paper); border: 1px solid var(--line);
+  border-radius: 16px; padding: 1.6rem 1.8rem; margin-top: 3rem;
+}
+.author-card img {
+  width: 76px; height: 76px; border-radius: 50%; object-fit: cover; flex: none;
+}
+.author-card .ac-name { font-size: 1.08rem; font-weight: 700; color: var(--ink); }
+.author-card .ac-role { font-size: .85rem; color: var(--gold); font-weight: 600; margin-bottom: .6rem; }
+.author-card .ac-bio { font-size: .93rem; color: var(--read); line-height: 1.8; }
+
+/* Sources / legal references — AI engines weight cited primary sources */
+.article-sources {
+  margin-top: 2.6rem; padding-top: 1.6rem; border-top: 1px solid var(--line);
+}
+.article-sources h2 { font-size: 1rem !important; margin: 0 0 .8rem !important; }
+.article-sources ol { padding-inline-start: 1.3rem; }
+.article-sources li { font-size: .88rem; color: var(--read); line-height: 1.8; }
+
+/* Editorial disclosure — states plainly how the article was produced */
+.article-disclosure {
+  margin-top: 2rem; font-size: .82rem; color: var(--muted-2);
+  line-height: 1.8; background: var(--cream);
+  border-radius: 10px; padding: 1rem 1.2rem;
+}
+
+@media (max-width: 640px) {
+  .author-card { flex-direction: column; align-items: center; text-align: center; }
+  .article-body blockquote { padding: 1.2rem 1.3rem; }
+}
+
+/* ---------- 3. ARTICLE PAGES: navbar over a white page ----------
+   Every other sub-page opens on a dark hero photo, so the navbar starts
+   transparent with white links and only turns solid on scroll. An article
+   opens on white, where white links are invisible. Articles therefore carry
+   class="article-page" on <body>: the navbar is locked into its solid state
+   from the first pixel, and the article reserves its height.
+   The mobile drawer (<=880px) keeps its own white-on-navy styling. */
+
+body.article-page #navbar {
+  background: rgba(255,255,255,.92);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--line), 0 18px 40px -28px rgba(19,31,51,.5);
+  padding-block: .95rem;
+}
+body.article-page #navbar .nav-logo img { height: 46px; filter: none; }
+body.article-page #navbar .nav-links a { color: var(--ink); }
+body.article-page #navbar .nav-links a.nav-cta { background: var(--gold); border-color: var(--gold); color: #fff; }
+body.article-page #navbar .nav-links a.nav-cta:hover { background: #9a7a34; border-color: #9a7a34; color: #fff; }
+body.article-page #navbar .hamburger span { background: var(--ink); }
+
+/* Clear the fixed navbar (~76px in its solid state) */
+body.article-page .article-wrap { padding-block-start: calc(clamp(2.5rem, 6vw, 4.5rem) + 76px); }
+
+@media (max-width: 880px) {
+  body.article-page #navbar .nav-links a { color: #fff; }
+  body.article-page #navbar .nav-links a.nav-cta { background: transparent; border-color: var(--gold); color: var(--gold-2); }
+}
+
+/* .breadcrumb was written for the white-on-photo hero. On an article it sits
+   on white paper, so it needs the ink palette instead. */
+body.article-page .breadcrumb { color: var(--muted-2); }
+body.article-page .breadcrumb a { color: var(--muted); }
+body.article-page .breadcrumb a:hover { color: var(--gold); }
+body.article-page .breadcrumb .sep { color: var(--line); }
+
+/* ---------- 4. ARTICLE HERO ----------
+   Articles open on a photo masthead like every other sub-page, rather than
+   straight onto white. Shorter than .subpage-hero: a cover, not a landing
+   section. The navbar keeps its transparent-over-photo state here, so pages
+   that use this must NOT carry .article-page on <body>. */
+.article-hero { min-height: clamp(52vh, 62vh, 560px); }
+.article-hero .sp-content { padding-block-start: clamp(9rem, 17vh, 12rem); padding-block-end: 3rem; }
+.article-hero .sp-title { margin-bottom: 1.1rem; font-size: clamp(1.8rem, 3.4vw, 2.9rem); }
+.article-hero .article-byline {
+  border-bottom: none; padding-bottom: 0; margin-bottom: 0;
+  color: rgba(255,255,255,.78);
+}
+.article-hero .article-byline strong { color: #fff; }
+.article-hero .article-byline .sep { color: rgba(255,255,255,.4); }
+.article-hero .breadcrumb { margin-bottom: 1.2rem; }
+
+/* With a hero above it the column no longer needs to clear the fixed navbar */
+.article-hero + main .article-wrap,
+main > .article-hero ~ .article-wrap { padding-block-start: clamp(2.5rem, 6vw, 4rem); }
+
+/* The photo runs full-bleed behind the fixed navbar, exactly as on the home
+   page and the service pages: transparent over the image, white once scrolled.
+   A tinted bar here reads as a band cutting the photo in two. */
+body.article-hero-page #navbar { background: transparent; box-shadow: none; backdrop-filter: none; }
+body.article-hero-page #navbar::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(to bottom, rgba(10,18,33,.55), rgba(10,18,33,0));
+  transition: opacity .45s var(--ease);
+}
+body.article-hero-page #navbar.scrolled { background: rgba(255,255,255,.92); backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--line), 0 18px 40px -28px rgba(19,31,51,.5); }
+body.article-hero-page #navbar.scrolled::before { opacity: 0; }
+
+/* ---------- 5. COPY-ONLY CTA BAND ----------
+   Articles end with a copy-only band (no inline form). The default .cta-inner
+   is a two-column grid, so a lone .cta-copy sat in half the width while its
+   paragraph was separately capped at 44ch and the buttons stayed flex-start -
+   a wide headline over a narrow paragraph with off-centre buttons. */
+.cta-band--center { padding-block: clamp(3.5rem, 7vw, 6rem); border-bottom: 1px solid rgba(255,255,255,.09); }
+.cta-band--center .cta-inner { grid-template-columns: 1fr; justify-items: center; text-align: center; }
+.cta-band--center .cta-copy { max-width: 60ch; }
+.cta-band--center .cta-copy p { max-width: none; margin-inline: auto; font-size: 1.02rem; line-height: 1.85; }
+.cta-band--center .cta-copy h2 { max-width: 22ch; margin-inline: auto; }
+.cta-band--center .hero-actions { justify-content: center; margin-top: 2.2rem; }

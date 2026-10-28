@@ -1,25 +1,52 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ===== GOOGLE TAG MANAGER ===== -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- ===== GOOGLE ANALYTICS 4 (gtag.js) =====
+     Property "bor-miz.co.il", measurement ID G-GYNQPGPR33 - installed 2026-09-08,
+     replacing a Tag Manager placeholder that never had a container behind it.
+     The bridge below turns the site's existing dataLayer.push({event:'...'}) calls
+     (generate_lead / contact_whatsapp / contact_phone / intake_submitted) into GA4
+     events, so every call site elsewhere in the site stays untouched. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYNQPGPR33"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-GYNQPGPR33');
+  (function(){
+    // gtag() itself pushes an arguments object, which has no .event key - so this
+    // never recurses on its own output.
+    var push = window.dataLayer.push;
+    window.dataLayer.push = function(){
+      for (var i = 0; i < arguments.length; i++) {
+        var o = arguments[i];
+        if (o && typeof o.event === 'string') {
+          var params = {};
+          for (var k in o) {
+            if (k !== 'event' && Object.prototype.hasOwnProperty.call(o, k)) params[k] = o[k];
+          }
+          gtag('event', o.event, params);
+        }
+      }
+      return push.apply(window.dataLayer, arguments);
+    };
+  })();
+</script>
+<!-- ===== END GOOGLE ANALYTICS 4 ===== -->
 
-<title>היטל השבחה — בדיקה והגשת השגה | בורוביץ מזרחי שמאות מקרקעין</title>
-<meta name="description" content="קיבלתם דרישת היטל השבחה? ההיטל עומד על 50% מההשבחה ומבוסס על שומה — ושומה אפשר לבדוק ולערער עליה. שמאי מקרקעין מוסמך בוחן את החישוב ומגיש השגה מקצועית — הפחתנו ללקוחותינו עד 100% מהדרישה. בדיקה ראשונית ללא התחייבות.">
-<meta name="keywords" content="היטל השבחה, השגה על היטל השבחה, הפחתת היטל השבחה, תוספת שלישית, מימוש זכויות, שמאי מכריע, ועדה מקומית, פטור היטל השבחה, שמאי מקרקעין, ראש פינה, צפון">
-<link rel="canonical" href="https://www.bor-miz.com/hetel-hashbacha.html">
+<title>היטל השבחה - בדיקה והגשת השגה | בורוביץ מזרחי שמאות מקרקעין</title>
+<meta name="description" content="קיבלתם דרישת היטל השבחה? ההיטל עומד על 50% מההשבחה ומבוסס על שומה - ושומה אפשר לבדוק ולערער עליה. שמאי מקרקעין מוסמך בוחן את החישוב ומגיש השגה מקצועית - הפחתנו ללקוחותינו עד 100% מהדרישה. בדיקה ראשונית ללא התחייבות.">
+<meta name="keywords" content="היטל השבחה, השגה על היטל השבחה, הפחתת היטל השבחה, תוספת שלישית, מימוש זכויות, שמאי מכריע, ועדה מקומית, פטור היטל השבחה, שמאי מקרקעין, צפון">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://bor-miz.co.il/hetel-hashbacha.html">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.bor-miz.com/hetel-hashbacha.html">
-<meta property="og:title" content="היטל השבחה — בדיקה והגשת השגה | בורוביץ מזרחי">
+<meta property="og:url" content="https://bor-miz.co.il/hetel-hashbacha.html">
+<meta property="og:title" content="היטל השבחה - בדיקה והגשת השגה | בורוביץ מזרחי">
 <meta property="og:description" content="קיבלתם דרישת היטל השבחה? ייתכן שאתם משלמים יותר מדי. בדיקה מקצועית והגשת השגה.">
-<meta property="og:image" content="https://www.bor-miz.com/image_2.png">
+<meta property="og:image" content="https://bor-miz.co.il/image_2.png">
 <meta property="og:locale" content="he_IL">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,18 +58,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {
   "@context": "https://schema.org", "@type": "Service",
   "name": "בדיקה והגשת השגה על היטל השבחה",
-  "serviceType": "שמאות מקרקעין — היטל השבחה",
+  "serviceType": "שמאות מקרקעין - היטל השבחה",
   "provider": { "@type": "LocalBusiness", "name": "בורוביץ מזרחי שמאות מקרקעין וחקלאות בע\"מ", "telephone": "+972-54-6559942", "areaServed": "צפון" },
-  "url": "https://www.bor-miz.com/hetel-hashbacha.html"
+  "url": "https://bor-miz.co.il/hetel-hashbacha.html"
 }
 </script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org", "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "ראשי", "item": "https://www.bor-miz.com/"},
-    {"@type": "ListItem", "position": 2, "name": "תחומי התמחות", "item": "https://www.bor-miz.com/#services"},
-    {"@type": "ListItem", "position": 3, "name": "היטל השבחה", "item": "https://www.bor-miz.com/hetel-hashbacha.html"}
+    {"@type": "ListItem", "position": 1, "name": "ראשי", "item": "https://bor-miz.co.il/"},
+    {"@type": "ListItem", "position": 2, "name": "תחומי התמחות", "item": "https://bor-miz.co.il/#services"},
+    {"@type": "ListItem", "position": 3, "name": "היטל השבחה", "item": "https://bor-miz.co.il/hetel-hashbacha.html"}
   ]
 }
 </script>
@@ -50,10 +77,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {
   "@context": "https://schema.org", "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "מה זה היטל השבחה?", "acceptedAnswer": {"@type": "Answer", "text": "היטל השבחה הוא תשלום חובה לוועדה המקומית כאשר ערך הנכס עלה בעקבות פעולה תכנונית — אישור תכנית, מתן הקלה או התרת שימוש חורג. ההיטל עומד על 50% מההשבחה (עליית השווי) ומשולם בעת מימוש הזכויות — מכירה או קבלת היתר בנייה. ההסדר מעוגן בתוספת השלישית לחוק התכנון והבנייה."}},
-    {"@type": "Question", "name": "תוך כמה זמן אפשר להגיש השגה?", "acceptedAnswer": {"@type": "Answer", "text": "ניתן להגיש השגה על שומת היטל ההשבחה תוך 45 יום מקבלת הדרישה, באמצעות בקשה למינוי שמאי מכריע. זהו מועד קריטי — איחור עלול לשלול את הזכות, ולכן חשוב לפנות לשמאי מוקדם ככל האפשר."}},
+    {"@type": "Question", "name": "מה זה היטל השבחה?", "acceptedAnswer": {"@type": "Answer", "text": "היטל השבחה הוא תשלום חובה לוועדה המקומית כאשר ערך הנכס עלה בעקבות פעולה תכנונית - אישור תכנית, מתן הקלה או התרת שימוש חורג. ההיטל עומד על 50% מההשבחה (עליית השווי) ומשולם בעת מימוש הזכויות - מכירה או קבלת היתר בנייה. ההסדר מעוגן בתוספת השלישית לחוק התכנון והבנייה."}},
+    {"@type": "Question", "name": "תוך כמה זמן אפשר להגיש השגה?", "acceptedAnswer": {"@type": "Answer", "text": "ניתן להגיש השגה על שומת היטל ההשבחה תוך 45 יום מקבלת הדרישה, באמצעות בקשה למינוי שמאי מכריע. זהו מועד קריטי - איחור עלול לשלול את הזכות, ולכן חשוב לפנות לשמאי מוקדם ככל האפשר."}},
     {"@type": "Question", "name": "כמה אפשר לחסוך בהגשת השגה?", "acceptedAnswer": {"@type": "Answer", "text": "בדיקה מקצועית מגלה לא פעם חישוב שגוי, שווי מופרז, התעלמות מפטור או מהוצאות שניתן לקזז. במקרים שטיפלנו בהם הצלחנו להפחית בין 50% ל-100% מדרישת ההיטל המקורית. בכל מקרה כדאי לבדוק לפני שמשלמים."}},
-    {"@type": "Question", "name": "מי חייב בתשלום היטל השבחה?", "acceptedAnswer": {"@type": "Answer", "text": "החייב בהיטל הוא בעל הזכויות בנכס במועד אישור התכנית — בעלים, חוכר לדורות, ובהתאם לפסיקה (פס\"ד בלוך) גם בר-רשות במגזר החקלאי. כאשר יש מספר בעלים, כל אחד משלם באופן יחסי לחלקו."}},
+    {"@type": "Question", "name": "מי חייב בתשלום היטל השבחה?", "acceptedAnswer": {"@type": "Answer", "text": "החייב בהיטל הוא בעל הזכויות בנכס במועד אישור התכנית - בעלים, חוכר לדורות, ובהתאם לפסיקה (פס\"ד בלוך) גם בר-רשות במגזר החקלאי. כאשר יש מספר בעלים, כל אחד משלם באופן יחסי לחלקו."}},
     {"@type": "Question", "name": "האם יש התיישנות על דרישת היטל השבחה?", "acceptedAnswer": {"@type": "Answer", "text": "על פי הפסיקה, תקופת ההתיישנות לדרישת היטל השבחה עומדת על כ-7 שנים ממועד מימוש הזכויות. אם הוועדה השתהתה ולא פעלה לגביית החוב, ניתן לעיתים להעלות טענת שיהוי. כל מקרה נבחן לגופו."}}
   ]
 }
@@ -63,7 +90,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="page.css">
 </head>
 <body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <a href="#main-content" class="skip-to-content">דלג לתוכן הראשי</a>
 
@@ -76,6 +102,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html#about" onclick="closeMenu()">אודות</a></li>
       <li><a href="index.html#services" onclick="closeMenu()">תחומי התמחות</a></li>
+      <li><a href="maamarim.html" onclick="closeMenu()">מאמרים</a></li>
       <li><a href="index.html#linkedin-posts" onclick="closeMenu()">עדכונים</a></li>
       <li><a href="index.html#success" onclick="closeMenu()">מהשטח</a></li>
       <li><a href="careers.html" onclick="closeMenu()">קריירה</a></li>
@@ -94,14 +121,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="sp-bg" style="background-image:url('slide1.jpg')"></div>
   <div class="sp-overlay"></div>
   <div class="sp-content">
-    <nav class="breadcrumb" aria-label="פירורי לחם">
-      <a href="index.html">ראשי</a><span class="sep">/</span>
-      <a href="index.html#services">תחומי התמחות</a><span class="sep">/</span>
-      <span>היטל השבחה</span>
-    </nav>
     <span class="eyebrow">תחום התמחות · היטל השבחה</span>
     <h1 class="sp-title">קיבלתם דרישת <span class="gold">היטל השבחה?</span><br>ייתכן שאתם משלמים יותר מדי</h1>
-    <p class="sp-sub">היטל ההשבחה עומד על 50% מ"ההשבחה" — והוא מבוסס על שומה שמכינה הוועדה. שומות אפשר לבדוק. אנחנו בוחנים את החישוב לעומק, מאתרים פטורים, קיזוזים וטעויות, ומגישים השגה מקצועית מול הוועדה. הפחתנו ללקוחותינו עד 100% מהדרישה.</p>
+    <p class="sp-sub">שיעור היטל ההשבחה לרוב הוא 50% מ"ההשבחה" (לעיתים גם שונה) - והוא מבוסס על שומה שמכינה הוועדה. שומות אפשר לבדוק. אנחנו בוחנים את החישוב לעומק, מאתרים פטורים, קיזוזים וטעויות, ומגישים השגה מקצועית מול הוועדה. הפחתנו ללקוחותינו עד 100% מהדרישה.</p>
     <div class="hero-actions">
       <a href="#lead" class="btn btn-gold">בדיקה ראשונית ללא התחייבות <span class="arr">←</span></a>
       <a href="#how" class="btn btn-ghost">איך זה עובד</a>
@@ -115,7 +137,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="stat-strip-inner">
       <div class="stat reveal"><div class="num">עד <span class="counter" data-target="100">0</span>%</div><div class="label">הפחתת היטל במקרים שטיפלנו בהם</div></div>
       <div class="stat reveal reveal-d1"><div class="num">45</div><div class="label">ימים בלבד להגשת השגה</div></div>
-      <div class="stat reveal reveal-d2"><div class="num">50%</div><div class="label">מההשבחה — שיעור ההיטל הקבוע בחוק</div></div>
+      <div class="stat reveal reveal-d2"><div class="num">50%</div><div class="label">מההשבחה - שיעור ההיטל הקבוע בחוק</div></div>
     </div>
   </div>
 </section>
@@ -126,13 +148,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="content-block two-col">
       <div class="reveal">
         <span class="eyebrow">מה זה בעצם?</span>
-        <h2 class="section-title" style="margin-top:.8rem;">היטל השבחה — בקצרה</h2>
+        <h2 class="section-title" style="margin-top:.8rem;">היטל השבחה - בקצרה</h2>
       </div>
       <div class="prose reveal reveal-d1">
-        <p><strong>היטל השבחה</strong> הוא תשלום חובה לוועדה המקומית לתכנון ובנייה, החל מאז שנת 1975, כאשר ערך הנכס שלכם עלה בעקבות פעולה תכנונית — אישור תכנית בניין עיר, מתן <strong>הקלה</strong>, או התרת <strong>שימוש חורג</strong>.</p>
-        <p>שיעור ההיטל הוא <strong>50% מגובה ההשבחה</strong> — כלומר מההפרש בין שווי הנכס במצב הקודם לבין שוויו במצב החדש שנוצר בעקבות הפעולה התכנונית. הכסף משמש את הוועדה לתכנון, פיתוח, רכישת קרקע לצורכי ציבור ושימור אתרים.</p>
-        <p>ההיטל משולם בעת <strong>מימוש הזכויות</strong> — במכירת הנכס או בקבלת היתר בנייה — ולא רגע אחד לפני. כל ההסדר מעוגן ב<strong>תוספת השלישית לחוק התכנון והבנייה</strong>.</p>
-        <div class="callout">גובה ההשבחה נקבע ב<strong>שומה</strong> שמכינה הוועדה — ולא פעם השומה הזו מופרזת, מתעלמת מפטור שמגיע לכם, או מבוססת על הנחות שגויות. כאן בדיוק נכנס שמאי מטעמכם.</div>
+        <p><strong>היטל השבחה</strong> הוא תשלום חובה לוועדה המקומית לתכנון ובנייה, החל מאז שנת 1975, כאשר ערך הנכס שלכם עלה בעקבות פעולה תכנונית - <strong>אישור תכנית משביחה</strong>, מתן <strong>הקלה</strong>, או התרת <strong>שימוש חורג</strong>.</p>
+        <p>שיעור ההיטל הוא <strong>50% מגובה ההשבחה</strong> - כלומר מההפרש בין שווי הנכס במצב הקודם לבין שוויו במצב החדש שנוצר בעקבות הפעולה התכנונית. הכסף משמש את הוועדה לתכנון, פיתוח, רכישת קרקע לצורכי ציבור ושימור אתרים.</p>
+        <p>ההיטל משולם בעת <strong>מימוש הזכויות</strong> - במכירת הנכס או בקבלת היתר בנייה - ולא רגע אחד לפני. כל ההסדר מעוגן ב<strong>תוספת השלישית לחוק התכנון והבנייה</strong>.</p>
+        <div class="callout">גובה ההשבחה נקבע ב<strong>שומה</strong> שמכינה הוועדה - ולא פעם השומה הזו מופרזת, מתעלמת מפטור שמגיע לכם, או מבוססת על הנחות שגויות. כאן בדיוק נכנס שמאי מטעמכם.</div>
       </div>
     </div>
   </div>
@@ -144,18 +166,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="sec-intro reveal">
       <span class="eyebrow">לא רק "50% וזהו"</span>
       <h2 class="section-title">מה באמת משפיע על גובה ההיטל</h2>
-      <p>חישוב היטל ההשבחה הוא לב עבודתו של השמאי. מאחורי המספר היבש מסתתרים עשרות שיקולים — וכל אחד מהם יכול להזיז את הסכום בעשרות אלפי שקלים.</p>
+      <p>חישוב היטל ההשבחה הוא לב עבודתו של השמאי. מאחורי המספר היבש מסתתרים עשרות שיקולים - וכל אחד מהם יכול להזיז את הסכום בעשרות אלפי שקלים.</p>
     </div>
     <div class="values-grid reveal reveal-d1">
       <div class="value-card">
         <span class="v-num">01</span>
         <h3>שווי "לפני" מול "אחרי"</h3>
-        <p>הבסיס לכל החישוב. עסקאות השוואה לא מתאימות או הנחות שווי מנופחות מגדילות מלאכותית את ההשבחה — וזו הנקודה הראשונה שבודקים.</p>
+        <p>הבסיס לכל החישוב. עסקאות השוואה לא מתאימות או הנחות שווי מנופחות מגדילות מלאכותית את ההשבחה - וזו הנקודה הראשונה שבודקים.</p>
       </div>
       <div class="value-card">
         <span class="v-num">02</span>
         <h3>פטורים מלאים או חלקיים</h3>
-        <p>החוק מעניק פטורים — למשל הרחבת דירת מגורים עד 140 מ"ר, ופטורים בהתחדשות עירונית. פטור שלא נלקח בחשבון = תשלום עודף.</p>
+        <p>החוק מעניק פטורים - למשל הרחבת דירת מגורים עד 140 מ"ר, ופטורים בהתחדשות עירונית. פטור שלא נלקח בחשבון = תשלום עודף.</p>
       </div>
       <div class="value-card">
         <span class="v-num">03</span>
@@ -165,7 +187,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="value-card">
         <span class="v-num">04</span>
         <h3>קיזוזים, דחייה והוצאות</h3>
-        <p>הוצאות הריסה, מקדמי דחייה, התאמות והפחתות מוכרות — כל אלה מקטינים את החיוב כשהשמאי יודע לדרוש אותם.</p>
+        <p>הוצאות הריסה, מקדמי דחייה, התאמות והפחתות מוכרות - כל אלה מקטינים את החיוב כשהשמאי יודע לדרוש אותם.</p>
       </div>
       <div class="value-card">
         <span class="v-num">05</span>
@@ -175,7 +197,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="value-card">
         <span class="v-num">06</span>
         <h3>פסיקה ושומות מכריעות</h3>
-        <p>קיים גוף עשיר של החלטות שמאים מכריעים ופסקי דין. כשקיימת שומה מכרעת בנכס דומה — לוועדה יש חובה להתחשב בה.</p>
+        <p>קיים גוף עשיר של החלטות שמאים מכריעים ופסקי דין. כשקיימת שומה מכרעת בנכס דומה - לוועדה יש חובה להתחשב בה.</p>
       </div>
     </div>
   </div>
@@ -187,23 +209,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="sec-intro reveal">
       <span class="eyebrow">למה כדאי לבדוק</span>
       <h2 class="section-title">3 סיבות להגיש השגה</h2>
-      <p>רוב בעלי הנכסים משלמים את הדרישה כפי שהיא — בלי לדעת שאפשר אחרת.</p>
+      <p>רוב בעלי הנכסים משלמים את הדרישה כפי שהיא - בלי לדעת שאפשר אחרת.</p>
     </div>
     <div class="feature-grid reveal reveal-d1">
       <div class="feature-card">
         <div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg></div>
         <h3>חיסכון משמעותי</h3>
-        <p>במקרים רבים ניתן להפחית עשרות אחוזים — ולעיתים את מלוא הדרישה. ההפרש מגיע לעשרות ומאות אלפי שקלים.</p>
+        <p>במקרים רבים ניתן להפחית עשרות אחוזים - ולעיתים את מלוא הדרישה. ההפרש מגיע לעשרות ומאות אלפי שקלים.</p>
       </div>
       <div class="feature-card">
         <div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg></div>
         <h3>זו זכות חוקית</h3>
-        <p>החוק מקנה לכל בעל נכס את הזכות להגיש השגה ולבקש מינוי שמאי מכריע — תוך 45 יום מקבלת הדרישה.</p>
+        <p>החוק מקנה לכל בעל נכס את הזכות להגיש השגה ולבקש מינוי שמאי מכריע - תוך 45 יום מקבלת הדרישה.</p>
       </div>
       <div class="feature-card">
         <div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><circle cx="15" cy="15" r="3"/><line x1="17.5" y1="17.5" x2="21" y2="21"/></svg></div>
         <h3>בדיקה מקצועית</h3>
-        <p>ניתוח מעמיק של התכניות, ההקלות, ועסקאות ההשוואה באזור — מאתר טעויות בשומת הוועדה.</p>
+        <p>ניתוח מעמיק של התכניות, ההקלות, ועסקאות ההשוואה באזור - מאתר טעויות בשומת הוועדה.</p>
       </div>
     </div>
   </div>
@@ -215,17 +237,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="content-block two-col">
       <div class="reveal">
         <span class="eyebrow">מתי ומי</span>
-        <h2 class="section-title" style="margin-top:.8rem;">מתי משלמים — ומי חייב?</h2>
-        <p class="lead" style="margin-top:1rem;">ההיטל לא משולם ברגע שהתכנית מאושרת, אלא רק כאשר "מממשים" את הזכויות. שתי השאלות — מתי ועל מי — הן עצמן עילות לבדיקה.</p>
+        <h2 class="section-title" style="margin-top:.8rem;">מתי משלמים - ומי חייב?</h2>
+        <p class="lead" style="margin-top:1rem;">ההיטל לא משולם ברגע שהתכנית מאושרת, אלא רק כאשר "מממשים" את הזכויות. שתי השאלות - מתי ועל מי - הן עצמן עילות לבדיקה.</p>
         <div class="prose" style="margin-top:1.2rem;">
-          <p><strong>מימוש זכויות</strong> קורה באחד משלושה אירועים: קבלת היתר בנייה שלא ניתן היה לקבל לפני התכנית, תחילת שימוש בפועל במה שהותר, או העברת הזכויות (מכירה). במכירה או מימוש של חלק מהזכויות בלבד — ההיטל יחסי לחלק שמומש.</p>
+          <p><strong>מימוש זכויות</strong> קורה באחד משלושה אירועים: קבלת היתר בנייה שלא ניתן היה לקבל לפני התכנית, תחילת שימוש בפועל במה שהותר, או העברת הזכויות (מכירה). במכירה או מימוש של חלק מהזכויות בלבד - ההיטל יחסי לחלק שמומש.</p>
         </div>
       </div>
       <ul class="check-list reveal reveal-d1">
-        <li><strong>בעלים</strong> — בעל הנכס הרשום</li>
-        <li><strong>חוכר לדורות</strong> — שוכר ארוך-טווח מרמ"י</li>
-        <li><strong>בר-רשות במגזר החקלאי</strong> — לפי פסיקת בית המשפט (הלכת בלוך)</li>
-        <li>שותפים — כל אחד לפי חלקו היחסי בנכס</li>
+        <li><strong>בעלים</strong> - בעל הנכס הרשום</li>
+        <li><strong>חוכר לדורות</strong> - שוכר ארוך-טווח מרמ"י</li>
+        <li><strong>בר-רשות במגזר החקלאי</strong> - לפי פסיקת בית המשפט (הלכת בלוך)</li>
+        <li>שותפים - כל אחד לפי חלקו היחסי בנכס</li>
         <li>מי שמוכר דירה, בית או מגרש</li>
         <li>מי שמגיש בקשה להיתר בנייה</li>
       </ul>
@@ -239,18 +261,18 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="sec-intro reveal">
       <span class="eyebrow">לפני שמשלמים</span>
       <h2 class="section-title">פטורים והקלות שאסור לפספס</h2>
-      <p>החוק מכיר במצבים רבים שבהם ההיטל פוחת או מתבטל לגמרי. אלה כמה מהנפוצים — ויש עוד.</p>
+      <p>החוק מכיר במצבים רבים שבהם ההיטל פוחת או מתבטל לגמרי. אלה כמה מהנפוצים - ויש עוד.</p>
     </div>
     <div class="feature-grid reveal reveal-d1">
       <div class="feature-card">
         <div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg></div>
         <h3>הרחבת דירת מגורים</h3>
-        <p>פטור על השבחה הנובעת מהרחבת דירה למגורים עד שטח של 140 מ"ר, בכפוף לתנאי החוק — אחד הפטורים השכיחים ביותר.</p>
+        <p>פטור על השבחה הנובעת מהרחבת דירה למגורים עד שטח של 140 מ"ר, בכפוף לתנאי החוק - אחד הפטורים השכיחים ביותר.</p>
       </div>
       <div class="feature-card">
         <div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>תמ"א 38 והתחדשות עירונית</h3>
-        <p>במסלולי חיזוק והריסה-בנייה שיעור ההיטל מופחת מאוד — ובחלק מהמקרים אף 0%. כדאי לוודא שהשיעור הנכון יושם.</p>
+        <p>במסלולי חיזוק והריסה-בנייה שיעור ההיטל מופחת מאוד - ובחלק מהמקרים אף 0%. כדאי לוודא שהשיעור הנכון יושם. <a href="hetel-hashbacha-pinui-binui.html">מתי הפטור בהתחדשות עירונית לא חל</a>.</p>
       </div>
       <div class="feature-card">
         <div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12h8M12 8v8"/></svg></div>
@@ -269,10 +291,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <h2 class="section-title">התהליך, צעד אחר צעד</h2>
     </div>
     <div class="steps">
-      <div class="step reveal"><div class="step-num">1</div><div><h4>בדיקה ראשונית</h4><p>שולחים לנו את דרישת התשלום ואת מסמכי הנכס. אנחנו בודקים האם יש בסיס להפחתה — ללא התחייבות מצידכם.</p></div></div>
-      <div class="step reveal reveal-d1"><div class="step-num">2</div><div><h4>ניתוח שמאי מעמיק</h4><p>בוחנים את התכניות, ההקלות, הפטורים, בסיס החישוב ועסקאות ההשוואה — ומכינים שומה נגדית מנומקת.</p></div></div>
+      <div class="step reveal"><div class="step-num">1</div><div><h4>בדיקה ראשונית</h4><p>שולחים לנו את דרישת התשלום ואת מסמכי הנכס. אנחנו בודקים האם יש בסיס להפחתה - ללא התחייבות מצידכם.</p></div></div>
+      <div class="step reveal reveal-d1"><div class="step-num">2</div><div><h4>ניתוח שמאי מעמיק</h4><p>בוחנים את התכניות, ההקלות, הפטורים, בסיס החישוב ועסקאות ההשוואה - ומכינים שומה נגדית מנומקת.</p></div></div>
       <div class="step reveal reveal-d2"><div class="step-num">3</div><div><h4>הגשת השגה רשמית</h4><p>מגישים את ההשגה לוועדה ומבקשים מינוי שמאי מכריע, תוך ייצוג מלא שלכם בהליך.</p></div></div>
-      <div class="step reveal reveal-d3"><div class="step-num">4</div><div><h4>הכרעה וחיסכון</h4><p>לאחר הדיון מול השמאי המכריע, השומה מתעדכנת וההיטל מופחת — והחיסכון נשאר בכיס שלכם.</p></div></div>
+      <div class="step reveal reveal-d3"><div class="step-num">4</div><div><h4>הכרעה וחיסכון</h4><p>לאחר הדיון מול השמאי המכריע, השומה מתעדכנת וההיטל מופחת - והחיסכון נשאר בכיס שלכם.</p></div></div>
     </div>
   </div>
 </section>
@@ -284,7 +306,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="reveal">
         <span class="eyebrow">למי זה מתאים</span>
         <h2 class="section-title" style="margin-top:.8rem;">מי צריך לבדוק היטל השבחה?</h2>
-        <p class="lead" style="margin-top:1rem;">אם קיבלתם דרישה — או שאתם לפני מכירה או היתר — שווה לבדוק לפני שמשלמים.</p>
+        <p class="lead" style="margin-top:1rem;">אם קיבלתם דרישה - או שאתם לפני מכירה או היתר - שווה לבדוק לפני שמשלמים.</p>
       </div>
       <ul class="check-list reveal reveal-d1">
         <li>בעלי נכס שקיבלו דרישת תשלום מהוועדה המקומית</li>
@@ -306,12 +328,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <h2 class="section-title">מה חשוב לדעת</h2>
     </div>
     <div class="faq-list reveal reveal-d1">
-      <details class="faq-item"><summary>מתי בדיוק משלמים את ההיטל?</summary><div class="faq-body">היטל ההשבחה משולם בעת <strong>מימוש הזכויות</strong> — מכירת הנכס או קבלת היתר בנייה. לא לפני. כך שגם אם אושרה תכנית שהשביחה את הנכס, החיוב בפועל נדחה למועד המימוש.</div></details>
-      <details class="faq-item"><summary>כמה זמן יש לי להגיש השגה?</summary><div class="faq-body"><strong>45 יום</strong> מקבלת דרישת התשלום. זהו מועד קריטי — איחור עלול לשלול את הזכות להשגה, ולכן חשוב לפנות לשמאי מוקדם ככל האפשר.</div></details>
-      <details class="faq-item"><summary>מי חייב בתשלום — ומה לגבי נחלות וברי-רשות?</summary><div class="faq-body">החייב הוא <strong>בעל הזכויות</strong> במועד אישור התכנית: בעלים או חוכר לדורות. לפי הפסיקה (הלכת בלוך), חובת התשלום חלה גם על <strong>בר-רשות במגזר החקלאי</strong>. כשיש כמה בעלים — כל אחד משלם לפי חלקו היחסי בנכס.</div></details>
-      <details class="faq-item"><summary>מה זה שמאי מכריע?</summary><div class="faq-body">כאשר יש מחלוקת בין שומת הוועדה לשומה מטעמכם, ממונה <strong>שמאי מכריע</strong> — שמאי ניטרלי מטעם מועצת השמאים — שמכריע בגובה ההשבחה. ייצוג מקצועי בשלב זה משפיע ישירות על התוצאה.</div></details>
+      <details class="faq-item"><summary>מתי בדיוק משלמים את ההיטל?</summary><div class="faq-body">היטל ההשבחה משולם בעת <strong>מימוש הזכויות</strong> - מכירת הנכס או קבלת היתר בנייה. לא לפני. כך שגם אם אושרה תכנית שהשביחה את הנכס, החיוב בפועל נדחה למועד המימוש.</div></details>
+      <details class="faq-item"><summary>כמה זמן יש לי להגיש השגה?</summary><div class="faq-body"><strong>45 יום</strong> מקבלת דרישת התשלום. זהו מועד קריטי - איחור עלול לשלול את הזכות להשגה, ולכן חשוב לפנות לשמאי מוקדם ככל האפשר.</div></details>
+      <details class="faq-item"><summary>מי חייב בתשלום - ומה לגבי נחלות וברי-רשות?</summary><div class="faq-body">החייב הוא <strong>בעל הזכויות</strong> במועד אישור התכנית: בעלים או חוכר לדורות. לפי הפסיקה (הלכת בלוך), חובת התשלום חלה גם על <strong>בר-רשות במגזר החקלאי</strong>. כשיש כמה בעלים - כל אחד משלם לפי חלקו היחסי בנכס.</div></details>
+      <details class="faq-item"><summary>מה זה שמאי מכריע?</summary><div class="faq-body">כאשר יש מחלוקת בין שומת הוועדה לשומה מטעמכם, ממונה <strong>שמאי מכריע</strong> - שמאי ניטרלי מטעם מועצת השמאים - שמכריע בגובה ההשבחה. ייצוג מקצועי בשלב זה משפיע ישירות על התוצאה.</div></details>
       <details class="faq-item"><summary>יש התיישנות על דרישת ההיטל?</summary><div class="faq-body">על פי הפסיקה, התיישנות הדרישה עומדת על כ-<strong>7 שנים</strong> ממועד מימוש הזכויות. אם הוועדה השתהתה זמן רב מבלי לפעול, ניתן לעיתים להעלות טענת <strong>שיהוי</strong>. נבדוק זאת עבורכם.</div></details>
-      <details class="faq-item"><summary>כמה עולה לי להגיש השגה?</summary><div class="faq-body">העלות נקבעת לפי מורכבות התיק. ברוב המקרים החיסכון הצפוי גבוה משמעותית משכר הטרחה — ולכן אנחנו פותחים בבדיקה ראשונית כדי להעריך את הכדאיות לפני שמתחילים.</div></details>
+      <details class="faq-item"><summary>כמה עולה לי להגיש השגה?</summary><div class="faq-body">העלות נקבעת לפי מורכבות התיק. ברוב המקרים החיסכון הצפוי גבוה משמעותית משכר הטרחה - ולכן אנחנו פותחים בבדיקה ראשונית כדי להעריך את הכדאיות לפני שמתחילים.</div></details>
     </div>
   </div>
 </section>
@@ -323,12 +345,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="cta-copy reveal">
         <span class="eyebrow">בדיקת זכאות</span>
         <h2>נבדוק אם אתם משלמים יותר מדי</h2>
-        <p>השאירו פרטים ושמאי מוסמך יחזור אליכם לבדיקה ראשונית של דרישת היטל ההשבחה — ללא התחייבות.</p>
+        <p>השאירו פרטים ושמאי מוסמך יחזור אליכם לבדיקה ראשונית של דרישת היטל ההשבחה - ללא התחייבות.</p>
       </div>
       <div class="cta-form reveal reveal-d1">
         <h3>שלחו לנו פנייה</h3>
         <p>נחזור אליכם בהקדם האפשרי</p>
         <form class="contact-form" id="contact-form" onsubmit="return submitContactForm(event, 'contact')">
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);border:0;opacity:0">
           <div class="form-grid">
             <div class="form-group"><label for="contact-name">שם מלא *</label><input type="text" id="contact-name" name="name" placeholder="ישראל ישראלי" required autocomplete="name"></div>
             <div class="form-group"><label for="contact-phone">טלפון *</label><input type="tel" id="contact-phone" name="phone" placeholder="05X-XXXXXXX" required autocomplete="tel"></div>
@@ -362,9 +385,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <h2 class="section-title">אולי יעניין אתכם גם</h2>
     </div>
     <div class="related reveal reveal-d1">
+      <a href="hetel-hashbacha-pinui-binui.html">היטל השבחה בפינוי-בינוי <span class="arr">←</span></a>
+      <a href="hetel-hashbacha-kiryot.html">היטל השבחה בקריות <span class="arr">←</span></a>
       <a href="hasagot-rami.html">השגות על שומות רמ"י <span class="arr">←</span></a>
       <a href="takan-21-pinui-binui.html">תקן 21 · פינוי-בינוי <span class="arr">←</span></a>
-      <a href="shamaut-haklait.html">שמאות חקלאית ונזקי טבע <span class="arr">←</span></a>
     </div>
   </div>
 </section>
@@ -377,13 +401,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="logo-bm.png" alt="לוגו בורוביץ מזרחי">
-        <p>משרד שמאות מקרקעין מוביל בצפון. ידע מקצועי מעמיק, היכרות שטח בלתי אמצעית והבנה כלכלית רחבה — בשירות כל לקוח.</p>
+        <p>משרד שמאות מקרקעין מוביל בצפון. ידע מקצועי מעמיק, היכרות שטח בלתי אמצעית והבנה כלכלית רחבה - בשירות כל לקוח.</p>
       </div>
       <div class="footer-col">
         <h4>ניווט</h4>
         <ul>
           <li><a href="index.html#about">אודות</a></li>
           <li><a href="index.html#services">תחומי התמחות</a></li>
+          <li><a href="maamarim.html">מאמרים</a></li>
           <li><a href="index.html#success">תוצאות מהשטח</a></li>
           <li><a href="careers.html">קריירה</a></li>
         </ul>
@@ -394,7 +419,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <li><a href="tel:054-6559942">054-6559942 · מאור</a></li>
           <li><a href="tel:050-8922469">050-8922469 · אמיר</a></li>
           <li><a id="em-footer" href="#"></a></li>
-          <li>היהלום 36, פארק צ.ח.ר, ראש פינה</li>
+          <li>שדרות החרוב 6, פארק תעשיות בר-לב</li>
         </ul>
       </div>
     </div>
@@ -448,6 +473,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
   // Form submission → Supabase Edge Function
   var EDGE_FUNCTION_URL = 'https://nurgknexilxaxxovdbco.supabase.co/functions/v1/website-lead-intake';
+  var SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im51cmdrbmV4aWx4YXh4b3ZkYmNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxMjAxMzYsImV4cCI6MjA4OTY5NjEzNn0.S6BwlUfYkdWegz1gigK5dK0lXUowp4safWOFEzExuS0';
   function submitContactForm(e){
     e.preventDefault();
     var form=document.getElementById('contact-form'), btn=document.getElementById('contact-submit-btn'), statusEl=document.getElementById('contact-form-status');
@@ -455,7 +481,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     var email=document.getElementById('contact-email').value.trim(), subject=document.getElementById('contact-subject').value, message=document.getElementById('contact-message').value.trim();
     if(!name || !phone){ statusEl.style.display='block'; statusEl.style.color='#fca5a5'; statusEl.textContent='נא למלא שם וטלפון'; return false; }
     btn.disabled=true; btn.textContent='שולח...'; statusEl.style.display='none';
-    fetch(EDGE_FUNCTION_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name:name, phone:phone, email:email||null, subject:subject||null, message:message||null, source:'service-page' }) })
+    fetch(EDGE_FUNCTION_URL, { method:'POST', headers:{'Content-Type':'application/json','apikey':SB_ANON,'Authorization':'Bearer '+SB_ANON}, body: JSON.stringify({ name:name, phone:phone, email:email||null, subject:subject||null, message:message||null, source:'service-page', _hp:(form.querySelector('input[name="website"]')||{value:''}).value, elapsed_ms:Math.round(performance.now()) }) })
       .then(function(res){ return res.json(); })
       .then(function(data){
         if(data.success){

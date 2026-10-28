@@ -1,34 +1,57 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ===== GOOGLE TAG MANAGER =====
-     TODO: replace GTM-XXXXXXX with the real container ID before deploy.
-     GA4 + Meta Pixel + Google Ads tags are configured inside GTM (no code changes). -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
-<!-- ===== END GOOGLE TAG MANAGER ===== -->
+<!-- ===== GOOGLE ANALYTICS 4 (gtag.js) =====
+     Property "bor-miz.co.il", measurement ID G-GYNQPGPR33 - installed 2026-09-08,
+     replacing a Tag Manager placeholder that never had a container behind it.
+     The bridge below turns the site's existing dataLayer.push({event:'...'}) calls
+     (generate_lead / contact_whatsapp / contact_phone / intake_submitted) into GA4
+     events, so every call site elsewhere in the site stays untouched. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYNQPGPR33"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-GYNQPGPR33');
+  (function(){
+    // gtag() itself pushes an arguments object, which has no .event key - so this
+    // never recurses on its own output.
+    var push = window.dataLayer.push;
+    window.dataLayer.push = function(){
+      for (var i = 0; i < arguments.length; i++) {
+        var o = arguments[i];
+        if (o && typeof o.event === 'string') {
+          var params = {};
+          for (var k in o) {
+            if (k !== 'event' && Object.prototype.hasOwnProperty.call(o, k)) params[k] = o[k];
+          }
+          gtag('event', o.event, params);
+        }
+      }
+      return push.apply(window.dataLayer, arguments);
+    };
+  })();
+</script>
+<!-- ===== END GOOGLE ANALYTICS 4 ===== -->
 
 <!-- ===== SEO BASIC ===== -->
 <title>בורוביץ מזרחי שמאות מקרקעין וחקלאות בע"מ</title>
 <meta name="description" content="משרד שמאות מקרקעין מוביל בצפון. מתמחים בהיטלי השבחה, הערכות שווי, נחלות ומשקים חקלאיים, השגות על שומות רמ&quot;י ופינוי-בינוי.">
-<meta name="keywords" content="שמאות מקרקעין, שמאי מקרקעין, היטל השבחה, הערכת שווי נכס, נחלה, משק חקלאי, שמאות חקלאית, השגות שומות רמי, פינוי בינוי, שמאי צפון, ראש פינה, גליל, בורוביץ מזרחי">
+<meta name="keywords" content="שמאות מקרקעין, שמאי מקרקעין, היטל השבחה, הערכת שווי נכס, נחלה, משק חקלאי, שמאות חקלאית, השגות שומות רמי, פינוי בינוי, שמאי צפון, גליל, בורוביץ מזרחי">
 <meta name="author" content="בורוביץ מזרחי שמאות מקרקעין וחקלאות בע"מ">
 <meta name="robots" content="index, follow">
 <meta name="language" content="Hebrew">
-<link rel="canonical" href="https://www.bor-miz.com/">
+<link rel="canonical" href="https://bor-miz.co.il/">
 
 <!-- ===== OPEN GRAPH ===== -->
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.bor-miz.com/">
+<meta property="og:url" content="https://bor-miz.co.il/">
 <meta property="og:title" content="בורוביץ מזרחי | שמאות מקרקעין וחקלאות בע"מ">
 <meta property="og:description" content="משרד שמאות מקרקעין מוביל בצפון. היטלי השבחה, נחלות, הערכות שווי, פינוי-בינוי ועוד.">
-<meta property="og:image" content="https://www.bor-miz.com/image_2.png">
+<meta property="og:image" content="https://bor-miz.co.il/image_2.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta property="og:locale" content="he_IL">
@@ -38,7 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="בורוביץ מזרחי | שמאות מקרקעין וחקלאות בע"מ">
 <meta name="twitter:description" content="משרד שמאות מקרקעין מוביל בצפון. היטלי השבחה, נחלות, הערכות שווי ועוד.">
-<meta name="twitter:image" content="https://www.bor-miz.com/image_2.png">
+<meta name="twitter:image" content="https://bor-miz.co.il/image_2.png">
 
 <!-- ===== PERFORMANCE ===== -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -52,19 +75,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   "@context": "https://schema.org",
   "@type": "LocalBusiness",
   "name": "בורוביץ מזרחי שמאות מקרקעין וחקלאות בע\"מ",
-  "image": "https://www.bor-miz.com/image_2.png",
-  "url": "https://www.bor-miz.com",
+  "image": "https://bor-miz.co.il/image_2.png",
+  "url": "https://bor-miz.co.il",
   "telephone": ["+972-54-6559942", "+972-50-8922469"],
   "email": ["maor@bor-miz.co.il", "amir@bor-miz.co.il"],
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "היהלום 36, פארק צ.ח.ר",
-    "addressLocality": "ראש פינה",
+    "streetAddress": "שדרות החרוב 6",
+    "addressLocality": "פארק תעשיות בר-לב",
     "addressRegion": "צפון",
     "addressCountry": "IL"
   },
-  "geo": { "@type": "GeoCoordinates", "latitude": 32.9706, "longitude": 35.5717 },
-  "openingHours": "Mo-Th 08:00-17:00, Fr 08:00-13:00",
+  "geo": { "@type": "GeoCoordinates", "latitude": 32.9039, "longitude": 35.1806 },
+  "openingHours": "Su-Th 08:00-18:00",
   "priceRange": "$$",
   "description": "משרד שמאות מקרקעין מוביל בצפון, המתמחה בהיטלי השבחה, הערכות שווי, נחלות ומשקים חקלאיים.",
   "founder": [
@@ -87,17 +110,51 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 }
 </script>
 
+<!-- ===== STRUCTURED DATA – WebSite ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "בורוביץ מזרחי שמאות מקרקעין וחקלאות",
+  "alternateName": "בורוביץ מזרחי",
+  "url": "https://bor-miz.co.il/"
+}
+</script>
+
+<!-- ===== STRUCTURED DATA – Organization ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "בורוביץ מזרחי שמאות מקרקעין וחקלאות בע\"מ",
+  "alternateName": "בורוביץ מזרחי",
+  "url": "https://bor-miz.co.il/",
+  "logo": "https://bor-miz.co.il/logo-bm.png",
+  "image": "https://bor-miz.co.il/image_2.png",
+  "telephone": "+972-54-6559942",
+  "email": "maor@bor-miz.co.il",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "שדרות החרוב 6",
+    "addressLocality": "פארק תעשיות בר-לב",
+    "addressRegion": "צפון",
+    "addressCountry": "IL"
+  },
+  "sameAs": ["https://wa.me/972546559942", "https://wa.me/972508922469"]
+}
+</script>
+
 <!-- ===== STRUCTURED DATA – BreadcrumbList ===== -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "ראשי", "item": "https://www.bor-miz.com/"},
-    {"@type": "ListItem", "position": 2, "name": "אודותינו", "item": "https://www.bor-miz.com/#about"},
-    {"@type": "ListItem", "position": 3, "name": "תחומי התמחות", "item": "https://www.bor-miz.com/#services"},
-    {"@type": "ListItem", "position": 4, "name": "מקרים מהשטח", "item": "https://www.bor-miz.com/#success"},
-    {"@type": "ListItem", "position": 5, "name": "צור קשר", "item": "https://www.bor-miz.com/#contact"}
+    {"@type": "ListItem", "position": 1, "name": "ראשי", "item": "https://bor-miz.co.il/"},
+    {"@type": "ListItem", "position": 2, "name": "אודותינו", "item": "https://bor-miz.co.il/#about"},
+    {"@type": "ListItem", "position": 3, "name": "תחומי התמחות", "item": "https://bor-miz.co.il/#services"},
+    {"@type": "ListItem", "position": 4, "name": "מקרים מהשטח", "item": "https://bor-miz.co.il/#success"},
+    {"@type": "ListItem", "position": 5, "name": "צור קשר", "item": "https://bor-miz.co.il/#contact"}
   ]
 }
 </script>
@@ -121,10 +178,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </head>
 <body>
 
-<!-- Google Tag Manager (noscript) — TODO: replace GTM-XXXXXXX -->
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX"
-height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-<!-- End Google Tag Manager (noscript) -->
 
 <a href="#main-content" class="skip-to-content">דלג לתוכן הראשי</a>
 
@@ -137,6 +190,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <ul class="nav-links" id="navLinks">
       <li><a href="#about" onclick="closeMenu()">אודות</a></li>
       <li><a href="#services" onclick="closeMenu()">תחומי התמחות</a></li>
+      <li><a href="maamarim.html" onclick="closeMenu()">מאמרים</a></li>
       <li><a href="#linkedin-posts" onclick="closeMenu()">עדכונים</a></li>
       <li><a href="#success" onclick="closeMenu()">מהשטח</a></li>
       <li><a href="careers.html" onclick="closeMenu()">קריירה</a></li>
@@ -170,12 +224,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="hero-side-label">שמאות מקרקעין · חקלאות · הצפון</div>
 
   <div class="hero-content">
-    <span class="eyebrow hero-eyebrow">בורוביץ מזרחי · ראש פינה</span>
+    <span class="eyebrow hero-eyebrow">בורוביץ מזרחי</span>
     <h1 class="hero-title">
       <span class="hero-line"><span>הערך האמיתי של הנכס</span></span>
       <span class="hero-line"><span>נמצא <span class="gold">בפרטים הקטנים</span></span></span>
     </h1>
-    <p class="hero-sub">משרד שמאות מקרקעין מוביל בצפון — מומחים בהיטלי השבחה, השגות רמ"י, נחלות ומשקים חקלאיים, פינוי-בינוי ועריכת דוחות לפי תקן 21.</p>
+    <p class="hero-sub">משרד שמאות מקרקעין מוביל בצפון - מומחים בהיטלי השבחה, השגות רמ"י, נחלות ומשקים חקלאיים, פינוי-בינוי ועריכת דוחות לפי תקן 21.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn btn-gold">לתיאום ייעוץ <span class="arr">←</span></a>
       <a href="#about" class="btn btn-ghost">קצת עלינו</a>
@@ -198,12 +252,12 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="pillar reveal reveal-d1">
         <span class="num">02</span>
         <h3>היכרות שטח בלתי אמצעית</h3>
-        <p>הבנה עמוקה של השטח והשוק המקומי בצפון — כל נכס הוא עולם ומלואו הדורש התאמה מדויקת.</p>
+        <p>הבנה עמוקה של השטח והשוק המקומי בצפון - כל נכס הוא עולם ומלואו הדורש התאמה מדויקת.</p>
       </div>
       <div class="pillar reveal reveal-d2">
         <span class="num">03</span>
         <h3>הבנה כלכלית רחבה</h3>
-        <p>מענה מדויק, אמין ושקוף לחלוטין לכל לקוח — פרטי, עסקי או מוסדי, מתוך ראייה כלכלית כוללת.</p>
+        <p>מענה מדויק, אמין ושקוף לחלוטין לכל לקוח - פרטי, עסקי או מוסדי, מתוך ראייה כלכלית כוללת.</p>
       </div>
     </div>
   </div>
@@ -217,8 +271,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="about-copy reveal">
         <span class="eyebrow">אודות המשרד</span>
         <h2 class="section-title">מקצועיות, שקיפות<br>ושירות אישי בלתי מתפשר</h2>
-        <p>המשרד הוקם על ידי <strong>אמיר בורוביץ</strong> ו<strong>מאור מזרחי</strong>, שהביאו איתם ניסיון עשיר שצברו בלב עשיית השמאות במשרדים המובילים והגדולים בישראל.</p>
-        <p>אנו מעניקים מעטפת רחבה של פתרונות שמאות וייעוץ כלכלי — הערכות שווי לכל סוגי הנכסים, הגשת השגות מקצועיות על היטלי השבחה ושומות רמ"י, ליווי פרויקטים מורכבים של פינוי-בינוי והתחדשות עירונית, והתמחות ייחודית בנחלות ומשקים חקלאיים.</p>
+        <p>המשרד הוקם על ידי <strong>אמיר בורוביץ</strong> <strong>ומאור מזרחי</strong>, שהביאו איתם ניסיון עשיר שצברו בלב עשיית השמאות במשרדים המובילים והגדולים בישראל.</p>
+        <p>אנו מעניקים מעטפת רחבה של פתרונות שמאות וייעוץ כלכלי - הערכות שווי לכל סוגי הנכסים, הגשת השגות מקצועיות על היטלי השבחה ושומות רמ"י, ליווי פרויקטים מורכבים של פינוי-בינוי והתחדשות עירונית, והתמחות ייחודית בנחלות ומשקים חקלאיים.</p>
         <a href="#services" class="btn btn-outline">לתחומי ההתמחות <span class="arr">←</span></a>
       </div>
 
@@ -250,9 +304,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <ul class="cred-list">
             <li>שמאי מקרקעין מוסמך, חבר לשכת שמאי המקרקעין</li>
             <li>בוגר תואר ראשון (B.A) בכלכלה ומנהל עסקים, בהצטיינות</li>
-            <li>שמאי רכוש וחקלאות</li>
+            <li>שמאי רכוש</li>
             <li>שימש כמרכז השגות במטה רשות מקרקעי ישראל, בירושלים</li>
-            <li>בעל ניסיון רב בשומות היטלי השבחה ומתן שירות לוועדות</li>
+            <li>בעל ניסיון בשומות היטלי השבחה ומתן שירות לוועדות</li>
             <li>בעל ניסיון בהפקת דוחות אפס, טבלאות הקצאה ואיזון</li>
             <li>עוסק בהכנת שומות שווי שוק, נכסים מסחריים, כינוס נכסים</li>
           </ul>
@@ -263,7 +317,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <img src="image_5.jpg" class="partner-photo" alt="אמיר בורוביץ">
             <div>
               <h3>אמיר בורוביץ</h3>
-              <span class="role">שמאי מקרקעין מוסמך · שותף</span>
+              <span class="role">שמאי מקרקעין מוסמך ומהנדס · שותף</span>
             </div>
           </div>
           <ul class="cred-list">
@@ -296,40 +350,40 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <div class="services-body">
     <div class="services-grid reveal">
-      <a class="svc" href="hetel-hashbacha.html" data-svc="m1" style="text-decoration:none;color:inherit">
+      <div class="svc svc-static" data-svc="m1">
         <span class="svc-num">01</span>
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 17 8 11 13 14 21 5"/><polyline points="16 5 21 5 21 10"/></svg></div>
         <h3>היטלי השבחה</h3>
         <p>בדיקה, חישוב והגשת השגות על שומות היטל השבחה. ייצוג מול ועדות מקומיות ומרחביות.</p>
-        <span class="svc-more">קרא עוד ←</span>
-      </a>
-      <div class="svc" data-svc="m2" onclick="openModal('m2')">
+      
+      </div>
+      <div class="svc svc-soon" data-svc="m2" aria-disabled="true">
         <span class="svc-num">02</span>
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><circle cx="15" cy="15" r="3"/><line x1="17.5" y1="17.5" x2="21" y2="21"/></svg></div>
         <h3>הערכת שווי</h3>
         <p>הערכת כל סוגי הנכסים: דירות, בתי מגורים, מבנים מסחריים, משרדים, מגרשים וקרקעות חקלאיות.</p>
-        <span class="svc-more">קרא עוד ←</span>
+        <span class="svc-more">בקרוב</span>
       </div>
-      <a class="svc" href="shamaut-haklait.html" data-svc="m3" style="text-decoration:none;color:inherit">
+      <div class="svc svc-static" data-svc="m3">
         <span class="svc-num">03</span>
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22V12"/><path d="M5 12H2a10 10 0 0020 0h-3"/><path d="M8 6l4-4 4 4"/><path d="M8 12a4 4 0 008 0"/></svg></div>
         <h3>שומות חקלאיות</h3>
         <p>הערכות נזקים בגידולים ובחקלאות, סיוע בהגשת בקשה לפיצויים במסלול ירוק/אדום.</p>
-        <span class="svc-more">קרא עוד ←</span>
-      </a>
-      <a class="svc" href="hasagot-rami.html" data-svc="m4" style="text-decoration:none;color:inherit">
+      
+      </div>
+      <div class="svc svc-static" data-svc="m4">
         <span class="svc-num">04</span>
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/><polyline points="9 12 11 14 15 10"/></svg></div>
         <h3>השגות על שומות רמ"י</h3>
         <p>הגשת השגות וייצוג מול רשות מקרקעי ישראל בנוגע לדמי חכירה, דמי היתר ודמי הסכמה.</p>
-        <span class="svc-more">קרא עוד ←</span>
-      </a>
-      <div class="svc" data-svc="m5" onclick="openModal('m5')">
+      
+      </div>
+      <div class="svc svc-soon" data-svc="m5" aria-disabled="true">
         <span class="svc-num">05</span>
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/></svg></div>
         <h3>תביעות ירידת ערך</h3>
         <p>הגשת תביעות לפיצוי בגין שינוי מצב הקרקע בעקבות תכניות בניין עיר והפקעות.</p>
-        <span class="svc-more">קרא עוד ←</span>
+        <span class="svc-more">בקרוב</span>
       </div>
       <div class="svc svc-soon" data-svc="m6" aria-disabled="true">
         <span class="svc-num">06</span>
@@ -338,32 +392,32 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <p>הערכות שווי נחלות, ייעוץ בנושאי דמי הסכמה, חכירה מהוונת והיטלי השבחה במגזר החקלאי.</p>
         <span class="svc-more">בקרוב</span>
       </div>
-      <div class="svc" data-svc="m7" onclick="openModal('m7')">
+      <div class="svc svc-soon" data-svc="m7" aria-disabled="true">
         <span class="svc-num">07</span>
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg></div>
         <h3>טבלאות איחוד וחלוקה</h3>
         <p>עריכת טבלאות איחוד וחלוקה במסגרת תכנון תב"ע ותביעות ירידת ערך לפי סעיף 197.</p>
-        <span class="svc-more">קרא עוד ←</span>
+        <span class="svc-more">בקרוב</span>
       </div>
-      <a class="svc" href="takan-21-pinui-binui.html" data-svc="m8" style="text-decoration:none;color:inherit">
+      <div class="svc svc-static" data-svc="m8">
         <span class="svc-num">08</span>
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div>
         <h3>כדאיות כלכלית וליווי פרויקטים</h3>
         <p>בדיקת היתכנות כלכלית, ניתוח סיכונים, ליווי פינוי-בינוי ותמ"א 38, הפקת דוחות אפס.</p>
-        <span class="svc-more">קרא עוד ←</span>
-      </a>
-      <div class="svc" data-svc="m9" onclick="openModal('m9')">
+      
+      </div>
+      <div class="svc svc-soon" data-svc="m9" aria-disabled="true">
         <span class="svc-num">09</span>
         <div class="svc-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="9" height="10" rx="2"/><rect x="13" y="7" width="9" height="10" rx="2"/><line x1="11" y1="9" x2="13" y2="9"/><line x1="11" y1="12" x2="13" y2="12"/><line x1="11" y1="15" x2="13" y2="15"/></svg></div>
         <h3>כינוס נכסים ופירוק שיתוף</h3>
         <p>הערכת שווי לצורך מכירת נכסים במסגרת הליכי פירוק שיתוף וכינוס נכסים.</p>
-        <span class="svc-more">קרא עוד ←</span>
+        <span class="svc-more">בקרוב</span>
       </div>
     </div>
 
     <figure class="services-foot reveal">
       <div class="quote-photo">
-        <img src="image_1.jpg" alt="קו רקיע ופיתוח נדל״ן — הערכת שווי מקרקעין" loading="lazy">
+        <img src="image_1.jpg" alt="קו רקיע ופיתוח נדל״ן - הערכת שווי מקרקעין" loading="lazy">
       </div>
       <div class="svc-rest" aria-hidden="true">
 <svg viewBox="0 0 400 440" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" role="img" aria-label="מבט מתוך משרד יוקרתי אל קו הרקיע של העיר בשעת בין ערביים">
@@ -396,7 +450,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       </div>
       <blockquote>
         <span class="quote-eyebrow">הגישה שלנו</span>
-        <p>כל נכס הוא עולם ומלואו הדורש התאמה מדויקת למאפייני השוק המשתנים. אנו מלווים את הלקוח מהשאלה הראשונה ועד למסמך הסופי — בשקיפות מלאה.</p>
+        <p>כל נכס הוא עולם ומלואו הדורש התאמה מדויקת למאפייני השוק המשתנים. אנו מלווים את הלקוח מהשאלה הראשונה ועד למסמך הסופי - בשקיפות מלאה.</p>
         <cite>בורוביץ מזרחי · משרד שמאות מקרקעין</cite>
       </blockquote>
       <div class="svc-stage" aria-hidden="true"></div>
@@ -411,7 +465,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="linkedin-head reveal">
       <span class="eyebrow">עדכונים אחרונים</span>
       <h2 class="section-title" id="linkedin-heading">ישר מהשטח</h2>
-      <p class="lead" style="text-align:center;">מחשבות, תובנות ומקרים מהשטח — ישירות מהפיד שלנו בלינקדאין</p>
+      <p class="lead" style="text-align:center;">מחשבות, תובנות ומקרים מהשטח - ישירות מהפיד שלנו בלינקדאין</p>
     </div>
     <div class="linkedin-carousel-wrap">
       <button class="linkedin-arrow prev" type="button" aria-label="הקודם" id="linkedin-prev">‹</button>
@@ -429,7 +483,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="results-head reveal">
       <span class="eyebrow">תוצאות מהשטח</span>
       <h2 class="section-title">כך אנחנו חוסכים לכם כסף</h2>
-      <p>תוצאות מוכחות ממקרים אמיתיים — בדיקה מעמיקה של שומות שהוצאו נגד לקוחותינו.</p>
+      <p>תוצאות מוכחות ממקרים אמיתיים - בדיקה מעמיקה של שומות שהוצאו נגד לקוחותינו.</p>
     </div>
 
     <div class="results-grid">
@@ -439,7 +493,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="result-pct"><span class="counter" data-target="90">0</span><span>%</span></div>
           <div class="result-label">הפחתת היטל השבחה</div>
           <span class="result-loc">רמת גן</span>
-          <p class="result-detail">תוכנית 503-0573865 — לאחר בדיקה ועבודה מעמיקה הצלחנו להפחית כ-90% מדרישת היטל ההשבחה.</p>
+          <p class="result-detail">תוכנית 503-0573865 - לאחר בדיקה ועבודה מעמיקה הצלחנו להפחית כ-90% מדרישת היטל ההשבחה.</p>
         </div>
       </div>
       <div class="result-card reveal reveal-d1">
@@ -448,7 +502,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="result-pct"><span class="counter" data-target="100">0</span><span>%</span></div>
           <div class="result-label">ביטול מלא של היטל השבחה</div>
           <span class="result-loc">חצור הגלילית</span>
-          <p class="result-detail">תוכנית 259-0218446 — לאחר בדיקה ועבודה מעמיקה הצלחנו לבטל 100% מדרישת היטל ההשבחה.</p>
+          <p class="result-detail">תוכנית 259-0218446 - לאחר בדיקה ועבודה מעמיקה הצלחנו לבטל 100% מדרישת היטל ההשבחה.</p>
         </div>
       </div>
       <div class="result-card reveal reveal-d2">
@@ -457,14 +511,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <div class="result-pct"><span class="counter" data-target="50">0</span><span>%</span></div>
           <div class="result-label">הפחתת היטל השבחה</div>
           <span class="result-loc">סכנין</span>
-          <p class="result-detail">תוכנית 262-0829218 — לאחר בדיקה ועבודה מעמיקה הצלחנו להפחית כ-50% מדרישת היטל ההשבחה.</p>
+          <p class="result-detail">תוכנית 262-0829218 - לאחר בדיקה ועבודה מעמיקה הצלחנו להפחית כ-50% מדרישת היטל ההשבחה.</p>
         </div>
       </div>
     </div>
 
     <div class="results-quote reveal">
       <p>"אנחנו מאמינים שכל לקוח זכאי לבדיקה מעמיקה ומקצועית של השומות שהוצאו נגדו. לעיתים קרובות, ההפרשים שמגלים הם משמעותיים מאוד."</p>
-      <cite>— מאור מזרחי ואמיר בורוביץ, שותפי המשרד</cite>
+      <cite>- מאור מזרחי ואמיר בורוביץ, שותפי המשרד</cite>
     </div>
   </div>
 </section>
@@ -506,7 +560,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
       <div class="contact-info reveal">
         <span class="eyebrow">יצירת קשר</span>
         <h2 class="section-title">נשמח לעמוד לשירותכם</h2>
-        <p>לייעוץ ראשוני, שאלות מקצועיות או בקשת הצעת מחיר — פנו אלינו בכל אחת מהדרכים הבאות:</p>
+        <p>לייעוץ ראשוני, שאלות מקצועיות או בקשת הצעת מחיר - פנו אלינו בכל אחת מהדרכים הבאות:</p>
         <div class="contact-items">
           <div class="contact-item">
             <div class="contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></div>
@@ -545,7 +599,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             <div class="contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0116 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
             <div>
               <h4>כתובת</h4>
-              <p>היהלום 36, פארק צ.ח.ר, ראש פינה</p>
+              <p>שדרות החרוב 6, פארק תעשיות בר-לב</p>
             </div>
           </div>
         </div>
@@ -555,6 +609,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         <h3>שלחו לנו הודעה</h3>
         <p>נחזור אליכם בהקדם האפשרי</p>
         <form class="contact-form" id="contact-form" onsubmit="return submitContactForm(event, 'contact')">
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);border:0;opacity:0">
           <div class="form-grid">
             <div class="form-group">
               <label for="contact-name">שם מלא *</label>
@@ -601,13 +656,14 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="logo-bm.png" alt="לוגו בורוביץ מזרחי">
-        <p>משרד שמאות מקרקעין מוביל בצפון. ידע מקצועי מעמיק, היכרות שטח בלתי אמצעית והבנה כלכלית רחבה — בשירות כל לקוח.</p>
+        <p>משרד שמאות מקרקעין מוביל בצפון. ידע מקצועי מעמיק, היכרות שטח בלתי אמצעית והבנה כלכלית רחבה - בשירות כל לקוח.</p>
       </div>
       <div class="footer-col">
         <h4>ניווט</h4>
         <ul>
           <li><a href="#about">אודות</a></li>
           <li><a href="#services">תחומי התמחות</a></li>
+          <li><a href="maamarim.html">מאמרים</a></li>
           <li><a href="#success">תוצאות מהשטח</a></li>
           <li><a href="careers.html">קריירה</a></li>
           <li><a href="#contact">צור קשר</a></li>
@@ -619,8 +675,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <li><a href="tel:054-6559942">054-6559942 · מאור</a></li>
           <li><a href="tel:050-8922469">050-8922469 · אמיר</a></li>
           <li><a id="em-footer" href="#"></a></li>
-          <li>היהלום 36, פארק צ.ח.ר, ראש פינה</li>
+          <li>שדרות החרוב 6, פארק תעשיות בר-לב</li>
         </ul>
+        <div style="margin-top:14px;border-radius:6px;overflow:hidden;max-width:230px;">
+          <iframe title="מפת המשרד - שדרות החרוב 6, פארק תעשיות בר-לב" src="https://maps.google.com/maps?q=בורוביץ+מזרחי+שמאות+מקרקעין,+שדרות+החרוב+6,+בר-לב&z=15&hl=iw&output=embed" width="100%" height="130" style="border:0;display:block;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -668,6 +727,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
     <div class="popup-body">
       <form class="popup-form" id="popup-form" onsubmit="return submitContactForm(event, 'popup')">
+        <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);border:0;opacity:0">
         <div class="form-group">
           <label for="popup-name">שם מלא *</label>
           <input type="text" id="popup-name" name="name" placeholder="ישראל ישראלי" required aria-required="true" autocomplete="name">
@@ -733,9 +793,9 @@ function svgIcon(p){ return '<svg width="28" height="28" viewBox="0 0 24 24" fil
 var modalData = {
   m1: { svg: svgIcon('<polyline points="3 17 8 11 13 14 21 5"/><polyline points="16 5 21 5 21 10"/>'), title: "היטלי השבחה", bullets: [
     "היטל השבחה הוא תשלום לוועדה המקומית כאשר ערך הנכס עלה בעקבות שינוי תכנון",
-    "משולם בעת <strong>מכירת הנכס</strong> או <strong>קבלת היתר בנייה</strong> — לא לפני",
+    "משולם בעת <strong>מכירת הנכס</strong> או <strong>קבלת היתר בנייה</strong> - לא לפני",
     "ניתן להגיש <strong>השגה</strong> על שומת הוועדה תוך 45 יום מקבלתה",
-    "שמאי מכריע רשאי להפחית משמעותית את גובה ההיטל — שווה לבדוק",
+    "שמאי מכריע רשאי להפחית משמעותית את גובה ההיטל - שווה לבדוק",
     "במקרים רבים גובה החיסכון עולה על עלות שכר הטרחה של השמאי"
   ]},
   m2: { svg: svgIcon('<path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><circle cx="15" cy="15" r="3"/><line x1="17.5" y1="17.5" x2="21" y2="21"/>'), title: "הערכת שווי", bullets: [
@@ -743,7 +803,7 @@ var modalData = {
     "נדרשת לצרכים רבים: רכישה/מכירה, משכנתה, ירושה, גירושים, מס שבח",
     "<strong>תוקף השומה</strong>: 12–18 חודשים בדרך כלל (תלוי בגוף המבקש)",
     "השמאי בוחן: מצב פיזי, זכויות בנייה, עסקאות השוואה, שימוש קיים ומותר",
-    "כדאי לבקש שומה עצמאית לפני כל עסקה גדולה — לא להסתמך רק על שמאי הבנק"
+    "כדאי לבקש שומה עצמאית לפני כל עסקה גדולה - לא להסתמך רק על שמאי הבנק"
   ]},
   m3: { svg: svgIcon('<path d="M12 22V12"/><path d="M5 12H2a10 10 0 0020 0h-3"/><path d="M8 6l4-4 4 4"/><path d="M8 12a4 4 0 008 0"/>'), title: "שומות חקלאיות", bullets: [
     "שומה חקלאית נדרשת לתביעת פיצוי מהמדינה על נזק לגידולים (ברד, שרב, מזיקים ועוד)",
@@ -756,7 +816,7 @@ var modalData = {
     "<strong>רמ\"י</strong> (רשות מקרקעי ישראל) גובה דמי חכירה, דמי הסכמה ודמי היתר מחוכרים",
     "ניתן להגיש <strong>השגה</strong> על שומת רמ\"י תוך <strong>30 יום</strong> מקבלת ההחלטה",
     "בית הדין לחכירות הוא הגוף השיפוטי המוסמך לדון בערעורים",
-    "בשנים האחרונות הצטברו פסיקות שהפחיתו את תשלומי רמ\"י — כדאי לבחון",
+    "בשנים האחרונות הצטברו פסיקות שהפחיתו את תשלומי רמ\"י - כדאי לבחון",
     "השמאי בודק האם שיטת השומה של רמ\"י תואמת את ערכי השוק"
   ]},
   m5: { svg: svgIcon('<path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>'), title: "תביעות ירידת ערך ופיצויים", bullets: [
@@ -768,14 +828,14 @@ var modalData = {
   ]},
   m6: { svg: svgIcon('<path d="M3 12l9-8 9 8"/><rect x="5" y="12" width="14" height="9"/><rect x="9" y="16" width="6" height="5"/>'), title: "נחלות ומשקים חקלאיים", bullets: [
     "נחלה חקלאית היא יחידת קרקע של רמ\"י המוחכרת לאגודה שיתופית/משפחה",
-    "כל העברת זכויות בנחלה מחייבת תשלום <strong>דמי הסכמה</strong> לרמ\"י — גובהם תלוי בשווי",
+    "כל העברת זכויות בנחלה מחייבת תשלום <strong>דמי הסכמה</strong> לרמ\"י - גובהם תלוי בשווי",
     "ניתן לבצע <strong>היוון</strong> (חכירה מהוונת) שמפחית עלויות עתידיות",
     "שומת נחלה מורכבת יותר מדירה עירונית: כוללת קרקע חקלאית, מבנים ומכסות",
     "מומלץ לבצע שומה לפני כל עסקה, ירושה או העברה בין-דורית"
   ]},
   m7: { svg: svgIcon('<rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>'), title: "טבלאות איחוד וחלוקה", bullets: [
     "טבלת איחוד וחלוקה מחלקת מחדש קרקעות בין בעלים בתהליך תכנון (תב\"ע)",
-    "כל בעלים מקבל מגרש מאוחד שווה ערך לחלקו המקורי — גם אם במיקום אחר",
+    "כל בעלים מקבל מגרש מאוחד שווה ערך לחלקו המקורי - גם אם במיקום אחר",
     "<strong>סעיף 197</strong> מאפשר תביעת פיצוי אם הטבלה הפחיתה את שווי החלקה",
     "השמאי מייצג את בעל הקרקע מול הוועדה ומוודא שהחלוקה הוגנת",
     "תהליך זה נפוץ בפרויקטי פיתוח עירוני גדולים ובאזורים שעוברים שינוי ייעוד"
@@ -783,7 +843,7 @@ var modalData = {
   m8: { svg: svgIcon('<line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>'), title: "כדאיות כלכלית וליווי פרויקטים", bullets: [
     "<strong>דוח אפס</strong> הוא ניתוח כלכלי מקיף הבוחן את כדאיות פרויקט בנייה טרם התחלתו",
     "כולל: הערכת עלויות, הכנסות צפויות, ניתוח סיכונים ותחזית תזרים מזומנים",
-    "חיוני לפרויקטי <strong>פינוי-בינוי</strong> ו<strong>תמ\"א 38</strong> — הבנקים דורשים אותו לפני מתן מימון",
+    "חיוני לפרויקטי <strong>פינוי-בינוי</strong> ו<strong>תמ\"א 38</strong> - הבנקים דורשים אותו לפני מתן מימון",
     "הדוח עוזר ליזם לקבל החלטות מושכלות ולמנוע הפתעות בדרך",
     "מומלץ לעדכן את הדוח בכל שינוי מהותי בפרויקט"
   ]},
@@ -791,7 +851,7 @@ var modalData = {
     "<strong>פירוק שיתוף</strong> מאפשר לאחד השותפים לאלץ מכירת הנכס כשאין הסכמה",
     "תהליך ניתן לביצוע בהסכמה (גישור) או דרך בית משפט",
     "השמאי קובע את <strong>שווי השוק</strong> של הנכס לצורך חלוקה הוגנת",
-    "<strong>כינוס נכסים</strong> הוא הליך שמינוי כונס ע\"י בית משפט — לרוב בהקשר חדלות פירעון",
+    "<strong>כינוס נכסים</strong> הוא הליך שמינוי כונס ע\"י בית משפט - לרוב בהקשר חדלות פירעון",
     "שמאות מדויקת בשלב זה חיונית: היא הבסיס לחלוקה הכספית בין הצדדים"
   ]}
 };
@@ -890,6 +950,10 @@ function closeModal(){ document.getElementById("modal-overlay").classList.remove
     var grid  = document.querySelector('.services-grid');
     if (!foot || !stage || !grid) return;
 
+    // Real photo per domain (numbered 1..8 in svc-photos/). Domains without a
+    // photo fall back to the gold line-art motif.
+    var SVC_PHOTOS = { m1:1, m2:2, m3:3, m4:4, m5:5, m6:6, m7:7, m8:8 };
+
     var cards = grid.querySelectorAll('.svc[data-svc]');
     cards.forEach(function(card, i){
       var key = card.getAttribute('data-svc');
@@ -900,12 +964,18 @@ function closeModal(){ document.getElementById("modal-overlay").classList.remove
       var fig = document.createElement('figure');
       fig.className = 'svc-visual';
       fig.setAttribute('data-svc', key);
-      fig.innerHTML = '<div class="svc-visual-art">' + svcScene(motif, i) + '</div>'
+      var photo = SVC_PHOTOS[key];
+      var altText = title.replace(/"/g, '&quot;');
+      var art = photo
+        ? '<img class="svc-photo" src="svc-photos/' + photo + '.png" alt="' + altText + '" loading="lazy">'
+        : svcScene(motif, i);
+      if (photo) fig.classList.add('has-photo');
+      fig.innerHTML = '<div class="svc-visual-art">' + art + '</div>'
         + '<figcaption class="svc-visual-cap"><span>תחום התמחות</span><strong>' + title + '</strong></figcaption>';
       stage.appendChild(fig);
     });
 
-    // Hover swap only where a real pointer can hover (desktop) — leave the
+    // Hover swap only where a real pointer can hover (desktop) - leave the
     // quote untouched on touch devices.
     if (!window.matchMedia || !window.matchMedia('(hover:hover) and (pointer:fine)').matches) return;
 
@@ -934,7 +1004,7 @@ var legalContent = {
     <div class="legal-card"><h3><span class="num">1</span> כללי</h3><p>ברוכים הבאים לאתר בורוביץ מזרחי שמאות מקרקעין וחקלאות בע"מ. השימוש באתר מהווה הסכמה לתנאי השימוש המפורטים להלן. המשרד שומר לעצמו את הזכות לעדכן תנאים אלו מעת לעת.</p></div>
     <div class="legal-card"><h3><span class="num">2</span> המידע באתר</h3><p>המידע המוצג באתר הינו למטרות מידע כללי בלבד ואינו מהווה ייעוץ משפטי, שמאי, כלכלי או מקצועי מכל סוג. כל מידע אינו מחליף שומה מקצועית או ייעוץ אישי המותאם לנסיבות הספציפיות.</p></div>
     <div class="legal-card"><h3><span class="num">3</span> הגבלת אחריות</h3><p>המשרד אינו אחראי לכל נזק, ישיר או עקיף, שייגרם כתוצאה מהסתמכות על המידע המוצג באתר.</p></div>
-    <div class="legal-card"><h3><span class="num">4</span> זכויות יוצרים</h3><p>כל התכנים באתר — טקסטים, תמונות, לוגואים ועיצוב — הינם רכושו הבלעדי של המשרד ומוגנים בחוקי זכויות יוצרים.</p></div>
+    <div class="legal-card"><h3><span class="num">4</span> זכויות יוצרים</h3><p>כל התכנים באתר - טקסטים, תמונות, לוגואים ועיצוב - הינם רכושו הבלעדי של המשרד ומוגנים בחוקי זכויות יוצרים.</p></div>
     <div class="legal-card"><h3><span class="num">5</span> טופס יצירת קשר</h3><p>המידע שתמסרו דרך טופס יצירת הקשר ישמש אך ורק ליצירת קשר בנוגע לשירותי המשרד.</p></div>
     <div class="legal-contact"><p>שאלות בנוגע לתנאי השימוש?</p><p><a href="mailto:info@bor-miz.co.il">info@bor-miz.co.il</a> &nbsp;|&nbsp; <a href="tel:054-6559942">054-6559942</a></p></div>` },
   privacy: { title: 'מדיניות פרטיות', html: `
@@ -1122,6 +1192,7 @@ document.getElementById('legalPopup').addEventListener('click', function(e){ if(
 <!-- Form submission → Supabase Edge Function -->
 <script>
   var EDGE_FUNCTION_URL = 'https://nurgknexilxaxxovdbco.supabase.co/functions/v1/website-lead-intake';
+  var SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im51cmdrbmV4aWx4YXh4b3ZkYmNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxMjAxMzYsImV4cCI6MjA4OTY5NjEzNn0.S6BwlUfYkdWegz1gigK5dK0lXUowp4safWOFEzExuS0';
   function submitContactForm(e, formType){
     e.preventDefault();
     var prefix = formType === 'popup' ? 'popup' : 'contact';
@@ -1138,8 +1209,8 @@ document.getElementById('legalPopup').addEventListener('click', function(e){ if(
     }
     btn.disabled = true; btn.textContent = 'שולח...'; statusEl.style.display='none';
     fetch(EDGE_FUNCTION_URL, {
-      method:'POST', headers:{ 'Content-Type':'application/json' },
-      body: JSON.stringify({ name:name, phone:phone, email:email||null, subject:subject||null, message:message||null, source:formType })
+      method:'POST', headers:{ 'Content-Type':'application/json', 'apikey':SB_ANON, 'Authorization':'Bearer '+SB_ANON },
+      body: JSON.stringify({ name:name, phone:phone, email:email||null, subject:subject||null, message:message||null, source:formType, _hp:(form.querySelector('input[name="website"]')||{value:''}).value, elapsed_ms:Math.round(performance.now()) })
     })
     .then(function(res){ return res.json(); })
     .then(function(data){
@@ -1190,7 +1261,7 @@ document.getElementById('legalPopup').addEventListener('click', function(e){ if(
   function escapeHtml(s){ return String(s==null?'':s).replace(/[&<>"']/g, function(c){ return ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'})[c]; }); }
   function formatDate(iso){ if(!iso) return ''; try{ return new Date(iso).toLocaleDateString('he-IL',{day:'numeric',month:'long',year:'numeric'}); }catch(e){ return ''; } }
   function loadPosts(){
-    var url = SUPABASE_URL + '/rest/v1/linkedin_posts?tenant_id=eq.' + TENANT_ID + '&is_visible=eq.true&order=display_order.asc,published_at.desc.nullslast&select=id,author,post_url,title,excerpt,image_url,published_at';
+    var url = SUPABASE_URL + '/rest/v1/linkedin_posts?tenant_id=eq.' + TENANT_ID + '&is_visible=eq.true&order=is_featured.desc,display_order.asc,published_at.desc.nullslast&select=id,author,post_url,title,excerpt,image_url,published_at,is_featured,is_new';
     return fetch(url, { headers: { 'apikey':SUPABASE_ANON_KEY, 'Authorization':'Bearer '+SUPABASE_ANON_KEY } })
       .then(function(res){ if(!res.ok) throw new Error('HTTP '+res.status); return res.json(); });
   }
@@ -1199,7 +1270,10 @@ document.getElementById('legalPopup').addEventListener('click', function(e){ if(
     var dateStr = formatDate(post.published_at);
     var authorName = AUTHOR_LABELS[post.author] || '';
     var initials = AUTHOR_INITIALS[post.author] || '';
-    return '<a href="'+escapeHtml(post.post_url)+'" target="_blank" rel="noopener noreferrer" class="linkedin-card" role="listitem" aria-label="'+escapeHtml(post.title)+' — פתיחה בלינקדאין">'+img+
+    var featCls = post.is_featured ? ' linkedin-card--featured' : '';
+    var badge = post.is_featured ? '<span class="linkedin-card-badge">⭐ מומלץ</span>' : '';
+    var newBadge = post.is_new ? '<span class="linkedin-card-badge linkedin-card-badge--new">חדש</span>' : '';
+    return '<a href="'+escapeHtml(post.post_url)+'" target="_blank" rel="noopener noreferrer" class="linkedin-card'+featCls+'" role="listitem" aria-label="'+escapeHtml(post.title)+' - פתיחה בלינקדאין">'+badge+newBadge+img+
       '<div class="linkedin-card-body"><div class="linkedin-card-meta"><div class="linkedin-author-avatar" aria-hidden="true">'+escapeHtml(initials)+'</div>'+
       '<div class="linkedin-author-info"><span class="linkedin-author-name">'+escapeHtml(authorName)+'</span>'+(dateStr?'<span class="linkedin-card-date">'+escapeHtml(dateStr)+'</span>':'')+'</div></div>'+
       '<h3 class="linkedin-card-title">'+escapeHtml(post.title)+'</h3>'+(post.excerpt?'<p class="linkedin-card-excerpt">'+escapeHtml(post.excerpt)+'</p>':'')+

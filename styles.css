@@ -29,6 +29,7 @@
 html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; font-size: 15px; }
 /* Lenis disables native smooth scroll once active */
 html.lenis, html.lenis body { height: auto; }
+html { overflow-x: clip; max-width: 100%; }
 .lenis.lenis-smooth { scroll-behavior: auto !important; }
 .lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
 .lenis.lenis-stopped { overflow: hidden; }
@@ -40,6 +41,8 @@ body {
   line-height: 1.7;
   font-weight: 400;
   overflow-x: hidden;
+  overflow-x: clip;
+  max-width: 100%;
   direction: rtl;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
@@ -113,13 +116,13 @@ button { font-family: inherit; cursor: pointer; }
 #navbar {
   position: fixed; inset-block-start: 0; inset-inline: 0; z-index: 1000;
   transition: background .45s var(--ease), box-shadow .45s var(--ease), padding .45s var(--ease);
-  padding-block: 1.4rem;
+  padding-block: 1.7rem;
 }
 #navbar.scrolled {
   background: rgba(255,255,255,.92);
   backdrop-filter: blur(14px);
   box-shadow: 0 1px 0 var(--line), 0 18px 40px -28px rgba(19,31,51,.5);
-  padding-block: .7rem;
+  padding-block: .95rem;
 }
 .nav-inner {
   width: 100%; max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad);
@@ -134,9 +137,9 @@ button { font-family: inherit; cursor: pointer; }
 #navbar.scrolled .nav-logo img { height: 46px; filter: none; }
 .nav-logo { display: inline-flex; align-items: center; }
 
-.nav-links { list-style: none; display: flex; align-items: center; gap: 2.1rem; }
+.nav-links { list-style: none; display: flex; align-items: center; gap: 2.6rem; }
 .nav-links a {
-  font-size: .95rem; font-weight: 500; color: #fff; position: relative; padding: .3rem 0;
+  font-size: 1.1rem; font-weight: 600; color: #fff; position: relative; padding: .3rem 0;
   transition: color .35s var(--ease);
 }
 .nav-links a::after {
@@ -147,7 +150,7 @@ button { font-family: inherit; cursor: pointer; }
 #navbar.scrolled .nav-links a { color: var(--ink); }
 .nav-links a.nav-cta {
   background: var(--gold); border: 1px solid var(--gold); color: #fff;
-  padding: .55rem 1.5rem; border-radius: 2px; font-weight: 600;
+  padding: .6rem 1.7rem; border-radius: 2px; font-weight: 600;
   box-shadow: 0 6px 18px -8px rgba(176,141,62,.75);
   transition: background .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease);
 }
@@ -327,7 +330,13 @@ button { font-family: inherit; cursor: pointer; }
 .svc:hover .svc-more { opacity: 1; transform: translateY(0); }
 
 /* Inactive "coming soon" service card (e.g. נחלות — pending dedicated page) */
-.svc-soon { cursor: default; }
+.svc-soon, .svc-static { cursor: default; }
+.svc-static::after { display: none; }
+.svc-static:hover { background: transparent; }
+.svc-static:hover .svc-num { color: var(--muted-2); }
+.svc-static:hover .svc-icon { color: var(--navy); }
+.svc-static:hover h3 { color: var(--ink); }
+.svc-static:hover p { color: var(--muted); }
 .svc-soon::after { display: none; }
 .svc-soon:hover { background: transparent; }
 .svc-soon:hover .svc-num { color: var(--muted-2); }
@@ -412,6 +421,41 @@ button { font-family: inherit; cursor: pointer; }
 .svc-visual.active { opacity: 1; transform: none; }
 .svc-visual-art { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; }
 .svc-visual-art svg { width: 100%; height: 100%; max-height: 300px; display: block; overflow: visible; }
+
+/* Photo variant: the real domain photo fills the whole navy panel, with the
+   caption laid over a gradient scrim at the bottom. A muted, brand-tinted
+   treatment keeps the photo feeling part of the navy/gold identity. */
+.svc-visual.has-photo { inset: 0; padding: 0; overflow: hidden; border-radius: 6px; }
+.svc-visual.has-photo .svc-visual-art { width: 100%; height: 100%; }
+.svc-visual .svc-photo {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+  filter: saturate(.8) brightness(.9) contrast(1.03);
+  transform: scale(1.04); transition: transform 1.2s var(--ease), filter .6s var(--ease);
+}
+/* Gentle push-in + slight warm-up on hover for a refined, editorial feel */
+.svc-visual.has-photo.active .svc-photo { transform: scale(1); filter: saturate(.9) brightness(.95) contrast(1.02); }
+/* Brand duotone wash over the photo (navy → gold), soft-light to stay subtle */
+.svc-visual.has-photo::before {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none;
+  background: linear-gradient(150deg, rgba(19,31,51,.55) 0%, rgba(28,52,97,.18) 48%, rgba(176,141,62,.22) 100%);
+  mix-blend-mode: soft-light;
+}
+/* Inner gold hairline frame + soft vignette to focus the eye */
+.svc-visual.has-photo::after {
+  content: ""; position: absolute; inset: 0; z-index: 1; pointer-events: none; border-radius: 6px;
+  box-shadow: inset 0 0 0 1px rgba(228,201,135,.30), inset 0 0 70px rgba(11,20,38,.42);
+}
+.svc-visual.has-photo .svc-visual-cap {
+  position: absolute; inset-inline: 0; inset-block-end: 0; z-index: 2;
+  padding: clamp(1.5rem,2.6vw,2.6rem);
+  background: linear-gradient(to top, rgba(11,20,38,.94) 0%, rgba(11,20,38,.55) 55%, rgba(11,20,38,0) 100%);
+}
+/* Thin gold rule above the caption, echoing the site's accent lines */
+.svc-visual.has-photo .svc-visual-cap::before {
+  content: ""; position: absolute; inset-block-start: 0; inset-inline: clamp(1.5rem,2.6vw,2.6rem);
+  height: 2px; background: linear-gradient(270deg, var(--gold-2), transparent);
+  opacity: .55;
+}
 .svc-visual-cap span {
   display: inline-flex; align-items: center; gap: .6rem;
   font-size: .68rem; font-weight: 700; letter-spacing: .18em; color: var(--gold-2);
@@ -454,6 +498,9 @@ button { font-family: inherit; cursor: pointer; }
   transition: transform .5s var(--ease), box-shadow .5s var(--ease);
 }
 .linkedin-card:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -40px rgba(19,31,51,.5); }
+.linkedin-card--featured { border-color: var(--gold); box-shadow: 0 20px 45px -30px rgba(191,155,74,.6); position: relative; }
+.linkedin-card-badge { position: absolute; top: .8rem; inset-inline-start: .8rem; z-index: 2; background: var(--gold); color: #fff; font-size: .72rem; font-weight: 700; padding: .25rem .6rem; border-radius: 999px; box-shadow: 0 4px 12px -4px rgba(191,155,74,.7); }
+.linkedin-card-badge--new { inset-inline-start: auto; inset-inline-end: .8rem; background: #16a34a; box-shadow: 0 4px 12px -4px rgba(22,163,74,.7); }
 .linkedin-card-img { aspect-ratio: 16/9; overflow: hidden; }
 .linkedin-card-img img { width: 100%; height: 100%; object-fit: cover; }
 .linkedin-card-body { padding: 1.5rem; display: flex; flex-direction: column; gap: .8rem; flex: 1; }
@@ -674,7 +721,7 @@ footer { background: var(--navy-2); color: #fff; padding-block: clamp(3rem,6vw,5
 }
 @media (max-width: 880px) {
   .nav-links {
-    position: fixed; inset: 0; inset-inline-start: auto; width: min(82vw, 360px);
+    position: fixed; top: 0; bottom: 0; right: 0; left: auto; width: min(82vw, 360px);
     background: var(--navy-2); flex-direction: column; align-items: flex-start; justify-content: center;
     padding: 4rem 2.5rem; gap: 1.6rem; transform: translateX(100%); transition: transform .5s var(--ease);
     box-shadow: -20px 0 60px -20px rgba(0,0,0,.5);
@@ -694,9 +741,11 @@ footer { background: var(--navy-2); color: #fff; padding-block: clamp(3rem,6vw,5
   .hero-side-label, .hero-scroll { display: none; }
 }
 @media (max-width: 560px) {
-  .services-grid { grid-template-columns: 1fr; }
+  .services-grid, .services-body .services-grid { grid-template-columns: 1fr; }
   .form-grid { grid-template-columns: 1fr; }
   .services-head, .footer-bottom { flex-direction: column; align-items: flex-start; }
   .hero-content { padding-top: 5rem; }
   .hero-title { font-size: clamp(2rem, 8.4vw, 2.8rem); max-width: 14ch; }
+  .hero-dots { gap: .35rem; flex-wrap: wrap; max-width: calc(100% - var(--pad) * 2); }
+  .hero-dots button { width: 18px; }
 }

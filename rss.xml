@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  פיד המאמרים של bor-miz.co.il
+  מוסיפים מאמר חדש כ-<item> חדש בראש הרשימה, ומעדכנים את lastBuildDate.
+  pubDate בפורמט RFC-822, למשל: Sat, 18 Oct 2026 09:00:00 +0300
+-->
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>מאמרים · בורוביץ מזרחי שמאות מקרקעין</title>
+    <link>https://bor-miz.co.il/maamarim.html</link>
+    <atom:link href="https://bor-miz.co.il/rss.xml" rel="self" type="application/rss+xml"/>
+    <description>מדריכים מקצועיים בשמאות מקרקעין: היטל השבחה, השגות על שומות רשות מקרקעי ישראל, התחדשות עירונית, תקן 21 ושמאות חקלאית.</description>
+    <language>he-il</language>
+    <copyright>© 2026 בורוביץ מזרחי שמאות מקרקעין וחקלאות בע"מ</copyright>
+    <lastBuildDate>Tue, 27 Oct 2026 09:00:00 +0300</lastBuildDate>
+
+    <item>
+      <title>מדריך מקיף: היטל השבחה, מימוש זכויות ודרכי השגה והפחתה</title>
+      <link>https://bor-miz.co.il/maamar-heitel-hashbacha-madrich.html</link>
+      <guid isPermaLink="true">https://bor-miz.co.il/maamar-heitel-hashbacha-madrich.html</guid>
+      <pubDate>Tue, 27 Oct 2026 09:00:00 +0300</pubDate>
+      <author>info@bor-miz.co.il (מאור מזרחי)</author>
+      <category>היטל השבחה</category>
+      <description>במדריך זה נפרט מהו היטל השבחה, מתי נוצרת החבות ומתי חלה חובת התשלום בפועל, אילו פטורים וקיזוזי הוצאות ניתן לדרוש, מהם המסלולים החוקיים המדויקים להגשת השגה, וכיצד משרדנו מלווה ומנהל את ההליך השמאי והמשפטי להפחתת השומה עד לתוצאה המיטבית.</description>
+    </item>
+
+  </channel>
+</rss>

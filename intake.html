@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>טופס איסוף פרטים | בורוביץ מזרחי שמאות מקרקעין</title>
+
+<!-- Link preview (WhatsApp / social) - restores the share card -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="בורוביץ מזרחי שמאות מקרקעין וחקלאות בע&quot;מ">
+<meta property="og:title" content="טופס פרטים לשומה">
+<meta property="og:description" content="בורוביץ מזרחי שמאות מקרקעין וחקלאות בע&quot;מ - מילוי פרטים להכנת השומה">
+<meta property="og:image" content="https://bor-miz.co.il/intake-share.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="בורוביץ מזרחי שמאות מקרקעין וחקלאות">
+<meta property="og:url" content="https://bor-miz.co.il/intake.html">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="טופס פרטים לשומה">
+<meta name="twitter:description" content="בורוביץ מזרחי שמאות מקרקעין וחקלאות בע&quot;מ">
+<meta name="twitter:image" content="https://bor-miz.co.il/intake-share.png">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ink:#131f33; --navy:#1c3461; --navy-2:#0f1c33; --gold:#b08d3e; --gold-2:#e4c987;
+  --cream:#f4f6fa; --muted:#56616f; --muted-2:#8a93a0; --line:rgba(19,31,51,.12);
+  --sans:"Heebo", system-ui, -apple-system, sans-serif; --ok:#0f8a5f; --err:#c0392b;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--ink);line-height:1.6;direction:rtl;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+img{max-width:100%;display:block}
+button{font-family:inherit;cursor:pointer}
+
+.page{display:grid;grid-template-columns:1fr 1.12fr;min-height:100vh;background:var(--cream)}
+
+/* ── HERO (right side in RTL) - office copy + photo ── */
+.hero{position:sticky;top:0;align-self:start;height:100vh;overflow:hidden;color:#fff;
+  display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;
+  padding:clamp(36px,4.5vw,64px) clamp(30px,4vw,58px);
+  background:linear-gradient(150deg, rgba(15,28,51,.90) 0%, rgba(28,52,97,.78) 55%, rgba(15,28,51,.82) 100%), url("slide6.jpg") center/cover no-repeat}
+.hero .logo{height:clamp(40px,4vw,52px);width:auto;object-fit:contain;filter:brightness(0) invert(1)}
+.hero-body{max-width:440px;display:flex;flex-direction:column;gap:clamp(14px,2vw,22px)}
+.hero-eyebrow{color:var(--gold-2);font-size:.82rem;font-weight:600;letter-spacing:.14em}
+.hero h2{font-size:clamp(1.9rem,3.2vw,2.8rem);font-weight:800;line-height:1.12;letter-spacing:-.02em}
+.hero h2 .g{color:var(--gold-2)}
+.hero-sub{font-size:clamp(.96rem,1.3vw,1.1rem);font-weight:300;line-height:1.65;color:rgba(255,255,255,.86)}
+.hero-feats{list-style:none;display:flex;flex-direction:column;gap:11px;margin-top:4px}
+.hero-feats li{display:flex;align-items:center;gap:11px;font-size:.96rem;color:rgba(255,255,255,.94)}
+.hero-feats .ck{flex:none;width:22px;height:22px;border-radius:50%;background:rgba(176,141,62,.95);display:grid;place-items:center}
+.hero-feats .ck svg{width:12px;height:12px}
+.hero-foot{font-size:.8rem;color:rgba(255,255,255,.72);line-height:1.5;display:flex;flex-direction:column;gap:4px}
+.hero-foot .hf-addr{color:rgba(255,255,255,.58);margin-bottom:3px}
+.hero-foot strong{color:#fff;font-weight:600}
+.hero-foot a{color:var(--gold-2);font-weight:500}
+
+/* ── FORM PANE (left) ── */
+.pane{display:flex;align-items:flex-start;justify-content:center;padding:clamp(26px,4.5vh,56px) clamp(18px,3vw,44px)}
+.card{width:100%;max-width:600px;background:#fff;border:1px solid var(--line);border-radius:16px;
+  box-shadow:0 24px 70px -34px rgba(8,16,33,.42);padding:clamp(22px,3vw,34px) clamp(20px,3vw,36px)}
+.card-head{margin-bottom:20px}
+.card-head h1{font-size:clamp(1.3rem,2.4vw,1.6rem);font-weight:800;color:var(--ink);letter-spacing:-.01em}
+.card-head p{color:var(--muted);font-size:.9rem;font-weight:300;margin-top:5px}
+
+.sec{margin-top:22px}
+.sec:first-of-type{margin-top:6px}
+.sec-label{display:flex;align-items:center;gap:11px;font-size:.73rem;font-weight:700;letter-spacing:.05em;color:var(--gold);margin-bottom:12px}
+.sec-label::after{content:"";flex:1;height:1px;background:var(--line)}
+.sec-label .hint{color:var(--muted-2);font-weight:400;letter-spacing:0}
+
+.field{display:flex;flex-direction:column;min-width:0}
+.field label{font-size:.74rem;font-weight:600;color:#56627a;margin-bottom:5px;white-space:nowrap}
+.field label .req{color:var(--gold)}
+.field label .nb{color:var(--muted-2);font-weight:400}
+.inp{width:100%;font-family:inherit;font-size:.9rem;color:var(--ink);background:#f6f8fb;border:1px solid var(--line);border-radius:9px;padding:9px 11px;transition:border-color .15s,background .15s,box-shadow .15s}
+.inp:focus{outline:none;border-color:var(--navy);background:#fff;box-shadow:0 0 0 3px rgba(28,52,97,.1)}
+.inp::placeholder{color:#a9b1bf}
+textarea.inp{min-height:62px;resize:vertical;line-height:1.5}
+select.inp{appearance:none;-webkit-appearance:none;cursor:pointer;padding-left:32px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='11' height='7' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%2356616f' stroke-width='1.7' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:left 11px center}
+
+/* one person = one row */
+.row{display:flex;gap:8px}
+.row .field{flex:1 1 0}
+.who .nm{flex:1.5}
+.who .em{flex:1.5}
+.g2 .field,.g3 .field{flex:1 1 0}
+@media(max-width:560px){.row{flex-wrap:wrap}.who .field,.g3 .field{flex:1 1 44%}}
+
+.idnote{font-size:.72rem;color:var(--muted-2);margin-top:7px}
+
+/* contacts: one row each */
+.crow{display:flex;gap:8px;align-items:center;margin-bottom:9px}
+.crow select,.crow input{font-family:inherit;font-size:.86rem;color:var(--ink);background:#f6f8fb;border:1px solid var(--line);border-radius:9px;padding:9px 10px;transition:border-color .15s,background .15s,box-shadow .15s;min-width:0}
+.crow select:focus,.crow input:focus{outline:none;border-color:var(--navy);background:#fff;box-shadow:0 0 0 3px rgba(28,52,97,.1)}
+.crow .ct-role{flex:0 0 110px;appearance:none;-webkit-appearance:none;cursor:pointer;padding-left:24px;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='6' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%2356616f' stroke-width='1.7' stroke-linecap='round'/></svg>");background-repeat:no-repeat;background-position:left 8px center}
+.crow .ct-name{flex:1.3 1 0}
+.crow .ct-phone{flex:1 1 0}
+.crow .ct-email{flex:1.3 1 0}
+.crow .rm{flex:0 0 auto;width:30px;height:30px;border:none;background:transparent;color:var(--muted-2);font-size:1.2rem;line-height:1;border-radius:8px;display:grid;place-items:center;transition:.15s}
+.crow .rm:hover{background:#fbe9e9;color:var(--err)}
+@media(max-width:600px){.crow{flex-wrap:wrap}.crow .ct-role{flex:1 1 96px}.crow .ct-name,.crow .ct-phone,.crow .ct-email{flex:1 1 120px}}
+.add-c{margin-top:2px;display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:#fff;color:var(--navy);font-weight:600;font-size:.88rem;padding:8px 15px;border-radius:9px;transition:.15s}
+.add-c:hover{border-color:var(--gold);color:var(--gold);background:#fffdf7}
+
+.submit{width:100%;margin-top:26px;border:none;border-radius:10px;background:var(--gold);color:#fff;font-weight:700;font-size:1.04rem;padding:14px;transition:background .2s,transform .15s}
+.submit:hover:not(:disabled){background:#a07c33;transform:translateY(-1px)}
+.submit:disabled{opacity:.6;cursor:default}
+.foot-note{text-align:center;color:var(--muted-2);font-size:.76rem;margin-top:11px;display:flex;align-items:center;justify-content:center;gap:6px}
+.foot-note svg{width:13px;height:13px}
+.form-err{display:none;margin-top:12px;color:var(--err);background:#fbeaea;border:1px solid #f1cdcd;padding:10px 14px;border-radius:9px;font-weight:600;font-size:.85rem;text-align:center}
+.consent{margin-top:20px;background:#f6f8fb;border:1px solid var(--line);border-radius:11px;padding:13px 15px}
+.consent-row{display:flex;align-items:flex-start;gap:10px;cursor:pointer;font-size:.79rem;color:var(--muted);line-height:1.55}
+.consent-row input{flex:none;width:17px;height:17px;margin-top:1px;accent-color:var(--navy);cursor:pointer}
+.consent-row strong{color:var(--ink);font-weight:600}
+.consent-note{margin-top:9px;padding-top:9px;border-top:1px solid var(--line);font-size:.71rem;color:var(--muted-2);display:flex;align-items:flex-start;gap:6px;line-height:1.5}
+.consent-note svg{width:12px;height:12px;flex:none;margin-top:2px}
+
+.state{padding:clamp(36px,7vw,60px) 10px;text-align:center}
+.spinner{width:38px;height:38px;margin:0 auto 16px;border-radius:50%;border:3px solid #e6ebf3;border-top-color:var(--navy);animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.state .ico{width:62px;height:62px;margin:0 auto 16px;border-radius:50%;display:grid;place-items:center}
+.state.ok .ico{background:#e3f4ec;color:var(--ok)}
+.state.bad .ico{background:#fbeaea;color:var(--err)}
+.state .ico svg{width:32px;height:32px}
+.state h2{font-weight:800;color:var(--ink);font-size:1.45rem;letter-spacing:-.01em;margin-bottom:8px}
+.state p{color:var(--muted);font-size:.96rem;max-width:380px;margin:0 auto}
+.state .office{margin-top:18px;font-size:.88rem;color:var(--navy);font-weight:600}
+.state .office a{color:var(--gold);font-weight:700}
+.hidden{display:none!important}
+.hp{position:absolute;left:auto;width:1px;height:1px;overflow:hidden}
+
+@media(max-width:900px){
+  .page{grid-template-columns:1fr}
+  .hero{position:static;height:auto;min-height:0;padding:30px 26px;flex-direction:column;gap:20px}
+  .hero-feats{display:none}
+  .hero-body{gap:12px}
+  .pane{padding:22px 14px 34px}
+}
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HERO -->
+  <aside class="hero">
+    <img src="logo-bm.png" alt="בורוביץ מזרחי" class="logo" id="brand-logo">
+    <div class="hero-body">
+      <h2>תודה <span class="g">שבחרתם בנו</span></h2>
+      <p class="hero-sub">בורוביץ מזרחי - ממשרדי השמאות המובילים בצפון. נשארו רק כמה פרטים קצרים כדי שנתחיל לעבוד על השומה שלכם, המילוי לוקח כדקה.</p>
+      <ul class="hero-feats">
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> שמאות מקרקעין והערכות שווי</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> היטלי השבחה והשגות על שומות רמ״י</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> שמאות חקלאית, נחלות ומשקים</li>
+        <li><span class="ck"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></span> ליווי אישי לאורך כל התהליך</li>
+      </ul>
+    </div>
+    <div class="hero-foot">
+      <p class="hf-addr">שדרות החרוב 6, פארק תעשיות בר-לב</p>
+      <p><strong>משרד</strong> · <a href="mailto:info@bor-miz.co.il" dir="ltr">info@bor-miz.co.il</a></p>
+      <p><strong>מאור מזרחי</strong> · <a href="tel:054-6559942" dir="ltr">054-6559942</a> · <a href="mailto:maor@bor-miz.co.il" dir="ltr">maor@bor-miz.co.il</a></p>
+      <p><strong>אמיר בורוביץ</strong> · <a href="tel:050-8922469" dir="ltr">050-8922469</a> · <a href="mailto:amir@bor-miz.co.il" dir="ltr">amir@bor-miz.co.il</a></p>
+    </div>
+  </aside>
+
+  <!-- FORM PANE -->
+  <main class="pane">
+    <div class="card">
+
+      <div class="state" id="loading"><div class="spinner"></div><p style="color:var(--muted)">טוען…</p></div>
+
+      <div class="state bad hidden" id="error-state">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v6M12 17h.01" stroke-linecap="round"/></svg></div>
+        <h2>הקישור אינו זמין</h2>
+        <p id="error-msg">ייתכן שהטופס כבר מולא או שתוקף הקישור פג.</p>
+        <p class="office">לקבלת קישור חדש: <a href="tel:0546559942" dir="ltr">054-6559942</a></p>
+      </div>
+
+      <div class="state ok hidden" id="success-state">
+        <div class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6L9 17l-5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+        <h2>קיבלנו את הפרטים, תודה!</h2>
+        <p>הפרטים נשלחו למשרד בורוביץ מזרחי - שמאות מקרקעין וחקלאות בע"מ. ניצור איתכם קשר בהקדם להמשך הטיפול בשומה.</p>
+        <p class="office">לכל שאלה: <a href="tel:0546559942" dir="ltr">054-6559942</a></p>
+      </div>
+
+      <form class="hidden" id="intake-form" autocomplete="on" novalidate>
+        <div class="card-head"><h1>פרטים להכנת השומה</h1><p>מלאו את הפרטים שלכם ונתחיל לעבוד</p></div>
+        <div class="hp"><label>אל תמלאו<input type="text" id="hp-field" tabindex="-1" autocomplete="off"></label></div>
+
+        <div class="sec">
+          <div class="sec-label">מבקש השומה</div>
+          <div class="row who">
+            <div class="field nm"><label>שם מלא <span class="req">*</span></label><input class="inp" type="text" id="c-name" placeholder="שם פרטי ומשפחה"></div>
+            <div class="field"><label>ת.ז. / ח.פ</label><input class="inp" type="text" id="c-id" dir="ltr" inputmode="numeric" placeholder="ת.ז. / ח.פ"></div>
+            <div class="field"><label>טלפון <span class="req">*</span></label><input class="inp" type="tel" id="c-phone" dir="ltr" inputmode="tel" placeholder="050-0000000"></div>
+            <div class="field em"><label>דוא״ל</label><input class="inp" type="email" id="c-email" dir="ltr" inputmode="email" placeholder="email@example.com"></div>
+          </div>
+          <div class="idnote">ת.ז. / ח.פ נדרשת להפקת חשבונית מס.</div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-label">אנשי קשר נוספים <span class="hint">· מתווך, עו״ד, בעלים נוספים</span></div>
+          <div id="contacts-list"></div>
+          <button type="button" class="add-c" id="add-contact">＋ הוסף איש קשר</button>
+        </div>
+
+        <div class="sec">
+          <div class="sec-label">פרטי הנכס</div>
+          <div class="row g2" style="margin-bottom:9px">
+            <div class="field"><label>עיר / יישוב</label><input class="inp" type="text" id="p-city" placeholder="עיר"></div>
+            <div class="field"><label>רחוב ומספר</label><input class="inp" type="text" id="p-street" placeholder="שם הרחוב ומספר"></div>
+          </div>
+          <div class="row g3">
+            <div class="field"><label>גוש</label><input class="inp" type="text" id="p-block" dir="ltr" inputmode="numeric" placeholder="גוש"></div>
+            <div class="field"><label>חלקה</label><input class="inp" type="text" id="p-parcel" dir="ltr" inputmode="numeric" placeholder="חלקה"></div>
+            <div class="field"><label>תת חלקה</label><input class="inp" type="text" id="p-sub" dir="ltr" inputmode="numeric" placeholder="תת חלקה"></div>
+          </div>
+        </div>
+
+        <div class="sec">
+          <div class="sec-label">פרטים נוספים</div>
+          <div class="row g2" style="margin-bottom:9px">
+            <div class="field"><label>מטרת השומה</label><select class="inp" id="purpose"><option value="">- בחרו מטרה -</option></select></div>
+            <div class="field"><label>איך הגעת אלינו</label><select class="inp" id="source"><option value="">- בחרו -</option></select></div>
+          </div>
+          <div class="row g2" style="margin-bottom:9px">
+            <div class="field"><label>איש קשר לתיאום ביקור</label><input class="inp" type="text" id="v-cname" placeholder="שם (אם שונה ממך)"></div>
+            <div class="field"><label>טלפון לתיאום ביקור</label><input class="inp" type="tel" id="v-cphone" dir="ltr" inputmode="tel" placeholder="050-0000000"></div>
+          </div>
+          <div class="field"><label>הערה חופשית</label><textarea class="inp" id="note" placeholder="כל מידע נוסף שיעזור לנו - הוראות הגעה, פרטים על הנכס, בקשות מיוחדות…"></textarea></div>
+        </div>
+
+        <div class="consent">
+          <label class="consent-row">
+            <input type="checkbox" id="consent-cb">
+            <span>קראתי ואני מסכים/ה ש<strong>בורוביץ מזרחי שמאות מקרקעין</strong> ישמרו ויעבדו את הפרטים שמסרתי, לצורך יצירת קשר ומתן שירותי שמאות בלבד. הפרטים לא יועברו לצד שלישי, וניתן לפנות למשרד בכל עת לעיון או מחיקה.</span>
+          </label>
+          <p class="consent-note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" stroke-linejoin="round"/></svg> החיבור מאובטח והפרטים (לרבות נתוני אבטחה בסיסיים) נשמרים אצל המשרד בלבד - ללא עוגיות מעקב.</p>
+        </div>
+
+        <button type="submit" class="submit" id="submit-btn">שליחת הפרטים</button>
+        <div class="form-err" id="form-err"></div>
+      </form>
+    </div>
+  </main>
+</div>
+
+<!-- PDF generation (client-side receipt of the submitted form) -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+<script>
+(function(){
+  "use strict";
+  var EDGE='https://nurgknexilxaxxovdbco.supabase.co/functions/v1/intake-submission';
+  var ROLES=['בעל הזכויות','רוכש','עו"ד','מתווך','אדריכל','קבלן','שמאי מכריע','בנק / מממן','נציג לביקור','אחר'];
+  var PURPOSES=['שווי שוק','בנק','שומה מוקדמת','שומה חקלאית','השגה','היטל השבחה','אומדן עלויות בניה','ירידת ערך','כדאיות כלכלית','איחוד וחלוקה','כונס נכסים','אומדן דמי שכירות ראויים','אחר'];
+  var SOURCES=['המלצה','אתר אינטרנט','פייסבוק','אינסטגרם','גוגל','לקוח חוזר','יד2','מדלן','לינקדאין','אחר'];
+  var $=function(id){return document.getElementById(id);};
+  var token=new URLSearchParams(location.search).get('token');
+  var formShownAt=Date.now(); // time-trap baseline (bots submit near-instantly)
+
+  PURPOSES.forEach(function(p){var o=document.createElement('option');o.value=p;o.textContent=p;$('purpose').appendChild(o);});
+  SOURCES.forEach(function(s){var o=document.createElement('option');o.value=s;o.textContent=s;$('source').appendChild(o);});
+
+  function roleOptions(sel){return ROLES.map(function(r){return '<option value="'+r+'"'+(r===sel?' selected':'')+'>'+r+'</option>';}).join('');}
+  function addContact(preset){
+    preset=preset||{};
+    var row=document.createElement('div');row.className='crow';
+    row.innerHTML='<select class="ct-role">'+roleOptions(preset.role||'מתווך')+'</select>'+
+      '<input class="ct-name" placeholder="שם" value="'+(preset.name||'')+'">'+
+      '<input class="ct-phone" dir="ltr" placeholder="טלפון" value="'+(preset.phone||'')+'">'+
+      '<input class="ct-email" dir="ltr" placeholder="מייל" value="'+(preset.email||'')+'">'+
+      '<button type="button" class="rm" aria-label="הסר">×</button>';
+    row.querySelector('.rm').addEventListener('click',function(){row.remove();});
+    $('contacts-list').appendChild(row);
+  }
+  $('add-contact').addEventListener('click',function(){addContact();});
+
+  function showError(msg){
+    $('loading').classList.add('hidden');$('intake-form').classList.add('hidden');
+    if(msg)$('error-msg').textContent=msg;
+    $('error-state').classList.remove('hidden');
+  }
+
+  var isPreview=!token&&(location.protocol==='file:'||/^(localhost|127\.0\.0\.1|\[::1\])$/.test(location.hostname));
+  if(isPreview){
+    window.__intakePreview=true;addContact();
+    $('loading').classList.add('hidden');$('intake-form').classList.remove('hidden');return;
+  }
+  if(!token){showError('הקישור חסר מזהה. ודאו שפתחתם את הקישור המלא שקיבלתם.');return;}
+
+  fetch(EDGE,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'lookup',token:token})})
+    .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
+    .then(function(res){
+      if(!res.ok||!res.d.ok){return showError(res.d&&res.d.error);}
+      var d=res.d;
+      if(d.branding&&d.branding.logo_url)$('brand-logo').src=d.branding.logo_url;
+      var pf=d.prefill||{};
+      if(pf.client_name)$('c-name').value=pf.client_name;
+      if(pf.city)$('p-city').value=pf.city;
+      if(pf.street)$('p-street').value=pf.street;
+      if(pf.block)$('p-block').value=pf.block;
+      if(pf.parcel)$('p-parcel').value=pf.parcel;
+      addContact();
+      $('loading').classList.add('hidden');$('intake-form').classList.remove('hidden');
+    })
+    .catch(function(){showError('אירעה תקלה בטעינת הטופס. נסו לרענן את הדף.');});
+
+  function val(id){var e=$(id);return e?e.value.trim():'';}
+
+  // ── PDF receipt of the submitted form ──────────────────────────────────────
+  function escHtml(s){return String(s==null?'':s).replace(/[&<>]/g,function(c){return({'&':'&amp;','<':'&lt;','>':'&gt;'})[c];});}
+
+  // Build an offscreen, print-styled node mirroring the form, from the values
+  // the client entered. html2canvas rasterises it → Hebrew/RTL come out exactly
+  // as rendered (no font-embedding headaches).
+  function buildReceiptNode(sections, meta){
+    function rowsHtml(rows){
+      return rows.filter(function(r){return r.v;}).map(function(r){
+        return '<tr><td style="padding:7px 14px;color:#64748b;font-size:13px;white-space:nowrap;vertical-align:top;width:150px">'+escHtml(r.k)+'</td>'+
+               '<td style="padding:7px 14px;color:#0f2038;font-size:14px;font-weight:600;white-space:pre-wrap">'+escHtml(r.v)+'</td></tr>';
+      }).join('');
+    }
+    var secHtml=sections.filter(function(s){return s.rows.filter(function(r){return r.v;}).length;}).map(function(s){
+      return '<div style="margin-bottom:16px"><div style="font-size:13px;font-weight:800;color:#1c3461;border-bottom:2px solid #eef2f7;padding-bottom:5px;margin-bottom:4px">'+escHtml(s.title)+'</div>'+
+             '<table style="width:100%;border-collapse:collapse">'+rowsHtml(s.rows)+'</table></div>';
+    }).join('');
+    var wrap=document.createElement('div');
+    wrap.style.cssText='position:fixed;left:-99999px;top:0;width:720px;background:#fff;direction:rtl;font-family:Heebo,Assistant,Arial,sans-serif;color:#0f2038';
+    wrap.innerHTML=
+      '<div style="background:#12233f;padding:22px 28px;display:flex;align-items:center;justify-content:space-between">'+
+        '<div><div style="color:#fff;font-size:19px;font-weight:800">בורוביץ מזרחי · שמאות מקרקעין</div>'+
+        '<div style="color:#c9d6ea;font-size:13px;margin-top:2px">פרטים להכנת השומה - עותק לתיעוד</div></div>'+
+        (meta.logo?'<img src="'+escHtml(meta.logo)+'" crossorigin="anonymous" style="height:42px;filter:brightness(0) invert(1)">':'')+
+      '</div>'+
+      '<div style="padding:24px 28px">'+secHtml+
+      '<div style="margin-top:18px;border-top:1px solid #eef2f7;padding-top:10px;color:#94a3b8;font-size:12px">נשלח דרך טופס איסוף הפרטים · '+escHtml(meta.date)+'</div></div>';
+    return wrap;
+  }
+
+  // Returns {doc, base64} or null (never throws - PDF is best-effort).
+  function generatePdf(sections, meta){
+    return new Promise(function(resolve){
+      try{
+        if(!window.html2canvas||!window.jspdf){resolve(null);return;}
+        var node=buildReceiptNode(sections,meta);
+        document.body.appendChild(node);
+        window.html2canvas(node,{scale:2,backgroundColor:'#ffffff',useCORS:true}).then(function(canvas){
+          try{document.body.removeChild(node);}catch(_){}
+          var JsPDF=window.jspdf.jsPDF;
+          var pdf=new JsPDF('p','mm','a4');
+          var pw=pdf.internal.pageSize.getWidth(), ph=pdf.internal.pageSize.getHeight();
+          var imgW=pw, imgH=canvas.height*pw/canvas.width;
+          var img=canvas.toDataURL('image/jpeg',0.92);
+          if(imgH<=ph){pdf.addImage(img,'JPEG',0,0,imgW,imgH);}
+          else{var pos=0,remaining=imgH;while(remaining>0){pdf.addImage(img,'JPEG',0,pos,imgW,imgH);remaining-=ph;if(remaining>0){pdf.addPage();pos-=ph;}}}
+          var base64=pdf.output('datauristring').split(',')[1];
+          resolve({doc:pdf,base64:base64});
+        }).catch(function(){try{document.body.removeChild(node);}catch(_){}resolve(null);});
+      }catch(_){resolve(null);}
+    });
+  }
+
+  $('intake-form').addEventListener('submit',function(e){
+    e.preventDefault();
+    if($('hp-field').value){return;}
+    var name=val('c-name'),phone=val('c-phone');var errEl=$('form-err');
+    if(!name||!phone){errEl.style.display='block';errEl.textContent='נא למלא שם וטלפון של מבקש השומה.';$('c-name').focus();return;}
+    if(!$('consent-cb').checked){errEl.style.display='block';errEl.textContent='יש לאשר את שמירת הפרטים כדי שנוכל ליצור קשר.';try{$('consent-cb').focus();}catch(_){}return;}
+    errEl.style.display='none';
+
+    if(window.__intakePreview){
+      $('intake-form').classList.add('hidden');$('success-state').classList.remove('hidden');
+      window.scrollTo({top:0,behavior:'smooth'});return;
+    }
+
+    var contacts=[];
+    $('contacts-list').querySelectorAll('.crow').forEach(function(row){
+      var nm=row.querySelector('.ct-name').value.trim();
+      var ph=row.querySelector('.ct-phone').value.trim();
+      var em=row.querySelector('.ct-email').value.trim();
+      if(!nm&&!ph&&!em)return;
+      contacts.push({role:row.querySelector('.ct-role').value,name:nm,phone:ph,email:em});
+    });
+
+    var payload={action:'submit',token:token,
+      client:{name:name,phone:phone,email:val('c-email'),id_number:val('c-id')},
+      property:{city:val('p-city'),street:val('p-street'),block:val('p-block'),parcel:val('p-parcel'),sub_parcel:val('p-sub')},
+      purpose:val('purpose'),
+      lead_source:val('source'),
+      visit:{date:'',time:'',contact_name:val('v-cname'),contact_phone:val('v-cphone')},
+      note:val('note'),contacts:contacts,
+      _hp:$('hp-field').value,elapsed_ms:(Date.now()-formShownAt),consent:true};
+
+    // Compose the PDF receipt from the entered values (same layout as the form).
+    // One row per additional contact: role in the (nowrap) label column, so
+    // labels like עו"ד stay whole and aligned instead of wrapping mid-string.
+    var contactRows=contacts.map(function(c){
+      return {k:(c.role||'איש קשר'),v:[c.name,c.phone,c.email].filter(Boolean).join(' · ')};
+    }).filter(function(r){return r.v;});
+    var pdfSections=[
+      {title:'מבקש השומה',rows:[{k:'שם מלא',v:name},{k:'ת.ז. / ח.פ',v:val('c-id')},{k:'טלפון',v:phone},{k:'דוא״ל',v:val('c-email')}]},
+      {title:'אנשי קשר נוספים',rows:contactRows},
+      {title:'פרטי הנכס',rows:[{k:'עיר / יישוב',v:val('p-city')},{k:'רחוב ומספר',v:val('p-street')},{k:'גוש',v:val('p-block')},{k:'חלקה',v:val('p-parcel')},{k:'תת חלקה',v:val('p-sub')}]},
+      {title:'פרטים נוספים',rows:[{k:'מטרת השומה',v:val('purpose')},{k:'איך הגעת אלינו',v:val('source')},{k:'איש קשר לתיאום ביקור',v:val('v-cname')},{k:'טלפון לתיאום ביקור',v:val('v-cphone')},{k:'הערה',v:val('note')}]}
+    ];
+    var pdfMeta={logo:($('brand-logo')?$('brand-logo').src:''),date:new Date().toLocaleDateString('he-IL',{day:'numeric',month:'long',year:'numeric'})};
+    var pdfName='פרטי שומה - '+name.replace(/[\\/:*?"<>|]/g,'').slice(0,40)+'.pdf';
+
+    var btn=$('submit-btn');btn.disabled=true;btn.textContent='שולח…';
+    generatePdf(pdfSections,pdfMeta).then(function(pdf){
+      if(pdf){payload.pdf_base64=pdf.base64;payload.pdf_filename=pdfName;}
+      return fetch(EDGE,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(payload)})
+        .then(function(r){return r.json().then(function(d){return {ok:r.ok,d:d};});})
+        .then(function(res){
+          if(!res.ok||!res.d.ok){throw new Error(res.d&&res.d.error||'שגיאה בשליחה');}
+          try{window.dataLayer=window.dataLayer||[];window.dataLayer.push({event:'intake_submitted'});}catch(_){}
+          if(pdf){try{pdf.doc.save(pdfName);}catch(_){}}
+          $('intake-form').classList.add('hidden');$('success-state').classList.remove('hidden');
+          window.scrollTo({top:0,behavior:'smooth'});
+        });
+    })
+      .catch(function(err){
+        errEl.style.display='block';errEl.textContent=(err&&err.message)?err.message:'אירעה שגיאה. נסו שוב.';
+        btn.disabled=false;btn.textContent='שליחת הפרטים';
+      });
+  });
+})();
+</script>
+</body>
+</html>

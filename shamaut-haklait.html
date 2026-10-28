@@ -1,43 +1,70 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<!-- ===== GOOGLE TAG MANAGER ===== -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-XXXXXXX');</script>
+<!-- ===== GOOGLE ANALYTICS 4 (gtag.js) =====
+     Property "bor-miz.co.il", measurement ID G-GYNQPGPR33 - installed 2026-09-08,
+     replacing a Tag Manager placeholder that never had a container behind it.
+     The bridge below turns the site's existing dataLayer.push({event:'...'}) calls
+     (generate_lead / contact_whatsapp / contact_phone / intake_submitted) into GA4
+     events, so every call site elsewhere in the site stays untouched. -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-GYNQPGPR33"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'G-GYNQPGPR33');
+  (function(){
+    // gtag() itself pushes an arguments object, which has no .event key - so this
+    // never recurses on its own output.
+    var push = window.dataLayer.push;
+    window.dataLayer.push = function(){
+      for (var i = 0; i < arguments.length; i++) {
+        var o = arguments[i];
+        if (o && typeof o.event === 'string') {
+          var params = {};
+          for (var k in o) {
+            if (k !== 'event' && Object.prototype.hasOwnProperty.call(o, k)) params[k] = o[k];
+          }
+          gtag('event', o.event, params);
+        }
+      }
+      return push.apply(window.dataLayer, arguments);
+    };
+  })();
+</script>
+<!-- ===== END GOOGLE ANALYTICS 4 ===== -->
 
-<title>שמאות חקלאית — הערכת נזקי טבע לגידולים ופיצויים | בורוביץ מזרחי</title>
-<meta name="description" content="ספגתם נזק לגידולים או לקרקע חקלאית — ברד, קרה, שיטפון, פלישה לשטח או תפיסת קרקע? אנחנו מעריכים את הנזק החקלאי בשטח ומלווים אתכם מול חברות הביטוח וקרנות הפיצוי כדי שתקבלו את הפיצוי המלא שמגיע לכם. שמאי חקלאי מומחה מטעם בתי משפט.">
+<title>שמאות חקלאית - הערכת נזקי טבע לגידולים ופיצויים | בורוביץ מזרחי</title>
+<meta name="description" content="ספגתם נזק לגידולים או לקרקע חקלאית - ברד, קרה, שיטפון, פלישה לשטח או תפיסת קרקע? אנחנו מעריכים את הנזק החקלאי בשטח ומלווים אתכם מול חברות הביטוח וקרנות הפיצוי כדי שתקבלו את הפיצוי המלא שמגיע לכם. שמאי חקלאי מומחה מטעם בתי משפט.">
 <meta name="keywords" content="שמאות חקלאית, שמאי חקלאי, נזקי טבע בחקלאות, נזקי גידולים, ברד, קרה, שיטפון, יובש, פלישה לקרקע חקלאית, תפיסת מקרקעין, צו תפיסה, פיצויים חקלאיים, מטעים, חממות, נזקי מזג אוויר, צפון">
-<link rel="canonical" href="https://www.bor-miz.com/shamaut-haklait.html">
+<meta name="robots" content="noindex,nofollow">
+<link rel="canonical" href="https://bor-miz.co.il/shamaut-haklait.html">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://www.bor-miz.com/shamaut-haklait.html">
-<meta property="og:title" content="שמאות חקלאית — הערכת נזקי טבע ופיצויים | בורוביץ מזרחי">
+<meta property="og:url" content="https://bor-miz.co.il/shamaut-haklait.html">
+<meta property="og:title" content="שמאות חקלאית - הערכת נזקי טבע ופיצויים | בורוביץ מזרחי">
 <meta property="og:description" content="נזק לגידולים או לקרקע חקלאית? הערכת נזק חקלאי מקצועית בשטח וליווי מול חברות הביטוח וקרנות הפיצוי לפיצוי מלא.">
-<meta property="og:image" content="https://www.bor-miz.com/image_2.png">
+<meta property="og:image" content="https://bor-miz.co.il/image_2.png">
 <meta property="og:locale" content="he_IL">
 
 <script type="application/ld+json">
 {
   "@context": "https://schema.org", "@type": "Service",
-  "name": "שמאות חקלאית — הערכת נזקי טבע לגידולים ופיצויים",
-  "serviceType": "שמאות חקלאית — נזקי טבע",
+  "name": "שמאות חקלאית - הערכת נזקי טבע לגידולים ופיצויים",
+  "serviceType": "שמאות חקלאית - נזקי טבע",
   "provider": { "@type": "LocalBusiness", "name": "בורוביץ מזרחי שמאות מקרקעין וחקלאות בע\"מ", "telephone": "+972-50-8922469", "areaServed": "צפון" },
-  "url": "https://www.bor-miz.com/shamaut-haklait.html"
+  "url": "https://bor-miz.co.il/shamaut-haklait.html"
 }
 </script>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org", "@type": "BreadcrumbList",
   "itemListElement": [
-    {"@type": "ListItem", "position": 1, "name": "ראשי", "item": "https://www.bor-miz.com/"},
-    {"@type": "ListItem", "position": 2, "name": "תחומי התמחות", "item": "https://www.bor-miz.com/#services"},
-    {"@type": "ListItem", "position": 3, "name": "שמאות חקלאית", "item": "https://www.bor-miz.com/shamaut-haklait.html"}
+    {"@type": "ListItem", "position": 1, "name": "ראשי", "item": "https://bor-miz.co.il/"},
+    {"@type": "ListItem", "position": 2, "name": "תחומי התמחות", "item": "https://bor-miz.co.il/#services"},
+    {"@type": "ListItem", "position": 3, "name": "שמאות חקלאית", "item": "https://bor-miz.co.il/shamaut-haklait.html"}
   ]
 }
 </script>
@@ -45,10 +72,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 {
   "@context": "https://schema.org", "@type": "FAQPage",
   "mainEntity": [
-    {"@type": "Question", "name": "אילו נזקים אתם מעריכים?", "acceptedAnswer": {"@type": "Answer", "text": "אנחנו מעריכים נזק לגידולים, לבעלי חיים ולקרקע חקלאית — מאירועי טבע (ברד, קרה, שיטפון, סופה, יובש), וגם מפלישה לשטח חקלאי ומתפיסת קרקע בצו תפיסה (צו אלוף). ההערכה מבוססת על ביקור בשטח, ניתוח חקלאי-כלכלי ותיעוד מסודר התומך בתביעת הפיצוי."}},
-    {"@type": "Question", "name": "אתם עובדים מטעם החקלאי או מטעם המבטח?", "acceptedAnswer": {"@type": "Answer", "text": "אנחנו שמאים חקלאיים עצמאיים שעומדים לצד החקלאי. מעריכים את הנזק בשטח באופן בלתי תלוי, מתעדים ומכמתים — ומלווים אתכם מול חברות הביטוח וקרנות הפיצוי, כולל בדיקה אם הפיצוי שהוצע הוגן וכתיבת חוות דעת נגדית בעת הצורך."}},
-    {"@type": "Question", "name": "כיצד מחושב גובה הנזק לגידולים?", "acceptedAnswer": {"@type": "Answer", "text": "האומדן מתחשב בסוג הגידול והענף, בשלב הגידול שבו אירע הנזק, בהיקף הפגיעה, ביבול ובהכנסה הצפויים ובעלויות שנחסכו. ביקור מהיר בשטח ותיעוד מקצועי הם קריטיים — ככל שמתעדים מוקדם ומדויק יותר, כך הפיצוי מבוסס וגבוה יותר."}},
-    {"@type": "Question", "name": "אילו ענפים אתם מכסים?", "acceptedAnswer": {"@type": "Answer", "text": "את כל ענפי החקלאות: מטעים (אבוקדו, הדרים, זיתים, גפן יין, בננות), ירקות ופירות, פלחה וגידולי שדה, כותנה וצמחי נוי; ענפי החי — בקר, צאן, מדגה, לול ודבש דבורים; וכן חממות, בתי צמיחה ומשתלות."}}
+    {"@type": "Question", "name": "אילו נזקים אתם מעריכים?", "acceptedAnswer": {"@type": "Answer", "text": "אנחנו מעריכים נזק לגידולים, לבעלי חיים ולקרקע חקלאית - מאירועי טבע (ברד, קרה, שיטפון, סופה, יובש), וגם מפלישה לשטח חקלאי ומתפיסת קרקע בצו תפיסה (צו אלוף). ההערכה מבוססת על ביקור בשטח, ניתוח חקלאי-כלכלי ותיעוד מסודר התומך בתביעת הפיצוי."}},
+    {"@type": "Question", "name": "אתם עובדים מטעם החקלאי או מטעם המבטח?", "acceptedAnswer": {"@type": "Answer", "text": "אנחנו שמאים חקלאיים עצמאיים שעומדים לצד החקלאי. מעריכים את הנזק בשטח באופן בלתי תלוי, מתעדים ומכמתים - ומלווים אתכם מול חברות הביטוח וקרנות הפיצוי, כולל בדיקה אם הפיצוי שהוצע הוגן וכתיבת חוות דעת נגדית בעת הצורך."}},
+    {"@type": "Question", "name": "כיצד מחושב גובה הנזק לגידולים?", "acceptedAnswer": {"@type": "Answer", "text": "האומדן מתחשב בסוג הגידול והענף, בשלב הגידול שבו אירע הנזק, בהיקף הפגיעה, ביבול ובהכנסה הצפויים ובעלויות שנחסכו. ביקור מהיר בשטח ותיעוד מקצועי הם קריטיים - ככל שמתעדים מוקדם ומדויק יותר, כך הפיצוי מבוסס וגבוה יותר."}},
+    {"@type": "Question", "name": "אילו ענפים אתם מכסים?", "acceptedAnswer": {"@type": "Answer", "text": "את כל ענפי החקלאות: מטעים (אבוקדו, הדרים, זיתים, גפן יין, בננות), ירקות ופירות, פלחה וגידולי שדה, כותנה וצמחי נוי; ענפי החי - בקר, צאן, מדגה, לול ודבש דבורים; וכן חממות, בתי צמיחה ומשתלות."}}
   ]
 }
 </script>
@@ -60,7 +87,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <link rel="stylesheet" href="page.css">
 </head>
 <body>
-<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXXX" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 <a href="#main-content" class="skip-to-content">דלג לתוכן הראשי</a>
 
@@ -70,6 +96,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html#about" onclick="closeMenu()">אודות</a></li>
       <li><a href="index.html#services" onclick="closeMenu()">תחומי התמחות</a></li>
+      <li><a href="maamarim.html" onclick="closeMenu()">מאמרים</a></li>
       <li><a href="index.html#linkedin-posts" onclick="closeMenu()">עדכונים</a></li>
       <li><a href="index.html#success" onclick="closeMenu()">מהשטח</a></li>
       <li><a href="careers.html" onclick="closeMenu()">קריירה</a></li>
@@ -85,14 +112,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <div class="sp-bg" style="background-image:url('slide10.jpg')"></div>
   <div class="sp-overlay"></div>
   <div class="sp-content">
-    <nav class="breadcrumb" aria-label="פירורי לחם">
-      <a href="index.html">ראשי</a><span class="sep">/</span>
-      <a href="index.html#services">תחומי התמחות</a><span class="sep">/</span>
-      <span>שמאות חקלאית</span>
-    </nav>
     <span class="eyebrow">תחום התמחות · נזקים ופיצויים בחקלאות</span>
-    <h1 class="sp-title">נזק לגידולים <span class="gold">או לקרקע?</span><br>נעריך אותו — ונדאג לפיצוי מלא</h1>
-    <p class="sp-sub">ברד, קרה ושיטפון — או פלישה לקרקע ותפיסת שטח — יכולים למחוק עונה שלמה ברגע. אנחנו שמאים חקלאיים שמעריכים את הנזק בשטח, באופן עצמאי ומקצועי, ומלווים אתכם עד שתקבלו את הפיצוי שבאמת מגיע לכם.</p>
+    <h1 class="sp-title">נזק לגידולים <span class="gold">או לקרקע?</span><br>נעריך אותו - ונדאג לפיצוי מלא</h1>
+    <p class="sp-sub">ברד, קרה ושיטפון - או פלישה לקרקע ותפיסת שטח - יכולים למחוק עונה שלמה ברגע. אנחנו שמאים חקלאיים שמעריכים את הנזק בשטח, באופן עצמאי ומקצועי, ומלווים אתכם עד שתקבלו את הפיצוי שבאמת מגיע לכם.</p>
     <div class="hero-actions">
       <a href="#lead" class="btn btn-gold">דיווח נזק ובדיקה מהירה <span class="arr">←</span></a>
       <a href="#how" class="btn btn-ghost">איך זה עובד</a>
@@ -103,9 +125,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 <section class="stat-strip">
   <div class="container" style="padding-inline:0;">
     <div class="stat-strip-inner">
-      <div class="stat reveal"><div class="num">100%</div><div class="label">מהפיצוי שמגיע לכם — זו המטרה</div></div>
+      <div class="stat reveal"><div class="num">100%</div><div class="label">מהפיצוי שמגיע לכם - זו המטרה</div></div>
       <div class="stat reveal reveal-d1"><div class="num">★</div><div class="label">שמאי חקלאי מומחה מטעם בתי משפט ובתי דין</div></div>
-      <div class="stat reveal reveal-d2"><div class="num">צפון</div><div class="label">מגיעים לשטח מהר — היכרות חקלאית מקרוב</div></div>
+      <div class="stat reveal reveal-d2"><div class="num">צפון</div><div class="label">מגיעים לשטח מהר - היכרות חקלאית מקרוב</div></div>
     </div>
   </div>
 </section>
@@ -119,9 +141,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <h2 class="section-title" style="margin-top:.8rem;">שמאות חקלאית זה עולם בפני עצמו</h2>
       </div>
       <div class="prose reveal reveal-d1">
-        <p>שמאות חקלאית היא <strong>לא</strong> שמאות מקרקעין. כאן לא מעריכים קירות ומ"ר — אלא <strong>גידול חי</strong>: מטע, שדה, חממה או עדר. צריך להבין עונתיות, שלבי גידול, יבול צפוי, הוצאות ותשואות — ולתרגם נזק לכסף.</p>
-        <p>אנחנו עוסקים בליבת העניין: <strong>הערכת הנזק החקלאי</strong> בשטח — בין שמקורו באסון טבע, בפלישה לקרקע או בתפיסת שטח. אנחנו עומדים לצידכם, החקלאים, ודואגים שהפיצוי ישקף את הנזק האמיתי — ושאף אחד לא יקבע אותו במקומכם.</p>
-        <div class="callout">השותף <strong>אמיר בורוביץ</strong> — מהנדס בוגר הטכניון ושמאי חקלאי, מומחה מטעם בתי משפט ובתי דין — מביא היכרות עמוקה של החקלאות בצפון. אנחנו מדברים את השפה של השדה, ושל ועדת הפיצויים.</div>
+        <p>שמאות חקלאית היא <strong>לא</strong> שמאות מקרקעין. כאן לא מעריכים קירות ומ"ר - אלא <strong>גידול חי</strong>: מטע, שדה, חממה או עדר. צריך להבין עונתיות, שלבי גידול, יבול צפוי, הוצאות ותשואות - ולתרגם נזק לכסף.</p>
+        <p>אנחנו עוסקים בליבת העניין: <strong>הערכת הנזק החקלאי</strong> בשטח - בין שמקורו באסון טבע, בפלישה לקרקע או בתפיסת שטח. אנחנו עומדים לצידכם, החקלאים, ודואגים שהפיצוי ישקף את הנזק האמיתי - ושאף אחד לא יקבע אותו במקומכם.</p>
+        <div class="callout">השותף <strong>אמיר בורוביץ</strong> - מהנדס בוגר הטכניון ושמאי חקלאי, מומחה מטעם בתי משפט ובתי דין - מביא היכרות עמוקה של החקלאות בצפון. אנחנו מדברים את השפה של השדה, ושל ועדת הפיצויים.</div>
       </div>
     </div>
   </div>
@@ -133,13 +155,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="sec-intro reveal">
       <span class="eyebrow">מה מעריכים</span>
       <h2 class="section-title">הנזקים שאנחנו מעריכים</h2>
-      <p>נזק לשדה ולמטע מגיע ממגוון מקורות — אסון טבע, פלישה לקרקע או תפיסת שטח. לכל אחד שיטת הערכה משלו, וכולם דורשים תיעוד מהיר ומדויק.</p>
+      <p>נזק לשדה ולמטע מגיע ממגוון מקורות - אסון טבע, פלישה לקרקע או תפיסת שטח. לכל אחד שיטת הערכה משלו, וכולם דורשים תיעוד מהיר ומדויק.</p>
     </div>
     <div class="values-grid reveal reveal-d1">
       <div class="value-card">
         <span class="v-num">❄</span>
         <h3>ברד וקרה</h3>
-        <p>הפוגעים הקלאסיים במטעים, בכרמים ובגידולי שדה — חבטות, שריפת קרה ופגיעה בפרי ובעלווה. נזק שצריך לתעד מיד.</p>
+        <p>הפוגעים הקלאסיים במטעים, בכרמים ובגידולי שדה - חבטות, שריפת קרה ופגיעה בפרי ובעלווה. נזק שצריך לתעד מיד.</p>
       </div>
       <div class="value-card">
         <span class="v-num">≈</span>
@@ -149,12 +171,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="value-card">
         <span class="v-num">🜂</span>
         <h3>סופות ורוחות</h3>
-        <p>עקירת עצים, קריסת מבני חממה, נשירת פרי ושבר ענפים — נזק ישיר ונזק עקיף לעונות הבאות.</p>
+        <p>עקירת עצים, קריסת מבני חממה, נשירת פרי ושבר ענפים - נזק ישיר ונזק עקיף לעונות הבאות.</p>
       </div>
       <div class="value-card">
         <span class="v-num">☀</span>
         <h3>יובש וגלי חום</h3>
-        <p>פגיעה ביבול ובאיכות עקב מחסור במים וטמפרטורות קיצון — נזק שדורש ניתוח חקלאי מדויק כדי לכמת.</p>
+        <p>פגיעה ביבול ובאיכות עקב מחסור במים וטמפרטורות קיצון - נזק שדורש ניתוח חקלאי מדויק כדי לכמת.</p>
       </div>
       <div class="value-card">
         <span class="v-num">✦</span>
@@ -164,17 +186,17 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="value-card">
         <span class="v-num">⚑</span>
         <h3>נזקי בעלי חיים ובר</h3>
-        <p>פגיעת חיות בר ובעלי חיים בגידולים — ונזקים בענפי החי עצמם. מתעדים, מכמתים ומבססים את התביעה.</p>
+        <p>פגיעת חיות בר ובעלי חיים בגידולים - ונזקים בענפי החי עצמם. מתעדים, מכמתים ומבססים את התביעה.</p>
       </div>
       <div class="value-card">
         <span class="v-num">⊘</span>
         <h3>פלישה לשטח חקלאי</h3>
-        <p>השתלטות, עיבוד או נטיעה של גורם זר בקרקע שלכם — ופגיעה בגידולים הקיימים. מתעדים את היקף הפלישה ואומדים את הנזק ואת עלות השבת השטח לקדמותו.</p>
+        <p>השתלטות, עיבוד או נטיעה של גורם זר בקרקע שלכם - ופגיעה בגידולים הקיימים. מתעדים את היקף הפלישה ואומדים את הנזק ואת עלות השבת השטח לקדמותו.</p>
       </div>
       <div class="value-card">
         <span class="v-num">§</span>
         <h3>תפיסת שטח בצו תפיסה</h3>
-        <p>תפיסת קרקע חקלאית לצרכים ביטחוניים בצו תפיסה (צו אלוף) — כפי שקרה רבות בתקופת המלחמה. אומדים את אובדן השימוש, הפגיעה ביבול ובהכנסה ואת דמי השימוש והפיצוי המגיעים לכם.</p>
+        <p>תפיסת קרקע חקלאית לצרכים ביטחוניים בצו תפיסה (צו אלוף) - כפי שקרה רבות בתקופת המלחמה. אומדים את אובדן השימוש, הפגיעה ביבול ובהכנסה ואת דמי השימוש והפיצוי המגיעים לכם.</p>
       </div>
     </div>
   </div>
@@ -187,14 +209,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="reveal">
         <span class="eyebrow">לאילו ענפים</span>
         <h2 class="section-title" style="margin-top:.8rem;">מכסים את כל ענפי החקלאות</h2>
-        <p class="lead" style="margin-top:1rem;">מהמטע ועד הלול — מכירים את הענף, את שלבי הגידול ואת מה שקובע את גובה הנזק.</p>
+        <p class="lead" style="margin-top:1rem;">מהמטע ועד הלול - מכירים את הענף, את שלבי הגידול ואת מה שקובע את גובה הנזק.</p>
       </div>
       <ul class="check-list reveal reveal-d1">
-        <li><strong>מטעים</strong> — אבוקדו, הדרים, זיתים, גפן יין, בננות</li>
-        <li><strong>ירקות ופירות</strong> — בשדה הפתוח ובחממה</li>
-        <li><strong>פלחה וגידולי שדה</strong> — חיטה, שעורה ועוד</li>
+        <li><strong>מטעים</strong> - אבוקדו, הדרים, זיתים, גפן יין, בננות</li>
+        <li><strong>ירקות ופירות</strong> - בשדה הפתוח ובחממה</li>
+        <li><strong>פלחה וגידולי שדה</strong> - חיטה, שעורה ועוד</li>
         <li><strong>כותנה וצמחי נוי</strong></li>
-        <li><strong>ענפי החי</strong> — בקר (בשר וחלב), צאן, מדגה, לול, דבש דבורים</li>
+        <li><strong>ענפי החי</strong> - בקר (בשר וחלב), צאן, מדגה, לול, דבש דבורים</li>
         <li><strong>חממות, בתי צמיחה ומשתלות</strong></li>
       </ul>
     </div>
@@ -207,13 +229,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="sec-intro reveal">
       <span class="eyebrow">איך זה עובד</span>
       <h2 class="section-title">מנזק לפיצוי, צעד אחר צעד</h2>
-      <p>זמן הוא קריטי. ככל שמתעדים את הנזק מהר ומדויק יותר — כך הפיצוי מבוסס וגבוה יותר.</p>
+      <p>זמן הוא קריטי. ככל שמתעדים את הנזק מהר ומדויק יותר - כך הפיצוי מבוסס וגבוה יותר.</p>
     </div>
     <div class="steps">
-      <div class="step reveal"><div class="step-num">1</div><div><h4>דיווח מהיר</h4><p>ספגתם נזק? צרו קשר מיד — בטלפון או בוואטסאפ. נבין מה קרה, באיזה ענף ובאיזה היקף, ונקבע ביקור דחוף.</p></div></div>
-      <div class="step reveal reveal-d1"><div class="step-num">2</div><div><h4>ביקור ותיעוד בשטח</h4><p>מגיעים לשדה, למטע או לחממה, בודקים את הפגיעה בפועל ומתעדים אותה בצורה מקצועית — בסיס איתן לתביעה.</p></div></div>
-      <div class="step reveal reveal-d2"><div class="step-num">3</div><div><h4>אומדן הנזק</h4><p>בונים הערכה חקלאית-כלכלית — לפי הענף, שלב הגידול, היבול הצפוי והעלויות שנחסכו — ומגישים חוות דעת מנומקת.</p></div></div>
-      <div class="step reveal reveal-d3"><div class="step-num">4</div><div><h4>ליווי עד הפיצוי</h4><p>מלווים אתכם מול חברות הביטוח וקרנות הפיצוי, בודקים אם הפיצוי שהוצע הוגן, ונאבקים על מלוא הסכום שמגיע לכם.</p></div></div>
+      <div class="step reveal"><div class="step-num">1</div><div><h4>דיווח מהיר</h4><p>ספגתם נזק? צרו קשר מיד - בטלפון או בוואטסאפ. נבין מה קרה, באיזה ענף ובאיזה היקף, ונקבע ביקור דחוף.</p></div></div>
+      <div class="step reveal reveal-d1"><div class="step-num">2</div><div><h4>ביקור ותיעוד בשטח</h4><p>מגיעים לשדה, למטע או לחממה, בודקים את הפגיעה בפועל ומתעדים אותה בצורה מקצועית - בסיס איתן לתביעה.</p></div></div>
+      <div class="step reveal reveal-d2"><div class="step-num">3</div><div><h4>אומדן הנזק</h4><p>בונים הערכה חקלאית-כלכלית - לפי הענף, שלב הגידול, היבול הצפוי והעלויות שנחסכו - ומגישים חוות דעת מנומקת.</p></div></div>
+      <div class="step reveal reveal-d3"><div class="step-num">4</div><div><h4>ליווי עד הפיצוי</h4><p>מלווים אתכם מול חברות הביטוח וקרנות הפיצוי, בודקים אם הפיצוי שהוצע הוגן, ונאבקים על מלוא הסכום שמגיע לכם. <a href="pitzuy-nezek-haklai.html">איך בונים את תביעת הפיצוי</a>.</p></div></div>
     </div>
   </div>
 </section>
@@ -224,23 +246,23 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="sec-intro reveal">
       <span class="eyebrow">למה אנחנו</span>
       <h2 class="section-title">שמאי שמבין גם בחקלאות וגם בכסף</h2>
-      <p>הערכת נזק חקלאי דורשת שילוב נדיר — ידע אגרונומי בשטח ויכולת לתרגם אותו לחוות דעת כלכלית שעומדת בכל מבחן.</p>
+      <p>הערכת נזק חקלאי דורשת שילוב נדיר - ידע אגרונומי בשטח ויכולת לתרגם אותו לחוות דעת כלכלית שעומדת בכל מבחן.</p>
     </div>
     <div class="feature-grid reveal reveal-d1">
       <div class="feature-card">
         <div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c4-4 6-7 6-11a6 6 0 00-12 0c0 4 2 7 6 11z"/><path d="M12 11v6"/></svg></div>
         <h3>הבנה חקלאית אמיתית</h3>
-        <p>מכירים גידולים, עונתיות ויבול — לא רק טבלאות. ההיכרות הזו היא ההבדל בין אומדן מדויק להערכה גסה.</p>
+        <p>מכירים גידולים, עונתיות ויבול - לא רק טבלאות. ההיכרות הזו היא ההבדל בין אומדן מדויק להערכה גסה.</p>
       </div>
       <div class="feature-card">
         <div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l9 4v6c0 5-3.5 7.5-9 9-5.5-1.5-9-4-9-9V7z"/><path d="M9 12l2 2 4-4"/></svg></div>
         <h3>חוות דעת שעומדת בלחץ</h3>
-        <p>תיעוד מסודר וחוות דעת מנומקת — קבילים מול חברות הביטוח, קרנות הפיצוי ובבית המשפט. כך מבססים פיצוי מלא.</p>
+        <p>תיעוד מסודר וחוות דעת מנומקת - קבילים מול חברות הביטוח, קרנות הפיצוי ובבית המשפט. כך מבססים פיצוי מלא.</p>
       </div>
       <div class="feature-card">
         <div class="fc-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg></div>
         <h3>מגיעים מהר</h3>
-        <p>בנזקי טבע כל יום קובע. אנחנו בצפון, מכירים את השטח, ומגיעים לתעד בזמן — לפני שהראיות נעלמות.</p>
+        <p>בנזקי טבע כל יום קובע. אנחנו בצפון, מכירים את השטח, ומגיעים לתעד בזמן - לפני שהראיות נעלמות.</p>
       </div>
     </div>
   </div>
@@ -253,7 +275,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="reveal">
         <span class="eyebrow">למי זה מתאים</span>
         <h2 class="section-title" style="margin-top:.8rem;">למי מיועדת השמאות החקלאית?</h2>
-        <p class="lead" style="margin-top:1rem;">לכל מי שפרנסתו צומחת מהאדמה — ונפגע מאירוע טבע.</p>
+        <p class="lead" style="margin-top:1rem;">לכל מי שפרנסתו צומחת מהאדמה - ונפגע מאירוע טבע.</p>
       </div>
       <ul class="check-list reveal reveal-d1">
         <li>חקלאים שספגו נזק לגידולים, למטע או לחממה</li>
@@ -276,10 +298,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <h2 class="section-title">מה חשוב לדעת</h2>
     </div>
     <div class="faq-list reveal reveal-d1">
-      <details class="faq-item"><summary>ספגתי נזק — מה לעשות קודם?</summary><div class="faq-body">לתעד ולהתקשר. <strong>אל תיגעו בגידול הפגוע ואל "תסדרו" את השטח</strong> לפני שמתעדים. צלמו, ופנו אלינו מיד — ככל שהתיעוד מוקדם ומקצועי יותר, כך הפיצוי מבוסס וגבוה יותר.</div></details>
-      <details class="faq-item"><summary>אתם עובדים מטעם החקלאי או מטעם המבטח?</summary><div class="faq-body">אנחנו שמאים חקלאיים <strong>עצמאיים</strong> שעומדים לצד החקלאי. מעריכים את הנזק בשטח באופן בלתי תלוי, מתעדים ומכמתים — ומלווים אתכם מול חברות הביטוח וקרנות הפיצוי, בודקים אם הפיצוי שהוצע הוגן, ובמידת הצורך מכינים חוות דעת נגדית ונאבקים על השלמתו.</div></details>
+      <details class="faq-item"><summary>ספגתי נזק - מה לעשות קודם?</summary><div class="faq-body">לתעד ולהתקשר. <strong>אל תיגעו בגידול הפגוע ואל "תסדרו" את השטח</strong> לפני שמתעדים. צלמו, ופנו אלינו מיד - ככל שהתיעוד מוקדם ומקצועי יותר, כך הפיצוי מבוסס וגבוה יותר.</div></details>
+      <details class="faq-item"><summary>אתם עובדים מטעם החקלאי או מטעם המבטח?</summary><div class="faq-body">אנחנו שמאים חקלאיים <strong>עצמאיים</strong> שעומדים לצד החקלאי. מעריכים את הנזק בשטח באופן בלתי תלוי, מתעדים ומכמתים - ומלווים אתכם מול חברות הביטוח וקרנות הפיצוי, בודקים אם הפיצוי שהוצע הוגן, ובמידת הצורך מכינים חוות דעת נגדית ונאבקים על השלמתו.</div></details>
       <details class="faq-item"><summary>איך נקבע גובה הפיצוי?</summary><div class="faq-body">לפי <strong>סוג הגידול והענף, שלב הגידול</strong> שבו אירע הנזק, היקף הפגיעה, היבול וההכנסה הצפויים והעלויות שנחסכו. אנחנו משלבים ביקור בשטח עם ניתוח כלכלי כדי להגיע לאומדן מדויק ומבוסס.</div></details>
-      <details class="faq-item"><summary>קיבלתי הצעת פיצוי — שווה לבדוק?</summary><div class="faq-body">בהחלט. לא פעם ההערכה הראשונית נמוכה מהנזק האמיתי. נבחן את ההצעה מול הנזק בפועל, ואם יש פער — נכין חוות דעת נגדית ונלווה אתכם בהשגה על גובה הפיצוי.</div></details>
+      <details class="faq-item"><summary>קיבלתי הצעת פיצוי - שווה לבדוק?</summary><div class="faq-body">בהחלט. לא פעם ההערכה הראשונית נמוכה מהנזק האמיתי. נבחן את ההצעה מול הנזק בפועל, ואם יש פער - נכין חוות דעת נגדית ונלווה אתכם בהשגה על גובה הפיצוי.</div></details>
       <details class="faq-item"><summary>אתם מגישים חוות דעת לבית משפט?</summary><div class="faq-body">כן. אנו משמשים מומחים מטעם בתי משפט ובתי דין בנושאי נזקים חקלאיים, ומגישים חוות דעת מקצועיות וקבילות.</div></details>
     </div>
   </div>
@@ -292,12 +314,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <div class="cta-copy reveal">
         <span class="eyebrow">דיווח נזק</span>
         <h2>ספגתם נזק? כל יום קובע</h2>
-        <p>השאירו פרטים ושמאי חקלאי יחזור אליכם במהירות לתיאום ביקור ובדיקה ראשונית — ללא התחייבות.</p>
+        <p>השאירו פרטים ושמאי חקלאי יחזור אליכם במהירות לתיאום ביקור ובדיקה ראשונית - ללא התחייבות.</p>
       </div>
       <div class="cta-form reveal reveal-d1">
         <h3>שלחו לנו פנייה</h3>
         <p>נחזור אליכם בהקדם האפשרי</p>
         <form class="contact-form" id="contact-form" onsubmit="return submitContactForm(event, 'contact')">
+          <input type="text" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);border:0;opacity:0">
           <div class="form-grid">
             <div class="form-group"><label for="contact-name">שם מלא *</label><input type="text" id="contact-name" name="name" placeholder="ישראל ישראלי" required autocomplete="name"></div>
             <div class="form-group"><label for="contact-phone">טלפון *</label><input type="tel" id="contact-phone" name="phone" placeholder="05X-XXXXXXX" required autocomplete="tel"></div>
@@ -332,6 +355,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       <h2 class="section-title">אולי יעניין אתכם גם</h2>
     </div>
     <div class="related reveal reveal-d1">
+      <a href="pitzuy-nezek-haklai.html">פיצוי על נזק חקלאי <span class="arr">←</span></a>
       <a href="hetel-hashbacha.html">היטל השבחה <span class="arr">←</span></a>
       <a href="hasagot-rami.html">השגות על שומות רמ"י <span class="arr">←</span></a>
       <a href="takan-21-pinui-binui.html">תקן 21 · פינוי-בינוי <span class="arr">←</span></a>
@@ -346,13 +370,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <div class="footer-grid">
       <div class="footer-brand">
         <img src="logo-bm.png" alt="לוגו בורוביץ מזרחי">
-        <p>משרד שמאות מקרקעין מוביל בצפון. ידע מקצועי מעמיק, היכרות שטח בלתי אמצעית והבנה כלכלית רחבה — בשירות כל לקוח.</p>
+        <p>משרד שמאות מקרקעין מוביל בצפון. ידע מקצועי מעמיק, היכרות שטח בלתי אמצעית והבנה כלכלית רחבה - בשירות כל לקוח.</p>
       </div>
       <div class="footer-col">
         <h4>ניווט</h4>
         <ul>
           <li><a href="index.html#about">אודות</a></li>
           <li><a href="index.html#services">תחומי התמחות</a></li>
+          <li><a href="maamarim.html">מאמרים</a></li>
           <li><a href="index.html#success">תוצאות מהשטח</a></li>
           <li><a href="careers.html">קריירה</a></li>
         </ul>
@@ -363,7 +388,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           <li><a href="tel:054-6559942">054-6559942 · מאור</a></li>
           <li><a href="tel:050-8922469">050-8922469 · אמיר</a></li>
           <li><a id="em-footer" href="#"></a></li>
-          <li>היהלום 36, פארק צ.ח.ר, ראש פינה</li>
+          <li>שדרות החרוב 6, פארק תעשיות בר-לב</li>
         </ul>
       </div>
     </div>
@@ -406,6 +431,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     });
   })();
   var EDGE_FUNCTION_URL = 'https://nurgknexilxaxxovdbco.supabase.co/functions/v1/website-lead-intake';
+  var SB_ANON = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Im51cmdrbmV4aWx4YXh4b3ZkYmNvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzQxMjAxMzYsImV4cCI6MjA4OTY5NjEzNn0.S6BwlUfYkdWegz1gigK5dK0lXUowp4safWOFEzExuS0';
   function submitContactForm(e){
     e.preventDefault();
     var form=document.getElementById('contact-form'), btn=document.getElementById('contact-submit-btn'), statusEl=document.getElementById('contact-form-status');
@@ -413,7 +439,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     var email=document.getElementById('contact-email').value.trim(), subject=document.getElementById('contact-subject').value, message=document.getElementById('contact-message').value.trim();
     if(!name || !phone){ statusEl.style.display='block'; statusEl.style.color='#fca5a5'; statusEl.textContent='נא למלא שם וטלפון'; return false; }
     btn.disabled=true; btn.textContent='שולח...'; statusEl.style.display='none';
-    fetch(EDGE_FUNCTION_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ name:name, phone:phone, email:email||null, subject:subject||null, message:message||null, source:'service-page' }) })
+    fetch(EDGE_FUNCTION_URL, { method:'POST', headers:{'Content-Type':'application/json','apikey':SB_ANON,'Authorization':'Bearer '+SB_ANON}, body: JSON.stringify({ name:name, phone:phone, email:email||null, subject:subject||null, message:message||null, source:'service-page', _hp:(form.querySelector('input[name="website"]')||{value:''}).value, elapsed_ms:Math.round(performance.now()) }) })
       .then(function(res){ return res.json(); })
       .then(function(data){
         if(data.success){
