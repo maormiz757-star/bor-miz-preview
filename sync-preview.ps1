@@ -20,11 +20,12 @@ function U([int[]]$c) { -join ($c | ForEach-Object { [char]$_ }) }
 $dst    = $PSScriptRoot
 $src    = Join-Path (Split-Path $dst -Parent) (U 0x05D0,0x05EA,0x05E8)                 # "אתר"
 $matpro = U 0x05D7,0x05D5,0x05DE,0x05E8,0x20,0x05DE,0x05E7,0x05E6,0x05D5,0x05E2,0x05D9 # "חומר מקצועי"
+$bakara = U 0x05D1,0x05E7,0x05E8,0x05D4                                            # "בקרה" - external-review bundle, must not be public
 
 if (-not (Test-Path $src)) { throw "Source folder not found: $src" }
 
 Write-Host "1/3  Syncing files from source ..."
-robocopy $src $dst /E /PURGE /XD ".git" ".netlify" ".do" $matpro `
+robocopy $src $dst /E /PURGE /XD ".git" ".netlify" ".do" "_build" $matpro $bakara `
     /XF "*.zip" "index-old.html" "state.json" ".gitignore" ".nojekyll" "sync-preview.ps1" ".do-token" ".do-app-id" ".do-url" `
     /NFL /NDL /NJH /NJS /NP | Out-Null
 if ($LASTEXITCODE -ge 8) { throw "robocopy failed (exit $LASTEXITCODE)" }
