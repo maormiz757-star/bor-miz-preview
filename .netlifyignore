@@ -1,6 +1,34 @@
 חומר מקצועי/
 .git/
-_article-template.html
+/_article-template.html
 הוראות-מאמרים.md
-index-old.html
+/index-old.html
 *.zip
+_build/
+svc-photos/*.png
+בקרה/
+
+# דפי שירות ותיקים - הוצאו מהאוויר זמנית (נובמבר 2026) עד שתיקבע
+# אסטרטגיית תוכן מסודרת.  הקבצים נשארים בריפו, רק לא נארזים להעלאה.
+#
+# ⚠ הלוכסן המוביל חיוני: בלעדיו הדפוס תופס גם קבצים בתיקיות משנה,
+#   ו-hasagot-rami.html היה מוציא בטעות גם את hitmahut/hasagot-rami.html.
+/hetel-hashbacha-kiryot.html
+/hetel-hashbacha-pinui-binui.html
+/shamaut-haklait.html
+/pitzuy-nezek-haklai.html
+/takan-21-pinui-binui.html
+
+# ⚠ hetel-hashbacha.html ו-hasagot-rami.html נשארים באוויר בכוונה!
+#   שניהם יעדי מודעות פעילים בגוגל אדס (חשבון 642-238-0290):
+#     hetel-hashbacha.html - 129 קליקים ו-486 ₪ מאז פתיחת החשבון, עדיין רץ
+#     hasagot-rami.html    - 4 חשיפות, יעד מוגדר בקמפיין
+#   הוצאתם תשלח תנועה ממומנת ל-404 ותגרום לפסילת המודעה.
+#   להוצאה רק אחרי שהמודעות יופנו ליעד אחר או שהקמפיין יסתיים.
+
+# דפי נחיתה מקמפיינים ממומנים ישנים - הוצאו מהאוויר (נובמבר 2026).
+# נבדק בדוח "דפי נחיתה" בגוגל אדס: אפס חשיפות מאז פתיחת החשבון, בטוח להסיר.
+/landing-hasgot-rmi.html
+/landing-hitel-hashbacha.html
+/landing-shoma-hakla it.html
+/landing-shovi-shuk.html

@@ -170,84 +170,105 @@ button { font-family: inherit; cursor: pointer; }
 /* ============================================================
    HERO
    ============================================================ */
+/* תמונה סטטית אחת (קו החוף והעיר) במקום הסליידר שהיה כאן.
+   ה-overlay בהיר ואוורירי: שטיפת לבן מצד הטקסט שמבטיחה קריאות, והצד
+   השני נשאר חד ונקי. הטקסט כהה - באותה שפה של דפי ההתמחויות. */
 .hero {
   position: relative; min-height: 100svh; display: flex; align-items: center;
-  overflow: hidden; background: var(--navy-2);
+  overflow: hidden; background: var(--cream);
 }
-.hero-slides { position: absolute; inset: 0; z-index: 0; }
-.hero-slide {
-  position: absolute; inset: 0; background-size: cover; background-position: center;
-  opacity: 0; transition: opacity 1.5s var(--ease);
-  will-change: opacity, transform;
+.hero-bg {
+  position: absolute; inset: 0; z-index: 0;
+  width: 100%; height: 100%; object-fit: cover; object-position: center;
 }
-.hero-slide.active { opacity: 1; animation: kenburns 8s linear forwards; }
-@keyframes kenburns { from { transform: scale(1.12); } to { transform: scale(1.0); } }
-.hero-slide:nth-child(1){ background-image: url("slide1.jpg"); }
-.hero-slide:nth-child(2){ background-image: url("slide2.jpg"); }
-.hero-slide:nth-child(3){ background-image: url("slide3.jpg"); }
-.hero-slide:nth-child(4){ background-image: url("slide4.jpg"); }
-.hero-slide:nth-child(5){ background-image: url("slide5.jpg"); }
-.hero-slide:nth-child(6){ background-image: url("slide6.jpg"); }
-.hero-slide:nth-child(7){ background-image: url("slide7.jpg"); }
-.hero-slide:nth-child(8){ background-image: url("slide8.jpg"); }
-.hero-slide:nth-child(9){ background-image: url("slide9.jpg"); }
-.hero-slide:nth-child(10){ background-image: url("slide10.jpg"); }
-.hero-slide:nth-child(11){ background-image: url("slide11.jpg"); }
 .hero-overlay {
   position: absolute; inset: 0; z-index: 1;
   background:
-    linear-gradient(to top, rgba(10,18,33,.92) 0%, rgba(10,18,33,.4) 45%, rgba(10,18,33,.55) 100%),
-    linear-gradient(to left, rgba(10,18,33,.5), rgba(10,18,33,.08));
+    linear-gradient(to left, rgba(255,255,255,.96) 0%, rgba(255,255,255,.88) 30%, rgba(255,255,255,.45) 62%, rgba(255,255,255,.18) 100%),
+    linear-gradient(to top, rgba(255,255,255,.72) 0%, rgba(255,255,255,0) 42%);
 }
 .hero-content {
   position: relative; z-index: 3; width: 100%; max-width: var(--maxw);
   margin: 0 auto; padding-inline: var(--pad); padding-top: 6rem;
 }
-.hero-eyebrow { color: var(--gold-2); margin-bottom: 1.6rem; }
-.hero-eyebrow::before { background: var(--gold-2); }
+.hero-eyebrow { color: var(--gold); margin-bottom: 1.6rem; }
+.hero-eyebrow::before { background: var(--gold); }
 .hero-title {
-  font-family: var(--serif); color: #fff; font-weight: 800;
-  font-size: clamp(2.6rem, 6.4vw, 5.6rem); line-height: 1.04; letter-spacing: -.025em;
-  max-width: 16ch; margin-bottom: 1.8rem;
+  font-family: var(--serif); color: var(--ink); font-weight: 800;
+  font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: 1.08; letter-spacing: -.025em;
+  max-width: 20ch; margin-bottom: 1.6rem;
 }
-.hero-title .gold { color: var(--gold-2); }
+.hero-title .gold { color: var(--gold); }
 .hero-line { display: block; overflow: hidden; }
 .hero-line > span { display: inline-block; will-change: transform; }
-.hero-sub { color: rgba(255,255,255,.82); font-size: clamp(1.05rem, 1.7vw, 1.3rem); max-width: 52ch; margin-bottom: 2.6rem; font-weight: 300; }
+.hero-sub { color: var(--muted); font-size: clamp(1.02rem, 1.6vw, 1.22rem); max-width: 56ch; margin-bottom: 2.4rem; font-weight: 400; line-height: 1.7; }
 .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+
+/* שורת אמון - שורה אחת ממורכזת מתחת לכפתורים */
+.hero-proof-line {
+  display: flex; justify-content: center; align-items: center; flex-wrap: wrap;
+  gap: .6rem; margin-top: 1.6rem;
+  font-size: clamp(.9rem, 1.4vw, 1.05rem); font-weight: 500; color: #0f172a;
+}
+.hero-proof-line .proof-dot { color: #c59b43; font-weight: 700; }
+
+@media (max-width: 600px) {
+  /* on a phone the line wraps anyway — stack the two claims and drop the separator */
+  .hero-proof-line { flex-direction: column; gap: .45rem; text-align: center; }
+  .hero-proof-line .proof-dot { display: none; }
+}
+
 
 .hero-side-label {
   position: absolute; z-index: 3; inset-inline-start: var(--pad); top: 50%;
   transform: translateY(-50%); writing-mode: vertical-rl;
-  color: rgba(255,255,255,.6); font-size: .76rem; letter-spacing: .3em; font-weight: 500;
+  color: var(--muted-2); font-size: .76rem; letter-spacing: .3em; font-weight: 500;
   display: flex; align-items: center; gap: 1rem;
 }
-.hero-side-label::after { content: ""; width: 1px; height: 70px; background: rgba(255,255,255,.4); }
+.hero-side-label::after { content: ""; width: 1px; height: 70px; background: var(--line); }
 
 .hero-scroll {
   position: absolute; z-index: 3; bottom: 2rem; inset-inline-end: var(--pad);
-  display: flex; align-items: center; gap: .7rem; color: rgba(255,255,255,.7); font-size: .8rem; letter-spacing: .15em;
+  display: flex; align-items: center; gap: .7rem; color: var(--muted-2); font-size: .8rem; letter-spacing: .15em;
 }
-.hero-scroll .mouse { width: 22px; height: 36px; border: 1.5px solid rgba(255,255,255,.5); border-radius: 12px; position: relative; }
-.hero-scroll .mouse::after { content: ""; position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 3px; height: 7px; background: var(--gold-2); border-radius: 2px; animation: scrolldot 1.6s infinite; }
-@keyframes scrolldot { 0%{ opacity:0; transform: translateX(-50%) translateY(0);} 40%{opacity:1;} 80%{opacity:0; transform: translateX(-50%) translateY(9px);} 100%{opacity:0;} }
+.hero-scroll .mouse { width: 22px; height: 36px; border: 1.5px solid var(--line); border-radius: 12px; position: relative; }
+.hero-scroll .mouse::after { content: ""; position: absolute; top: 7px; left: 50%; transform: translateX(-50%); width: 3px; height: 7px; background: var(--gold); border-radius: 2px; animation: scrolldot 1.6s infinite; }
 
-.hero-dots { position: absolute; z-index: 3; bottom: 2.2rem; inset-inline-start: var(--pad); display: flex; gap: .6rem; }
-.hero-dots button { width: 34px; height: 3px; background: rgba(255,255,255,.3); border: none; border-radius: 2px; overflow: hidden; position: relative; padding: 0; cursor: pointer; }
-.hero-dots button .fill { position: absolute; inset: 0; background: var(--gold-2); transform: scaleX(0); transform-origin: right; }
-.hero-dots button.active .fill { animation: dotfill 5s linear forwards; }
-@keyframes dotfill { from { transform: scaleX(0);} to { transform: scaleX(1);} }
+/* במסך צר הטקסט פורש על כל הרוחב, ולכן השטיפה הלבנה אחידה יותר -
+   עדיין אוורירית, אבל מבטיחה ניגודיות מלאה מעל התמונה הבהירה. */
+@media (max-width: 880px) {
+  .hero-overlay {
+    background:
+      linear-gradient(to left, rgba(255,255,255,.92) 0%, rgba(255,255,255,.76) 50%, rgba(255,255,255,.62) 100%),
+      linear-gradient(to top, rgba(255,255,255,.88) 0%, rgba(255,255,255,.3) 55%, rgba(255,255,255,.12) 100%);
+  }
+}
+
+/* באנר בהיר ⇒ הניווט אטום ולבן כבר מראש, כדי שהלוגו והקישורים ייקראו */
+.light-hero #navbar {
+  background: rgba(255,255,255,.94); backdrop-filter: blur(14px);
+  box-shadow: 0 1px 0 var(--line), 0 18px 40px -32px rgba(19,31,51,.35);
+}
+.light-hero .nav-logo img { filter: none; }
+.light-hero .nav-links a { color: var(--ink); }
+.light-hero .hamburger span { background: var(--ink); }
+@media (max-width: 880px) {
+  .light-hero .nav-links a { color: #fff; }
+  .light-hero .nav-links a.nav-cta { color: var(--gold-2); }
+}
+@keyframes scrolldot { 0%{ opacity:0; transform: translateX(-50%) translateY(0);} 40%{opacity:1;} 80%{opacity:0; transform: translateX(-50%) translateY(9px);} 100%{opacity:0;} }
 
 /* ============================================================
    PILLARS BAND
    ============================================================ */
-.pillars { background: var(--ink); color: #fff; }
+/* הרצועה הייתה כהה עם טקסט לבן. היא בהירה עכשיו כמו שאר האתר,
+   והטקסט כהה וקריא. המספור הוסר. */
+.pillars { background: var(--cream); color: var(--ink); }
 .pillars-inner { display: grid; grid-template-columns: repeat(3, 1fr); }
-.pillar { padding: clamp(2.2rem,4vw,3.4rem) clamp(1.5rem,3vw,3rem); border-inline-start: 1px solid var(--line-2); position: relative; }
+.pillar { padding: clamp(2.2rem,4vw,3.4rem) clamp(1.5rem,3vw,3rem); border-inline-start: 1px solid var(--line); position: relative; }
 .pillar:first-child { border-inline-start: none; }
-.pillar .num { font-family: var(--serif); font-size: 1rem; color: var(--gold-2); margin-bottom: 1rem; display: block; }
-.pillar h3 { font-family: var(--serif); font-size: 1.5rem; font-weight: 700; margin-bottom: .7rem; }
-.pillar p { color: rgba(255,255,255,.62); font-size: .95rem; font-weight: 300; line-height: 1.75; }
+.pillar h3 { font-family: var(--serif); font-size: 1.25rem; font-weight: 700; color: #0f172a; margin-bottom: .6rem; }
+.pillar p { color: #334155; font-size: .95rem; font-weight: 400; line-height: 1.7; }
 
 /* ============================================================
    ABOUT / PARTNERS
@@ -268,19 +289,38 @@ button { font-family: inherit; cursor: pointer; }
 .about-figure .deco { position: absolute; inset-block-start: -22px; inset-inline-end: -22px; width: 120px; height: 120px; border: 1px solid var(--gold); z-index: -1; }
 
 .partners-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(1.5rem,3vw,2.5rem); }
+/* כרטיס שותף: ראש עם תמונה מעוגלת, שלוש נקודות מפתח ותגיות סמכות
+   בתחתית. החליף רשימת בולטים ארוכה שקראה כמו קורות חיים. */
 .partner {
-  background: #fff; border: 1px solid var(--line); padding: clamp(1.6rem,3vw,2.4rem);
-  position: relative; transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s;
+  background: #ffffff; border: 1px solid rgba(15,23,42,.08); border-radius: 3px;
+  box-shadow: 0 4px 20px -4px rgba(0,0,0,.05);
+  padding: clamp(1.8rem,3vw,2.6rem);
+  position: relative; display: flex; flex-direction: column;
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease), border-color .5s;
 }
-.partner:hover { transform: translateY(-6px); box-shadow: 0 30px 60px -40px rgba(19,31,51,.55); border-color: transparent; }
+.partner:hover { transform: translateY(-6px); box-shadow: 0 24px 50px -36px rgba(15,23,42,.45); border-color: rgba(197,155,67,.4); }
 .partner-head { display: flex; align-items: center; gap: 1.2rem; margin-bottom: 1.5rem; }
-.partner-photo { width: 86px; height: 86px; border-radius: 50%; object-fit: cover; object-position: top center; flex-shrink: 0; transition: transform .5s var(--ease), box-shadow .5s var(--ease); border: 1px solid var(--line); background: #eef0f4; }
-.partner:hover .partner-photo { transform: scale(1.06); box-shadow: 0 0 0 3px var(--gold); }
-.partner-head h3 { font-family: var(--serif); font-size: 1.55rem; font-weight: 700; line-height: 1.1; color: var(--ink); }
+.partner-photo {
+  width: 84px; height: 84px; border-radius: 50%; object-fit: cover; object-position: top center; flex-shrink: 0;
+  border: 1px solid #c59b43; box-shadow: 0 4px 14px -4px rgba(15,23,42,.18); background: #eef0f4;
+  transition: transform .5s var(--ease), box-shadow .5s var(--ease);
+}
+.partner:hover .partner-photo { transform: scale(1.04); box-shadow: 0 8px 22px -6px rgba(197,155,67,.5); }
+.partner-head h3 { font-family: var(--serif); font-size: 1.45rem; font-weight: 700; line-height: 1.15; color: var(--ink); margin-bottom: .3rem; }
 .partner-head .role { color: var(--gold); font-size: .85rem; font-weight: 600; }
-.cred-list { list-style: none; display: flex; flex-direction: column; gap: .65rem; }
-.cred-list li { position: relative; padding-inline-start: 1.3rem; font-size: .92rem; color: var(--muted); line-height: 1.55; }
-.cred-list li::before { content: ""; position: absolute; inset-inline-start: 0; top: .6em; width: 6px; height: 6px; background: var(--gold); border-radius: 50%; }
+
+/* שלוש נקודות מפתח - כותרת מודגשת ואחריה ההסבר */
+.partner-points { list-style: none; display: flex; flex-direction: column; gap: .9rem; margin: 0 0 1.6rem; flex: 1; }
+.partner-points li { position: relative; padding-inline-start: 1.15rem; font-size: .93rem; line-height: 1.7; color: var(--muted); }
+.partner-points li::before { content: ; position: absolute; inset-inline-start: 0; top: .62em; width: 5px; height: 5px; border-radius: 50%; background: var(--gold); }
+.partner-points strong { color: var(--ink); font-weight: 700; }
+
+/* תגיות סמכות */
+.partner-badges { list-style: none; display: flex; flex-wrap: wrap; gap: .45rem; padding-top: 1.4rem; border-top: 1px solid rgba(15,23,42,.08); }
+.partner-badges li {
+  background: rgba(197,155,67,.08); color: #8a6a22;
+  font-size: .8rem; font-weight: 600; border-radius: 2px; padding: .35rem .75rem; white-space: nowrap;
+}
 
 /* ============================================================
    SERVICES
@@ -299,51 +339,32 @@ button { font-family: inherit; cursor: pointer; }
 }
 #services .container { position: relative; z-index: 1; }
 .services-body { display: grid; grid-template-columns: 1fr minmax(300px, 360px); gap: clamp(2rem,4vw,3.5rem); align-items: stretch; }
-.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
+/* כרטיסי שירות - אותו תקן בדיוק כמו הכרטיסים בדפי ההתמחויות:
+   לבן, מסגרת עדינה, רדיוס קל וצללית רכה בריחוף. היו קודם תאים
+   בטבלת גבולות עם מילוי כהה בריחוף. */
+.services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(.9rem,1.6vw,1.2rem); }
 .services-body .services-grid { grid-template-columns: repeat(3, 1fr); }
-.services-body .svc { padding: clamp(.8rem,1.2vw,1.15rem); }
+.services-body .svc { padding: clamp(1rem,1.5vw,1.35rem); }
 .services-body .svc h3 { font-size: 1.08rem; }
 .services-body .svc p { font-size: .82rem; line-height: 1.55; }
 .services-body .svc .svc-icon { margin: .7rem 0 .9rem; }
 .services-body .svc .svc-icon svg { width: 26px; height: 26px; }
 .svc {
-  border-inline-end: 1px solid var(--line); border-bottom: 1px solid var(--line);
-  padding: clamp(1.8rem,3vw,2.6rem); position: relative; cursor: pointer; overflow: hidden;
-  transition: background .5s var(--ease); background: transparent;
+  display: block; background: #fff; border: 1px solid rgba(15,23,42,.06); border-radius: 3px;
+  padding: clamp(1.6rem,2.6vw,2.2rem); position: relative; cursor: pointer; overflow: hidden;
+  transition: border-color .45s var(--ease), transform .45s var(--ease), box-shadow .45s var(--ease);
 }
-.svc::after {
-  content: ""; position: absolute; inset-block-end: 0; inset-inline: 0; height: 2px; background: var(--gold);
-  transform: scaleX(0); transform-origin: right; transition: transform .5s var(--ease);
+.svc:hover {
+  border-color: rgba(176,141,62,.4); transform: translateY(-4px);
+  box-shadow: 0 24px 50px -36px rgba(15,23,42,.45);
 }
-.svc:hover { background: var(--ink); }
-.svc:hover::after { transform: scaleX(1); }
-.svc .svc-num { font-family: var(--serif); font-size: .85rem; color: var(--muted-2); transition: color .5s; }
-.svc .svc-icon { margin: 1rem 0 1.2rem; color: var(--navy); transition: color .5s; }
+.svc .svc-icon { margin: 0 0 1.2rem; color: var(--gold); }
 .svc .svc-icon svg { width: 30px; height: 30px; }
-.svc h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: .7rem; transition: color .5s; line-height: 1.25; }
-.svc p { font-size: .9rem; color: var(--muted); line-height: 1.65; transition: color .5s; }
+.svc h3 { font-family: var(--serif); font-size: 1.3rem; font-weight: 700; color: var(--ink); margin-bottom: .7rem; line-height: 1.25; }
+.svc p { font-size: .9rem; color: var(--muted); line-height: 1.65; }
 .svc .svc-more { margin-top: 1.1rem; font-size: .82rem; font-weight: 600; color: var(--gold); display: inline-flex; gap: .4rem; opacity: 0; transform: translateY(6px); transition: opacity .4s var(--ease), transform .4s var(--ease); }
-.svc:hover .svc-num { color: var(--gold-2); }
-.svc:hover .svc-icon { color: var(--gold-2); }
-.svc:hover h3 { color: #fff; }
-.svc:hover p { color: rgba(255,255,255,.72); }
 .svc:hover .svc-more { opacity: 1; transform: translateY(0); }
 
-/* Inactive "coming soon" service card (e.g. נחלות — pending dedicated page) */
-.svc-soon, .svc-static { cursor: default; }
-.svc-static::after { display: none; }
-.svc-static:hover { background: transparent; }
-.svc-static:hover .svc-num { color: var(--muted-2); }
-.svc-static:hover .svc-icon { color: var(--navy); }
-.svc-static:hover h3 { color: var(--ink); }
-.svc-static:hover p { color: var(--muted); }
-.svc-soon::after { display: none; }
-.svc-soon:hover { background: transparent; }
-.svc-soon:hover .svc-num { color: var(--muted-2); }
-.svc-soon:hover .svc-icon { color: var(--navy); }
-.svc-soon:hover h3 { color: var(--ink); }
-.svc-soon:hover p { color: var(--muted); }
-.svc-soon .svc-more { opacity: 1; transform: none; color: var(--muted-2); font-weight: 600; }
 
 .services-foot {
   display: grid; grid-template-columns: 1.05fr 1fr; align-items: center;
@@ -352,7 +373,7 @@ button { font-family: inherit; cursor: pointer; }
 .services-body .services-foot {
   grid-template-columns: 1fr; gap: clamp(1.6rem,2.5vw,2.4rem); margin-top: 0;
   align-content: start; position: relative; overflow: hidden;
-  background: linear-gradient(155deg, var(--navy) 0%, var(--ink) 100%);
+  background: #f5f6f8; border: 1px solid var(--line);
   padding: clamp(1.8rem,2.4vw,2.6rem); border-radius: 6px;
   box-shadow: 0 34px 70px -42px rgba(19,31,51,.6);
 }
@@ -472,14 +493,21 @@ button { font-family: inherit; cursor: pointer; }
   .svc-rest { transition: none; }
 }
 
-/* Rest-state image (photo-only): dimmed office-view scene, hidden on hover */
+/* Rest-state image: a bright vertical architectural photo in a light frame.
+   The white padding IS the frame; on hover the domain photo covers it edge to
+   edge, so the frame only reads in the rest state. */
 .services-body .services-foot { min-height: clamp(320px,45vh,400px); }
 .services-body .services-foot blockquote { display: none; }
-.svc-rest { position: absolute; inset: 0; z-index: 1; opacity: 1; transition: opacity .5s var(--ease); }
-.svc-rest svg { width: 100%; height: 100%; display: block; }
+.svc-rest {
+  position: absolute; inset: 0; z-index: 1; opacity: 1;
+  background: #fff; padding: clamp(10px,1.1vw,16px);
+  transition: opacity .5s var(--ease);
+}
+.svc-rest img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .svc-rest::after {
-  content: ""; position: absolute; inset: 0;
-  background: linear-gradient(160deg, rgba(15,28,51,.5) 0%, rgba(11,20,38,.34) 55%, rgba(11,20,38,.5) 100%);
+  content: ""; position: absolute; inset: clamp(10px,1.1vw,16px);
+  box-shadow: inset 0 0 0 1px rgba(15,23,42,.08);
+  pointer-events: none;
 }
 .services-body .services-foot.is-active .svc-rest { opacity: 0; }
 
@@ -539,33 +567,38 @@ button { font-family: inherit; cursor: pointer; }
 /* ============================================================
    RESULTS / SUCCESS
    ============================================================ */
-.results { background: var(--navy-2); color: #fff; position: relative; overflow: hidden; }
+/* אזור התוצאות - בהיר, באותה שפה של דפי ההתמחויות.
+   תשריטי התב"ע מוצגים עכשיו בצבע מלא על רקע לבן במקום בהכהיה. */
+.results { background: var(--cream); color: var(--ink); position: relative; overflow: hidden; }
 .results::before {
-  content: ""; position: absolute; inset: 0; z-index: 0; opacity: .12;
+  content: ""; position: absolute; inset: 0; z-index: 0; opacity: .045;
   background: url("slide5.jpg") center/cover; filter: grayscale(1);
 }
 .results .container { position: relative; z-index: 1; }
 .results-head { text-align: center; margin-bottom: clamp(2.5rem,5vw,4rem); display: flex; flex-direction: column; align-items: center; gap: 1rem; }
-.results-head .section-title { color: #fff; }
-.results-head p { color: rgba(255,255,255,.7); max-width: 50ch; }
+.results-head .section-title { color: var(--ink); }
+.results-head p { color: var(--muted); max-width: 50ch; }
 .results-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: clamp(1.5rem,3vw,2.2rem); }
 .result-card {
-  background: rgba(255,255,255,.04); border: 1px solid var(--line-2); padding: 0;
-  overflow: hidden; transition: transform .5s var(--ease), border-color .5s;
+  background: #fff; border: 1px solid var(--line); padding: 0;
+  overflow: hidden; transition: transform .5s var(--ease), border-color .5s, box-shadow .5s var(--ease);
 }
-.result-card:hover { transform: translateY(-6px); border-color: var(--gold); }
-.result-img { aspect-ratio: 16/10; overflow: hidden; position: relative; }
-.result-img img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(.4) brightness(.95); transition: transform .8s var(--ease), filter .5s; }
-.result-card:hover .result-img img { transform: scale(1.06); filter: grayscale(0) brightness(1); }
+.result-card:hover {
+  transform: translateY(-6px); border-color: rgba(176,141,62,.4);
+  box-shadow: 0 30px 60px -42px rgba(19,31,51,.45);
+}
+.result-img { aspect-ratio: 16/10; overflow: hidden; position: relative; border-bottom: 1px solid var(--line); }
+.result-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s var(--ease); }
+.result-card:hover .result-img img { transform: scale(1.06); }
 .result-body { padding: 1.8rem; }
-.result-pct { font-family: var(--serif); font-size: 3.4rem; font-weight: 700; line-height: 1; color: #fff; }
-.result-pct span { color: var(--gold-2); font-size: 2rem; }
-.result-label { font-size: 1.05rem; font-weight: 600; margin-top: .4rem; color: #fff; }
-.result-loc { display: inline-block; margin-top: .8rem; font-size: .78rem; letter-spacing: .12em; color: var(--gold-2); border: 1px solid var(--line-2); padding: .25rem .8rem; border-radius: 2px; }
-.result-detail { margin-top: 1rem; font-size: .88rem; color: rgba(255,255,255,.62); line-height: 1.6; }
+.result-pct { font-family: var(--serif); font-size: 3.4rem; font-weight: 700; line-height: 1; color: var(--ink); }
+.result-pct span { color: var(--gold); font-size: 2rem; }
+.result-label { font-size: 1.05rem; font-weight: 600; margin-top: .4rem; color: var(--ink); }
+.result-loc { display: inline-block; margin-top: .8rem; font-size: .78rem; letter-spacing: .12em; color: #8a6a22; background: rgba(176,141,62,.08); border: 1px solid rgba(176,141,62,.28); padding: .25rem .8rem; border-radius: 2px; }
+.result-detail { margin-top: 1rem; font-size: .88rem; color: var(--muted); line-height: 1.6; }
 .results-quote { text-align: center; max-width: 56ch; margin: clamp(3rem,5vw,4rem) auto 0; }
-.results-quote p { font-family: var(--serif); font-size: clamp(1.2rem,2vw,1.6rem); line-height: 1.5; color: #fff; }
-.results-quote cite { display: block; margin-top: 1.2rem; font-style: normal; color: var(--gold-2); font-size: .9rem; }
+.results-quote p { font-family: var(--serif); font-size: clamp(1.2rem,2vw,1.6rem); line-height: 1.5; color: var(--ink); }
+.results-quote cite { display: block; margin-top: 1.2rem; font-style: normal; color: var(--gold); font-size: .9rem; }
 
 /* ============================================================
    CLIENTS
@@ -602,11 +635,14 @@ button { font-family: inherit; cursor: pointer; }
 .contact-card > p { color: var(--muted); margin-bottom: 1.6rem; font-size: .95rem; }
 .form-group { margin-bottom: 1.1rem; }
 .form-group label { display: block; font-size: .82rem; font-weight: 600; color: var(--ink); margin-bottom: .45rem; }
+/* שדות קלט - זהים ל-intake.html ולמערכת של דפי ההתמחויות:
+   גובה 48px, רקע לבן, מסגרת דקה, רדיוס 2px ופוקוס בזהב. */
 .form-group input, .form-group select, .form-group textarea {
-  width: 100%; padding: .85rem 1rem; border: 1px solid var(--line); border-radius: 2px; font-family: inherit;
-  font-size: .95rem; color: var(--ink); background: #f4f6fa; transition: border-color .3s, background .3s, box-shadow .3s;
+  width: 100%; height: 48px; padding: 0 1rem; border: 1px solid rgba(15,23,42,.12); border-radius: 2px; font-family: inherit;
+  font-size: .95rem; color: var(--ink); background: #fff; transition: border-color .25s, box-shadow .25s;
 }
-.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: var(--navy); background: #fff; box-shadow: 0 0 0 3px rgba(28,52,97,.1); }
+.form-group textarea { height: auto; padding: .85rem 1rem; }
+.form-group input:focus, .form-group select:focus, .form-group textarea:focus { outline: none; border-color: #b8860b; box-shadow: 0 0 0 3px rgba(184,134,11,.15); }
 .form-group textarea { resize: vertical; min-height: 96px; }
 .form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0 1rem; }
 .form-submit { width: 100%; margin-top: .5rem; justify-content: center; }
@@ -649,7 +685,7 @@ footer { background: var(--navy-2); color: #fff; padding-block: clamp(3rem,6vw,5
 }
 .modal-overlay.show, .legal-overlay.show { display: flex; }
 .modal-box, .popup-box, .legal-box {
-  background: #fff; max-width: 460px; width: 100%; position: relative; border-radius: 4px;
+  background: #fff; max-width: 460px; width: 100%; position: relative; border-radius: 2px;
   box-shadow: 0 40px 90px -30px rgba(11,18,33,.6); animation: popIn .5s var(--ease) both; max-height: 88vh; overflow-y: auto;
 }
 @keyframes popIn { from { opacity: 0; transform: translateY(24px) scale(.98);} to { opacity: 1; transform: none;} }
@@ -663,9 +699,11 @@ footer { background: var(--navy-2); color: #fff; padding-block: clamp(3rem,6vw,5
 .modal-box ul li { margin-bottom: .55rem; }
 
 .popup-box { max-width: 440px; }
-.popup-header { background: var(--navy); color: #fff; padding: 1.15rem 1.8rem .95rem; }
-.popup-header h2 { font-family: var(--serif); font-size: 1.3rem; color: var(--gold-2); }
-.popup-header p { color: rgba(255,255,255,.78); font-size: .84rem; }
+/* כותרת הפופאפ בהירה, עם פס זהב - באותה שפה של דפי ההתמחויות */
+.popup-header { background: #fff; color: var(--ink); padding: 1.3rem 1.8rem 1.05rem; border-bottom: 1px solid var(--line); position: relative; }
+.popup-header::before { content: ""; position: absolute; top: 0; inset-inline-start: 0; width: 46px; height: 2px; background: var(--gold); }
+.popup-header h2 { font-family: var(--serif); font-size: 1.3rem; color: var(--ink); }
+.popup-header p { color: var(--muted); font-size: .84rem; }
 .popup-body { padding: 1.1rem 1.8rem 1.3rem; }
 .popup-dismiss { display: block; width: 100%; text-align: center; background: none; border: none; color: var(--muted-2); font-size: .82rem; margin-top: .55rem; text-decoration: underline; }
 .popup-overlay { opacity: 0; pointer-events: none; transition: opacity .4s; }
@@ -673,8 +711,8 @@ footer { background: var(--navy-2); color: #fff; padding-block: clamp(3rem,6vw,5
 /* Compact the consult-popup form so it fits without scrolling on common screens */
 .popup-form .form-group { margin-bottom: .6rem; }
 .popup-form .form-group label { margin-bottom: .25rem; font-size: .8rem; }
-.popup-form .form-group input, .popup-form .form-group select, .popup-form .form-group textarea { padding: .55rem .8rem; font-size: .9rem; }
-.popup-form .form-group textarea { min-height: 58px; }
+.popup-form .form-group input, .popup-form .form-group select, .popup-form .form-group textarea { height: 42px; padding: 0 .8rem; font-size: .9rem; }
+.popup-form .form-group textarea { height: auto; min-height: 58px; padding: .55rem .8rem; }
 .popup-form .form-submit { margin-top: .2rem; }
 
 .legal-box { max-width: 640px; }
@@ -746,6 +784,4 @@ footer { background: var(--navy-2); color: #fff; padding-block: clamp(3rem,6vw,5
   .services-head, .footer-bottom { flex-direction: column; align-items: flex-start; }
   .hero-content { padding-top: 5rem; }
   .hero-title { font-size: clamp(2rem, 8.4vw, 2.8rem); max-width: 14ch; }
-  .hero-dots { gap: .35rem; flex-wrap: wrap; max-width: calc(100% - var(--pad) * 2); }
-  .hero-dots button { width: 18px; }
 }
