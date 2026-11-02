@@ -24,9 +24,14 @@ $bakara = U 0x05D1,0x05E7,0x05E8,0x05D4                                         
 
 if (-not (Test-Path $src)) { throw "Source folder not found: $src" }
 
+# NOTE: .netlifyignore is NOT read by DigitalOcean. Anything that must stay off
+# the public site has to be excluded from this robocopy instead.
 Write-Host "1/3  Syncing files from source ..."
 robocopy $src $dst /E /PURGE /XD ".git" ".netlify" ".do" "_build" $matpro $bakara `
     /XF "*.zip" "index-old.html" "state.json" ".gitignore" ".nojekyll" "sync-preview.ps1" ".do-token" ".do-app-id" ".do-url" `
+        "hetel-hashbacha-kiryot.html" "hetel-hashbacha-pinui-binui.html" "shamaut-haklait.html" `
+        "pitzuy-nezek-haklai.html" "takan-21-pinui-binui.html" `
+        "landing-hasgot-rmi.html" "landing-hitel-hashbacha.html" "landing-shoma-hakla it.html" "landing-shovi-shuk.html" `
     /NFL /NDL /NJH /NJS /NP | Out-Null
 if ($LASTEXITCODE -ge 8) { throw "robocopy failed (exit $LASTEXITCODE)" }
 
